@@ -124,6 +124,33 @@
     
     
     <entry>
+      <title>Hutool常用API</title>
+      <link href="/2019/07/09/Hutool%E5%B8%B8%E7%94%A8API/"/>
+      <url>/2019/07/09/Hutool%E5%B8%B8%E7%94%A8API/</url>
+      
+        <content type="html"><![CDATA[<p>Hutool常用API</p><a id="more"></a><h5 id="日期操作"><a href="#日期操作" class="headerlink" title="日期操作"></a>日期操作</h5><h6 id="字符串转日期"><a href="#字符串转日期" class="headerlink" title="字符串转日期"></a>字符串转日期</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String dateStr = &quot;2017-03-01 22:33:23&quot;;</span><br><span class="line">Date date = DateUtil.parse(dateStr);</span><br></pre></td></tr></table></figure><h6 id="获取当天的起始与结束时间"><a href="#获取当天的起始与结束时间" class="headerlink" title="获取当天的起始与结束时间"></a>获取当天的起始与结束时间</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//一天的开始，结果：2017-03-01 00:00:00</span><br><span class="line">Date beginOfDay = DateUtil.beginOfDay(date);</span><br><span class="line"></span><br><span class="line">//一天的结束，结果：2017-03-01 23:59:59</span><br><span class="line">Date endOfDay = DateUtil.endOfDay(date);</span><br></pre></td></tr></table></figure><h6 id="日期时间偏移"><a href="#日期时间偏移" class="headerlink" title="日期时间偏移"></a>日期时间偏移</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">String dateStr = &quot;2017-03-01 22:33:23&quot;;</span><br><span class="line">Date date = DateUtil.parse(dateStr);</span><br><span class="line"></span><br><span class="line">//结果：2017-03-03 22:33:23</span><br><span class="line">Date newDate = DateUtil.offset(date, DateField.DAY_OF_MONTH, 2);</span><br><span class="line"></span><br><span class="line">//常用偏移，结果：2017-03-04 22:33:23</span><br><span class="line">DateTime newDate2 = DateUtil.offsetDay(date, 3);</span><br><span class="line"></span><br><span class="line">//常用偏移，结果：2017-03-01 19:33:23</span><br><span class="line">DateTime newDate3 = DateUtil.offsetHour(date, -3);</span><br><span class="line"></span><br><span class="line">//昨天</span><br><span class="line">DateUtil.yesterday()</span><br><span class="line">//明天</span><br><span class="line">DateUtil.tomorrow()</span><br><span class="line">//上周</span><br><span class="line">DateUtil.lastWeek()</span><br><span class="line">//下周</span><br><span class="line">DateUtil.nextWeek()</span><br><span class="line">//上个月</span><br><span class="line">DateUtil.lastMonth()</span><br><span class="line">//下个月</span><br><span class="line">DateUtil.nextMonth()</span><br></pre></td></tr></table></figure><h6 id="获取当前时间"><a href="#获取当前时间" class="headerlink" title="获取当前时间"></a>获取当前时间</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//当前时间</span><br><span class="line">Date date = DateUtil.date();</span><br><span class="line">//当前时间</span><br><span class="line">Date date2 = DateUtil.date(Calendar.getInstance());</span><br><span class="line">//当前时间</span><br><span class="line">Date date3 = DateUtil.date(System.currentTimeMillis());</span><br><span class="line">//当前时间字符串，格式：yyyy-MM-dd HH:mm:ss</span><br><span class="line">String now = DateUtil.now();</span><br><span class="line">//当前日期字符串，格式：yyyy-MM-dd</span><br><span class="line">String today= DateUtil.today();</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> hutool </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SpringCloud常用配置</title>
       <link href="/2019/06/09/SpringCloud%E9%85%8D%E7%BD%AE/"/>
       <url>/2019/06/09/SpringCloud%E9%85%8D%E7%BD%AE/</url>

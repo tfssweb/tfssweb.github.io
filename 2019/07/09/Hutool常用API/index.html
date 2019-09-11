@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Category: java | 颓废书生</title>
+  <title>Hutool常用API | 颓废书生</title>
   
   
 
@@ -170,41 +170,16 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            
-    <script>
-        window.subData= { title:'分类 : java'}
-    </script>
-
-
-
-
-  <section class="post-list">
-      
-
-
-
-      
-
-      
-
-      
-        
-          
-            <div class='post-wrapper'>
-              <article class="post reveal ">
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
   
 <section class='meta'>
   
   
   <div class="meta" id="header-meta">
     
-      <h2 class="title">
-          <a href="/2018/09/02/MybatisGenerator自动生成代码/">
-              
-                  MybatisGenerator自动生成代码
-              
-          </a>
-      </h2>
+      
+          <h1 class="title">Hutool常用API</h1>
+      
     
 
     <div class='new-meta-box'>
@@ -220,7 +195,7 @@
         <div class="new-meta-item date">
           <a class='notlink'>
             <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-            2018-09-02
+            2019-07-09
           </a>
         </div>
       
@@ -236,813 +211,125 @@
         
       
       
-      
-    </div>
-    <hr>
-  </div>
-</section>
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>  自动生成Dao层代码。<br></p>
-      
-        <div class="readmore">
-          <a href="/2018/09/02/MybatisGenerator自动生成代码/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
         
-          <a href="/tags/java/"><i class="fas fa-hashtag fa-fw"></i>java</a>
-        
-          <a href="/tags/mybatis/"><i class="fas fa-hashtag fa-fw"></i>mybatis</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-            </div>
-          
-        
-          
-            <div class='post-wrapper'>
-              <article class="post reveal ">
-  
-<section class='meta'>
-  
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/2018/08/09/Idea常用插件汇总/">
-              
-                  Idea常用插件汇总
-              
-          </a>
-      </h2>
-    
-
-    <div class='new-meta-box'>
-      
-        <div class='new-meta-item author'>
-          <a href="https://tfssweb.github.io">
-            <i class="fas fa-user" aria-hidden="true"></i>
-            Tfss
-          </a>
-        </div>
-      
-      
-        <div class="new-meta-item date">
-          <a class='notlink'>
-            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-            2018-08-09
-          </a>
-        </div>
-      
-      
-        
-          
-          <div class='new-meta-item category'>
-            <a href='/categories/java/'>
-              <i class="fas fa-folder-open" aria-hidden="true"></i>
-              java
+          <div class="new-meta-item browse busuanzi">
+            <a class='notlink'>
+              <i class="fas fa-eye" aria-hidden="true"></i>
+              <span id="busuanzi_value_page_pv">
+                <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+              </span>
             </a>
           </div>
         
       
       
-      
     </div>
     <hr>
   </div>
 </section>
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>Idea插件</p>
-      
-        <div class="readmore">
-          <a href="/2018/08/09/Idea常用插件汇总/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/tags/java/"><i class="fas fa-hashtag fa-fw"></i>java</a>
-        
-          <a href="/tags/idea/"><i class="fas fa-hashtag fa-fw"></i>idea</a>
-        
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p>Hutool常用API</p>
+<a id="more"></a>
+
+<h5 id="日期操作"><a href="#日期操作" class="headerlink" title="日期操作"></a>日期操作</h5><h6 id="字符串转日期"><a href="#字符串转日期" class="headerlink" title="字符串转日期"></a>字符串转日期</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String dateStr = &quot;2017-03-01 22:33:23&quot;;</span><br><span class="line">Date date = DateUtil.parse(dateStr);</span><br></pre></td></tr></table></figure>
+
+<h6 id="获取当天的起始与结束时间"><a href="#获取当天的起始与结束时间" class="headerlink" title="获取当天的起始与结束时间"></a>获取当天的起始与结束时间</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//一天的开始，结果：2017-03-01 00:00:00</span><br><span class="line">Date beginOfDay = DateUtil.beginOfDay(date);</span><br><span class="line"></span><br><span class="line">//一天的结束，结果：2017-03-01 23:59:59</span><br><span class="line">Date endOfDay = DateUtil.endOfDay(date);</span><br></pre></td></tr></table></figure>
+
+<h6 id="日期时间偏移"><a href="#日期时间偏移" class="headerlink" title="日期时间偏移"></a>日期时间偏移</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">String dateStr = &quot;2017-03-01 22:33:23&quot;;</span><br><span class="line">Date date = DateUtil.parse(dateStr);</span><br><span class="line"></span><br><span class="line">//结果：2017-03-03 22:33:23</span><br><span class="line">Date newDate = DateUtil.offset(date, DateField.DAY_OF_MONTH, 2);</span><br><span class="line"></span><br><span class="line">//常用偏移，结果：2017-03-04 22:33:23</span><br><span class="line">DateTime newDate2 = DateUtil.offsetDay(date, 3);</span><br><span class="line"></span><br><span class="line">//常用偏移，结果：2017-03-01 19:33:23</span><br><span class="line">DateTime newDate3 = DateUtil.offsetHour(date, -3);</span><br><span class="line"></span><br><span class="line">//昨天</span><br><span class="line">DateUtil.yesterday()</span><br><span class="line">//明天</span><br><span class="line">DateUtil.tomorrow()</span><br><span class="line">//上周</span><br><span class="line">DateUtil.lastWeek()</span><br><span class="line">//下周</span><br><span class="line">DateUtil.nextWeek()</span><br><span class="line">//上个月</span><br><span class="line">DateUtil.lastMonth()</span><br><span class="line">//下个月</span><br><span class="line">DateUtil.nextMonth()</span><br></pre></td></tr></table></figure>
+
+<h6 id="获取当前时间"><a href="#获取当前时间" class="headerlink" title="获取当前时间"></a>获取当前时间</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//当前时间</span><br><span class="line">Date date = DateUtil.date();</span><br><span class="line">//当前时间</span><br><span class="line">Date date2 = DateUtil.date(Calendar.getInstance());</span><br><span class="line">//当前时间</span><br><span class="line">Date date3 = DateUtil.date(System.currentTimeMillis());</span><br><span class="line">//当前时间字符串，格式：yyyy-MM-dd HH:mm:ss</span><br><span class="line">String now = DateUtil.now();</span><br><span class="line">//当前日期字符串，格式：yyyy-MM-dd</span><br><span class="line">String today= DateUtil.today();</span><br></pre></td></tr></table></figure>
+
+
       </div>
-    
-  </section>
-</article>
-
-            </div>
-          
         
-          
-            <div class='post-wrapper'>
-              <article class="post reveal ">
-  
-<section class='meta'>
-  
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/2018/06/12/Lombok使用及其技巧说明/">
+          <section class='meta' id="footer-meta">
+            <hr>
+            <div class='new-meta-box'>
               
-                  Lombok使用及其技巧说明
-              
-          </a>
-      </h2>
-    
-
-    <div class='new-meta-box'>
-      
-        <div class='new-meta-item author'>
-          <a href="https://tfssweb.github.io">
-            <i class="fas fa-user" aria-hidden="true"></i>
-            Tfss
-          </a>
-        </div>
-      
-      
-        <div class="new-meta-item date">
-          <a class='notlink'>
-            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-            2018-06-12
-          </a>
-        </div>
-      
-      
-        
-          
-          <div class='new-meta-item category'>
-            <a href='/categories/java/'>
-              <i class="fas fa-folder-open" aria-hidden="true"></i>
-              java
-            </a>
-          </div>
-        
-      
-      
-      
-    </div>
-    <hr>
-  </div>
-</section>
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h4 id="为什么使用lombok"><a href="#为什么使用lombok" class="headerlink" title="为什么使用lombok"></a>为什么使用lombok</h4><p>还在编写无聊枯燥又难以维护的POJO吗？ 洁癖者的春天在哪里？请看Lombok！在过往的Java项目中，充斥着太多不友好的代码：POJO的getter/setter/toString；异常处理；I/O流的关闭操作等等，这些样板代码既没有技术含量，又影响着代码的美观，Lombok应运而生。首先说明一下：任何技术的出现都是为了解决某一类问题的，如果在此基础上再建立奇技淫巧，不如回归Java本身。应该保持合理使用而不滥用。</p>
-<p>Lombok 常用的注解就那么几个，@Data 、@Getter/Setter</p>
-      
-        <div class="readmore">
-          <a href="/2018/06/12/Lombok使用及其技巧说明/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/tags/java/"><i class="fas fa-hashtag fa-fw"></i>java</a>
-        
-          <a href="/tags/lombok/"><i class="fas fa-hashtag fa-fw"></i>lombok</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-            </div>
-          
-        
-          
-            <div class='post-wrapper'>
-              <article class="post reveal ">
-  
-<section class='meta'>
-  
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/2018/06/01/使用dwr时session error错误/">
-              
-                  使用dwr时session error错误
-              
-          </a>
-      </h2>
-    
-
-    <div class='new-meta-box'>
-      
-        <div class='new-meta-item author'>
-          <a href="https://tfssweb.github.io">
-            <i class="fas fa-user" aria-hidden="true"></i>
-            Tfss
-          </a>
-        </div>
-      
-      
-        <div class="new-meta-item date">
-          <a class='notlink'>
-            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-            2018-06-01
-          </a>
-        </div>
-      
-      
-        
-          
-          <div class='new-meta-item category'>
-            <a href='/categories/java/'>
-              <i class="fas fa-folder-open" aria-hidden="true"></i>
-              java
-            </a>
-          </div>
-        
-      
-      
-      
-    </div>
-    <hr>
-  </div>
-</section>
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>在web.xml中添加如下配置：</p>
-      
-        <div class="readmore">
-          <a href="/2018/06/01/使用dwr时session error错误/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/tags/java/"><i class="fas fa-hashtag fa-fw"></i>java</a>
-        
-          <a href="/tags/dwr/"><i class="fas fa-hashtag fa-fw"></i>dwr</a>
-        
-          <a href="/tags/session/"><i class="fas fa-hashtag fa-fw"></i>session</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-            </div>
-          
-        
-          
-            <div class='post-wrapper'>
-              <article class="post reveal ">
-  
-<section class='meta'>
-  
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/2018/05/06/Redis之RDB与AOF/">
-              
-                  Redis之RDB与AOF
-              
-          </a>
-      </h2>
-    
-
-    <div class='new-meta-box'>
-      
-        <div class='new-meta-item author'>
-          <a href="https://tfssweb.github.io">
-            <i class="fas fa-user" aria-hidden="true"></i>
-            Tfss
-          </a>
-        </div>
-      
-      
-        <div class="new-meta-item date">
-          <a class='notlink'>
-            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-            2018-05-06
-          </a>
-        </div>
-      
-      
-        
-          
-          <div class='new-meta-item category'>
-            <a href='/categories/java/'>
-              <i class="fas fa-folder-open" aria-hidden="true"></i>
-              java
-            </a>
-          </div>
-        
-      
-      
-      
-    </div>
-    <hr>
-  </div>
-</section>
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h2 id="官方使用建议"><a href="#官方使用建议" class="headerlink" title="官方使用建议"></a>官方使用建议</h2><p>  <code>RDB持久化方式</code>能够在指定的时间间隔内对你的数据进行快照存储；<br><br>  <code>AOF持久化方式</code>记录每次对服务器的写操作，当服务器重启的时候会重新执行这些命令来恢复原始的数据，<code>AOF</code>命令以<code>redis</code>协议追加保存每次“写”操作到文件的末尾。</p>
-<p><code>Redis</code>还能对<code>AOF</code>文件进行后台重写，使得<code>AOF</code>文件的体积不至于过大。</p>
-      
-        <div class="readmore">
-          <a href="/2018/05/06/Redis之RDB与AOF/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/tags/java/"><i class="fas fa-hashtag fa-fw"></i>java</a>
-        
-          <a href="/tags/redis/"><i class="fas fa-hashtag fa-fw"></i>redis</a>
-        
-          <a href="/tags/rdb/"><i class="fas fa-hashtag fa-fw"></i>rdb</a>
-        
-          <a href="/tags/aof/"><i class="fas fa-hashtag fa-fw"></i>aof</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-            </div>
-          
-        
-          
-            <div class='post-wrapper'>
-              <article class="post reveal ">
-  
-<section class='meta'>
-  
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/2018/03/31/mybatis的工作原理/">
-              
-                  mybatis的工作原理
-              
-          </a>
-      </h2>
-    
-
-    <div class='new-meta-box'>
-      
-        <div class='new-meta-item author'>
-          <a href="https://tfssweb.github.io">
-            <i class="fas fa-user" aria-hidden="true"></i>
-            Tfss
-          </a>
-        </div>
-      
-      
-        <div class="new-meta-item date">
-          <a class='notlink'>
-            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-            2018-03-31
-          </a>
-        </div>
-      
-      
-        
-          
-          <div class='new-meta-item category'>
-            <a href='/categories/java/'>
-              <i class="fas fa-folder-open" aria-hidden="true"></i>
-              java
-            </a>
-          </div>
-        
-      
-      
-      
-    </div>
-    <hr>
-  </div>
-</section>
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p><code>MyBatis</code>应用程序根据XML配置文件创建<code>SqlSessionFactory</code>，<code>SqlSessionFactory</code>在根据配置，配置来源于两个地方，一处是配置文件，一处是<code>Java</code>代码的注解，获取一个<code>SqlSession</code>。<code>SqlSession</code>包含了执行sql所需要的所有方法，可以通过<code>SqlSession</code>实例直接运行映射的<code>sql</code>语句，完成对数据的增删改查和事务提交等，用完之后关闭<code>SqlSession</code>。</p>
-      
-        <div class="readmore">
-          <a href="/2018/03/31/mybatis的工作原理/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/tags/java/"><i class="fas fa-hashtag fa-fw"></i>java</a>
-        
-          <a href="/tags/mybatis/"><i class="fas fa-hashtag fa-fw"></i>mybatis</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-            </div>
-          
-        
-          
-            <div class='post-wrapper'>
-              <article class="post reveal ">
-  
-<section class='meta'>
-  
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/2018/03/29/Hibernate的工作原理/">
-              
-                  Hibernate的工作原理
-              
-          </a>
-      </h2>
-    
-
-    <div class='new-meta-box'>
-      
-        <div class='new-meta-item author'>
-          <a href="https://tfssweb.github.io">
-            <i class="fas fa-user" aria-hidden="true"></i>
-            Tfss
-          </a>
-        </div>
-      
-      
-        <div class="new-meta-item date">
-          <a class='notlink'>
-            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-            2018-03-29
-          </a>
-        </div>
-      
-      
-        
-          
-          <div class='new-meta-item category'>
-            <a href='/categories/java/'>
-              <i class="fas fa-folder-open" aria-hidden="true"></i>
-              java
-            </a>
-          </div>
-        
-      
-      
-      
-    </div>
-    <hr>
-  </div>
-</section>
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>1.通过<code>Configuration().configure();</code>//读取并解析<code>hibernate.cfg.xml</code>配置文件</p>
-<p>2.由<code>hibernate.cfg.xml</code>中的<code>&lt;mapping resource=&quot;com/xx/User.hbm.xml&quot;/&gt;</code>读取并解析映射信息</p>
-      
-        <div class="readmore">
-          <a href="/2018/03/29/Hibernate的工作原理/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/tags/java/"><i class="fas fa-hashtag fa-fw"></i>java</a>
-        
-          <a href="/tags/hibernate/"><i class="fas fa-hashtag fa-fw"></i>hibernate</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-            </div>
-          
-        
-          
-            <div class='post-wrapper'>
-              <article class="post reveal ">
-  
-<section class='meta'>
-  
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/2018/03/20/Struts2的工作原理？/">
-              
-                  Struts2的工作原理？
-              
-          </a>
-      </h2>
-    
-
-    <div class='new-meta-box'>
-      
-        <div class='new-meta-item author'>
-          <a href="https://tfssweb.github.io">
-            <i class="fas fa-user" aria-hidden="true"></i>
-            Tfss
-          </a>
-        </div>
-      
-      
-        <div class="new-meta-item date">
-          <a class='notlink'>
-            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-            2018-03-20
-          </a>
-        </div>
-      
-      
-        
-          
-          <div class='new-meta-item category'>
-            <a href='/categories/java/'>
-              <i class="fas fa-folder-open" aria-hidden="true"></i>
-              java
-            </a>
-          </div>
-        
-      
-      
-      
-    </div>
-    <hr>
-  </div>
-</section>
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>1 客户端初始化一个指向Servlet容器（例如<code>Tomcat</code>）的请求 </p>
-<p>2 这个请求经过一系列的过滤器（<code>Filter</code>）（这些过滤器中有一个叫做<code>ActionContextCleanUp</code>的可选过滤器，这个过滤器对于<code>Struts2</code>和其他框架的集成很有帮助，例如：<code>SiteMesh Plugin</code>） </p>
-      
-        <div class="readmore">
-          <a href="/2018/03/20/Struts2的工作原理？/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/tags/java/"><i class="fas fa-hashtag fa-fw"></i>java</a>
-        
-          <a href="/tags/struts2/"><i class="fas fa-hashtag fa-fw"></i>struts2</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-            </div>
-          
-        
-          
-            <div class='post-wrapper'>
-              <article class="post reveal ">
-  
-<section class='meta'>
-  
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/2018/03/19/SpringMVC工作原理/">
-              
-                  SpringMVC工作原理？
-              
-          </a>
-      </h2>
-    
-
-    <div class='new-meta-box'>
-      
-        <div class='new-meta-item author'>
-          <a href="https://tfssweb.github.io">
-            <i class="fas fa-user" aria-hidden="true"></i>
-            Tfss
-          </a>
-        </div>
-      
-      
-        <div class="new-meta-item date">
-          <a class='notlink'>
-            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-            2018-03-19
-          </a>
-        </div>
-      
-      
-        
-          
-          <div class='new-meta-item category'>
-            <a href='/categories/java/'>
-              <i class="fas fa-folder-open" aria-hidden="true"></i>
-              java
-            </a>
-          </div>
-        
-      
-      
-      
-    </div>
-    <hr>
-  </div>
-</section>
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>1、用户发送请求至前端控制器<code>DispatcherServlet</code></p>
-<p>2、<code>DispatcherServlet</code>收到请求调用<code>HandlerMapping</code>处理器映射器。 </p>
-      
-        <div class="readmore">
-          <a href="/2018/03/19/SpringMVC工作原理/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/tags/java/"><i class="fas fa-hashtag fa-fw"></i>java</a>
-        
-          <a href="/tags/springmvc/"><i class="fas fa-hashtag fa-fw"></i>springmvc</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-            </div>
-          
-        
-          
-            <div class='post-wrapper'>
-              <article class="post reveal ">
-  
-<section class='meta'>
-  
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/2018/03/13/Nginx企业级rewrite 实战操作/">
-              
-                  Nginx企业级rewrite 实战操作
-              
-          </a>
-      </h2>
-    
-
-    <div class='new-meta-box'>
-      
-        <div class='new-meta-item author'>
-          <a href="https://tfssweb.github.io">
-            <i class="fas fa-user" aria-hidden="true"></i>
-            Tfss
-          </a>
-        </div>
-      
-      
-        <div class="new-meta-item date">
-          <a class='notlink'>
-            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-            2018-03-13
-          </a>
-        </div>
-      
-      
-        
-          
-          <div class='new-meta-item category'>
-            <a href='/categories/java/'>
-              <i class="fas fa-folder-open" aria-hidden="true"></i>
-              java
-            </a>
-          </div>
-        
-      
-      
-      
-    </div>
-    <hr>
-  </div>
-</section>
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>一、访问<code>http://www.abc.com</code>正常，现在需要访问<code>abc.com</code>，直接跳转到<code>http://www.abc.com</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">listen 80;</span><br><span class="line">server_name abc.com;</span><br><span class="line">access_log off;</span><br><span class="line">rewrite (.+) $scheme://www.$host$1 permanent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-        <div class="readmore">
-          <a href="/2018/03/13/Nginx企业级rewrite 实战操作/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-      <div class="full-width auto-padding tags">
-        
-          <a href="/tags/java/"><i class="fas fa-hashtag fa-fw"></i>java</a>
-        
-          <a href="/tags/nginx/"><i class="fas fa-hashtag fa-fw"></i>nginx</a>
-        
-      </div>
-    
-  </section>
-</article>
-
-            </div>
-          
-        
-      
-
-  </section>
-
-
-
-
-
-
-  
-      <br>
-      <div class="prev-next">
-          <div class="prev-next">
-              
-                  <a class="prev" rel="prev" href="/categories/java/">
-                      <section class="post prev" >
-                          <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
-                      </section>
+                <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-09-11T17:25:38+08:00">
+                  <a class='notlink'>
+                    <i class="fas fa-save" aria-hidden="true"></i>
+                    2019-09-11
                   </a>
+                </div>
               
-              <p class="current">
-                  2 / 3
-              </p>
               
-                  <a class="next" rel="next" href="/categories/java/page/3/">
-                      <section class="post next">
-                          &nbsp;下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-                      </section>
-                  </a>
+                
+                <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;java</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/hutool/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;hutool</a></div>
               
+              
+            </div>
+          </section>
+        
 
-          </div>
-      </div>
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2019/07/11/jasypt 的加密解决方案/" rel="prev" title="jasypt 的加密解决方案">
+                                  
+                                      jasypt 的加密解决方案
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>java</a> <a class="tag" href="/tags/maven/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>maven</a> <a class="tag" href="/tags/加密，jasypt/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>加密，jasypt</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/06/09/SpringCloud配置/" rel="prev" title="SpringCloud常用配置">
+                                    
+                                        SpringCloud常用配置
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>java</a> <a class="tag" href="/tags/spring/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>spring</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
 
-  
+    </section>
 
-  <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-  
+</article>
 
-  
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
 
 
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+
+
+<script>
+    window.subData = {
+        title: 'Hutool常用API',
+        tools: true
+    }
+</script>
 
 
         </div>
@@ -1097,6 +384,20 @@
       
       
         
+  <section class='toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章目录</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#日期操作"><span class="toc-text">日期操作</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#字符串转日期"><span class="toc-text">字符串转日期</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#获取当天的起始与结束时间"><span class="toc-text">获取当天的起始与结束时间</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#日期时间偏移"><span class="toc-text">日期时间偏移</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#获取当前时间"><span class="toc-text">获取当前时间</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
 
       
     
