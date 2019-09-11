@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>标题</title>
+      <link href="/2019/09/01/Mybatis%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/"/>
+      <url>/2019/09/01/Mybatis%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<p>mybatis常用配置</p><a id="more"></a><h5 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">依赖</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;pagehelper-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;1.2.12&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">application.yml配置</span><br><span class="line"></span><br><span class="line">pagehelper:</span><br><span class="line">  helper-dialect: mysql</span><br><span class="line">  reasonable: true</span><br><span class="line">  support-methods-arguments: true</span><br><span class="line">  params: count=countsql</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">java操作</span><br><span class="line"></span><br><span class="line">PageHelper.startPage(pageNum,pageSize);</span><br><span class="line">List list = service.getList();</span><br><span class="line">PageInfo&lt;SecuritySyslog&gt; pageInfo = new PageInfo&lt;&gt;(list);</span><br></pre></td></tr></table></figure><h5 id="打印sql、mysql字段下划线转驼峰"><a href="#打印sql、mysql字段下划线转驼峰" class="headerlink" title="打印sql、mysql字段下划线转驼峰"></a>打印sql、mysql字段下划线转驼峰</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mybatis:</span><br><span class="line">  mapper-locations: classpath:mapper/**/*.xml</span><br><span class="line">  type-aliases-package: com.chinaentropy.basicsystem.model.*</span><br><span class="line"></span><br><span class="line">  configuration:</span><br><span class="line">    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl</span><br><span class="line">    map-underscore-to-camel-case: true</span><br></pre></td></tr></table></figure><h5 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  jackson:</span><br><span class="line">    time-zone: Asia/Shanghai</span><br><span class="line">    date-format: yyyy-MM-dd HH:mm:ss</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mybatis </tag>
+            
+            <tag> pagehelper </tag>
+            
+            <tag> 分页 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Spring GateWay集成Swagger2</title>
       <link href="/2019/07/16/Spring%20GateWay%E9%9B%86%E6%88%90Swagger2/"/>
       <url>/2019/07/16/Spring%20GateWay%E9%9B%86%E6%88%90Swagger2/</url>
