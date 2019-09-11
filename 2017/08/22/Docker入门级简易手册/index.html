@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Docker入门级简易手册 | 颓废书生</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          颓废书生
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="home"
+								 class="nav flat-box" href="/">
+									<i class='fas fa-home fa-fw'></i>&nbsp;主页
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="home"
+								 class="nav flat-box" href="/">
+									<i class='fas fa-rss fa-fw'></i>&nbsp;博客
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="tags"
+								 class="nav flat-box" href="/tags/">
+									<i class='fas fa-tags fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="friends"
+								 class="nav flat-box" href="/friends/">
+									<i class='fas fa-users fa-fw'></i>&nbsp;朋友
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="home" class="nav flat-box" href="/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="home" class="nav flat-box" href="/">
+											<i class='fas fa-rss fa-fw'></i>&nbsp;博客
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="tags" class="nav flat-box" href="/tags/">
+											<i class='fas fa-tags fa-fw'></i>&nbsp;标签
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="friends" class="nav flat-box" href="/friends/">
+											<i class='fas fa-users fa-fw'></i>&nbsp;朋友
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">Docker入门级简易手册</h1>
+      
+    
+
+    <div class='new-meta-box'>
+      
+        <div class='new-meta-item author'>
+          <a href="https://tfssweb.github.io">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            Tfss
+          </a>
+        </div>
+      
+      
+        <div class="new-meta-item date">
+          <a class='notlink'>
+            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+            2017-08-22
+          </a>
+        </div>
+      
+      
+        
+          
+          <div class='new-meta-item category'>
+            <a href='/categories/docker/'>
+              <i class="fas fa-folder-open" aria-hidden="true"></i>
+              docker
+            </a>
+          </div>
+        
+      
+      
+        
+          <div class="new-meta-item browse busuanzi">
+            <a class='notlink'>
+              <i class="fas fa-eye" aria-hidden="true"></i>
+              <span id="busuanzi_value_page_pv">
+                <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        
+      
+      
+    </div>
+    <hr>
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <h1 id="Docker入门级简易手册"><a href="#Docker入门级简易手册" class="headerlink" title="Docker入门级简易手册"></a>Docker入门级简易手册</h1><p>本篇经作为新手入门使用，大神们可以指导小弟修正，不喜勿喷，谢谢</p>
+<p>本篇主要讲解如下几个知识点：</p>
+<ol>
+<li><p>CentOS7与Ubuntu下安装Docker，配置加速器</p>
+</li>
+<li><p>常见Dockerfile命令讲解</p>
+</li>
+<li><p>docker-compo安装与常见命令讲解</p>
+</li>
+<li><p>根据项目如何使用Docker部署应用</p>
+<ol>
+<li>Swarm集群下发布基于LNMP的WordPress应用发布</li>
+<li>NodeJS应用发布</li>
+<li>Flask应用发布</li>
+<li>基于Tomcat定制封装Jenkins镜像</li>
+</ol>
+</li>
+<li><p>搭建私有仓库</p>
+</li>
+<li><p>每次代码写好了都要自己构建觉得麻烦怎么办？</p>
+</li>
+</ol>
+<a id="more"></a>
+
+<h1 id="Docker入门级简易手册-1"><a href="#Docker入门级简易手册-1" class="headerlink" title="Docker入门级简易手册"></a>Docker入门级简易手册</h1><p>本篇经作为新手入门使用，大神们可以指导小弟修正，不喜勿喷，谢谢</p>
+<p>本篇主要讲解如下几个知识点：</p>
+<ol>
+<li><p>CentOS7与Ubuntu下安装Docker，配置加速器</p>
+</li>
+<li><p>常见Dockerfile命令讲解</p>
+</li>
+<li><p>docker-compo安装与常见命令讲解</p>
+</li>
+<li><p>根据项目如何使用Docker部署应用</p>
+<ol>
+<li>Swarm集群下发布基于LNMP的WordPress应用发布</li>
+<li>NodeJS应用发布</li>
+<li>Flask应用发布</li>
+<li>基于Tomcat定制封装Jenkins镜像</li>
+</ol>
+</li>
+<li><p>搭建私有仓库</p>
+</li>
+<li><p>每次代码写好了都要自己构建觉得麻烦怎么办？</p>
+</li>
+</ol>
+<h2 id="CentOS7与Ubuntu下安装Docker"><a href="#CentOS7与Ubuntu下安装Docker" class="headerlink" title="CentOS7与Ubuntu下安装Docker"></a>CentOS7与Ubuntu下安装Docker</h2><p>​    这里应该有人会有一个疑问，为什么软件包名是docker-ce而不是docker-engine。docker版本在1.13以后有两个版本，分别是ce和ee版本，ce是开源社区办，ee是收费版，所以改了。</p>
+<h3 id="CentOS7"><a href="#CentOS7" class="headerlink" title="CentOS7"></a>CentOS7</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2 curl</span><br><span class="line">yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line">yum -y install docker-ce</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装指定版本</span></span><br><span class="line">DOCKER_VERSION=17.03.1.ce</span><br><span class="line">yum install docker-engine-selinux-$&#123;DOCKER_VERSION&#125;* docker-engine-$&#123;DOCKER_VERSION&#125;* -y</span><br></pre></td></tr></table></figure>
+
+<h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">apt-get remove docker docker-engine docker.io -y</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line"></span><br><span class="line">apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common -y</span><br><span class="line"></span><br><span class="line">curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line">apt-key fingerprint 0EBFCD88</span><br><span class="line"></span><br><span class="line">add-apt-repository "deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable"</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line"></span><br><span class="line">apt-get install docker-ce -y</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装指定版本</span></span><br><span class="line">DOCKER_VERSION=17.03.1*</span><br><span class="line">apt-get install docker-ce=$&#123;DOCKER_VERSION&#125; -y</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置加速器"><a href="#配置加速器" class="headerlink" title="配置加速器"></a>配置加速器</h3><p>​    不想申请加速器的朋友可以使用我的，也可以自己去申请阿里云或者Daocloud的加速器。docker版本不同配置文件路径存在差异，具体请查询官网，本篇针对17.*的版本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /etc/docker</span><br><span class="line"></span><br><span class="line">cat &gt; /etc/docker/daemon.json &lt;&lt; EOF</span><br><span class="line">&#123;</span><br><span class="line">    &quot;registry-mirrors&quot; : [</span><br><span class="line">	    &quot;https://i3jtbyvy.mirror.aliyuncs.com&quot;</span><br><span class="line">	],</span><br><span class="line">	&quot;debug&quot; : true,</span><br><span class="line">	&quot;experimental&quot; : true</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<h2 id="常见Dockerfile命令讲解"><a href="#常见Dockerfile命令讲解" class="headerlink" title="常见Dockerfile命令讲解"></a>常见Dockerfile命令讲解</h2><p>​    Dockerfile简单一点就是描述你这个镜像安装了哪些软件包，有哪些操作，创建了什么东西。有些人喜欢用 <code>docker commit</code> 命令去打包镜像，这样是不好的，首先commit出来的镜像比你使用Dockerfile构建出来的体积大，而且commit出来的镜像属于黑盒镜像，除了制作者，谁都不知道你在里面干了什么，属于不安全的镜像，很少会有人使用，最后就是不便于你最终的管理和更新。所以推荐使用Dockerfile去管理你的镜像，下面将简单介绍Dockerfile常见的指令和注意事项：</p>
+<h3 id="FROM"><a href="#FROM" class="headerlink" title="FROM"></a><code>FROM</code></h3><p>​    FROM命令是指定你所使用的基础镜像，一般写在文件开头，对于官方没给出Dockerfile的软件想Docker化，那么引用的镜像一般是<code>debian:jessie</code>、<code>alpine</code>、<code>ubuntu</code>，如果官方已经有了，比如nginx、php、mysql这写，那么基本直接引用即可。</p>
+<p>指令语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">FROM &lt;image&gt;</span><br><span class="line">FROM &lt;image&gt;:&lt;tag&gt;</span><br><span class="line">FROM &lt;image&gt;:&lt;digest&gt;</span><br><span class="line"></span><br><span class="line">eg:</span><br><span class="line">FROM debian:jessie</span><br><span class="line">FROM alpine:3.6</span><br><span class="line">FROM ubuntu:16.04</span><br><span class="line">FROM mysql:5.7</span><br><span class="line">FROM python:2.7</span><br></pre></td></tr></table></figure>
+
+<h3 id="MAINTAINER"><a href="#MAINTAINER" class="headerlink" title="MAINTAINER"></a><code>MAINTAINER</code></h3><p>​    MAINTAINER命令一般是描述这个Dockerfile的作者信息，</p>
+<p>指令语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MAINTAINER &lt;name&gt;</span><br><span class="line"></span><br><span class="line">eg:</span><br><span class="line">MAINTAINER &quot;MoMo&quot; &lt;95112082@qq.com&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="RUN"><a href="#RUN" class="headerlink" title="RUN"></a><code>RUN</code></h3><p>​    运行指定的命令，此命令只有在执行<code>docker build</code>时才会执行，其他情况下不会执行。这时候有很多初学者会以为在写SHELL，那么在一个Dockerfile里面会出现很多不合理的RUN指令，了解过Docker的朋友应该都知道Docker的镜像是分层结构，说白了就是Dockerfile里面一个指令的操作就是一层。比如下面的操作，一条RUN命令包含了更新源缓存，安装openjdk，清理垃圾，这样的好处是最终这一层会很小，假设你分开写，四个命令四个RUN指令，但是只有第二条命令才是你想要的，那么第一条产生的缓存垃圾就不发删除掉。这也算是优化的一部分。</p>
+<p>指令语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">这里只写第一种格式，有兴趣的朋友可以去官网看看其他的方式</span><br><span class="line">RUN &lt;command&gt;</span><br><span class="line"></span><br><span class="line">eg:</span><br><span class="line">RUN apt-get update \</span><br><span class="line">    &amp;&amp; apt-get install openjdk-8-jdk --no-install-recommends -y \</span><br><span class="line">    &amp;&amp; apt-get clean all \</span><br><span class="line">    &amp;&amp; rm -rf /var/lib/apt/lists/*</span><br></pre></td></tr></table></figure>
+
+<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a><code>CMD</code></h3><p>​    设置容器启动时要运行的命令只有在你执行 <code>docker run</code> 或者 <code>docker start</code> 命令是才会运行，其他情况下不运行。如果一个Dockerfile里面有多条CMD指令，那么只有文件最后一行的 <code>CMD</code> 指令才会生效，其他的全部没用，还有一点，还有一点 <code>CMD</code> 指令是可以在你执行 <code>docker run</code> 的时候覆盖的。</p>
+<p>指令语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</span><br><span class="line"></span><br><span class="line">eg:</span><br><span class="line">CMD [&quot;python&quot;,&quot;flask.py&quot;]</span><br></pre></td></tr></table></figure>
+
+<h3 id="EXPOSE"><a href="#EXPOSE" class="headerlink" title="EXPOSE"></a><code>EXPOSE</code></h3><p>​    设置暴露的容器端口，注意是容器端口。</p>
+<p>指令语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">EXPOSE port</span><br><span class="line"></span><br><span class="line">eg:</span><br><span class="line">EXPOSE 80</span><br><span class="line">EXPOSE 80 443</span><br></pre></td></tr></table></figure>
+
+<h3 id="ENV"><a href="#ENV" class="headerlink" title="ENV"></a><code>ENV</code></h3><p>​    功能为设置环境变量，此环节变量可以是在构建镜像时使用，也可以在运行中的容器使用。</p>
+<p>指令语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ENV &lt;key&gt; &lt;value&gt;</span><br><span class="line"></span><br><span class="line">eg:</span><br><span class="line">一种写法</span><br><span class="line">ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64</span><br><span class="line">ENV CLASSPATH $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">ENV PATH $PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br><span class="line"></span><br><span class="line">另一种写法</span><br><span class="line">ENV JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64 \</span><br><span class="line">    CLASSPATH=$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar \</span><br><span class="line">    PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br></pre></td></tr></table></figure>
+
+<h3 id="ADD"><a href="#ADD" class="headerlink" title="ADD"></a><code>ADD</code></h3><p>​    复制命令，把本机的文件复制到镜像中，如果dest是目录则会帮你创建出这个目录，如果src是压缩文件会帮你解压出来。当然ADD指令中的src也可以是URL链接，还有另外一个指令（<code>COPY</code>），请注意区别！！！</p>
+<p>​    另外，src部分是是你Dockerfile的相对路径，这个请注意！！！</p>
+<p>指令语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ADD &lt;src&gt; &lt;dest&gt;</span><br><span class="line"></span><br><span class="line">eg:</span><br><span class="line">ADD nginx.conf /etc/nginx/nginx.conf</span><br><span class="line">ADD app.tar.gz /app/app.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h3 id="COPY"><a href="#COPY" class="headerlink" title="COPY"></a><code>COPY</code></h3><p>​    与ADD指令一样，但是COPY的src部分只能是本地文件，文件路径是Dockerfile的相对路径。如果dest是目录并且目录不存在，会帮你创建，如果是压缩文件不会帮你解压。</p>
+<p>指令语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">COPY &lt;src&gt; &lt;dest&gt;</span><br><span class="line"></span><br><span class="line">COPY app.tar.gz /app/</span><br></pre></td></tr></table></figure>
+
+<h3 id="ENTRYPOINT"><a href="#ENTRYPOINT" class="headerlink" title="ENTRYPOINT"></a><code>ENTRYPOINT</code></h3><p>​    启动时的默认命令，此指令设置的命令不可修改。与CMD是有区别的。此命令在Dockerfile只能有一个，若有多个，则以文件最后一个出现的才生效。</p>
+<p>指令语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ENTRYPOINT [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]</span><br><span class="line"></span><br><span class="line">eg:</span><br><span class="line">ENTRYPOINT [&quot;nginx&quot;]</span><br><span class="line">CMD [&quot;-g&quot;,&quot;daemon off;&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>​    如上，如果执行 <code>docker run -d --name nginx -P nginx</code> 则最终容器内执行的命令是<code>nginx -g daemon off;</code> ，如果你执行的命令是 <code>docker run -d --name nginx -P nginx bash</code> 则最终容器内执行的命令是<code>nginx bash</code> 注意区别，细心体会。</p>
+<h3 id="VOLUME"><a href="#VOLUME" class="headerlink" title="VOLUME"></a><code>VOLUME</code></h3><p>​    设置你的卷，在启动容器的时候Docker会在/var/lib/docker的下一级目录下创建一个卷，以保存你在容器中产生的数据。若没有申明则不会创建。</p>
+<p>指令语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">VOLUME [&quot;/path/to/directory&quot;]</span><br><span class="line"></span><br><span class="line">eg:</span><br><span class="line">VOLUME [&quot;/data&quot;]</span><br><span class="line">VOLUME [&quot;/data&quot;,&quot;/app/etc&quot;]</span><br></pre></td></tr></table></figure>
+
+<h3 id="USER"><a href="#USER" class="headerlink" title="USER"></a><code>USER</code></h3><p>​    指定容器运行的用户是谁，前提条件，用户必须<strong>存在</strong>。此指令可以在构建镜像是使用或指定容器中进程的运行用户是谁。</p>
+<p>指令语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">USER daemo</span><br><span class="line"></span><br><span class="line">eg:</span><br><span class="line">USER nginx</span><br></pre></td></tr></table></figure>
+
+<h3 id="WORKDIR"><a href="#WORKDIR" class="headerlink" title="WORKDIR"></a><code>WORKDIR</code></h3><p>​    指定容器中的工作目录，可以在构建时使用，也可以在启动容器时使用，构建使用就是通过 <code>WORKDIR</code> 将当前目录切换到指定的目录中，容器中使用的意思则是在你使用 <code>docker run</code> 命令启动容器时，默认进入的目录是 <code>WORKDIR</code> 指定的，下面的example中我使用环境变量。</p>
+<p>指令语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">WORKDIR /path/to/workdir</span><br><span class="line"></span><br><span class="line">eg:</span><br><span class="line">WORKDIR /usr/local/zookeeper-$&#123;ZOOKEEPER_VERSION&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上为常用的Dockerfile指令，详细文档请参考官方文档：<a href="https://docs.docker.com/engine/reference/builder/" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/builder/</a></p>
+<h2 id="docker-compose安装与常见命令讲解"><a href="#docker-compose安装与常见命令讲解" class="headerlink" title="docker-compose安装与常见命令讲解"></a>docker-compose安装与常见命令讲解</h2><h3 id="docker-compose安装"><a href="#docker-compose安装" class="headerlink" title="docker-compose安装"></a>docker-compose安装</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose</span><br><span class="line">chmod +x /usr/local/bin/docker-compose</span><br><span class="line"><span class="meta">#</span><span class="bash">查看版本</span></span><br><span class="line">docker-compose version</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CentOS:</span><br><span class="line">yum install epel-release -y</span><br><span class="line">yum install python-pip -y</span><br><span class="line"></span><br><span class="line">Ubuntu:</span><br><span class="line">apt-get install python-pip -y</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 通用命令</span></span><br><span class="line">pip --version</span><br><span class="line">pip install --upgrade pip</span><br><span class="line">pip install -U -i https://pypi.tuna.tsinghua.edu.cn/simple docker-compose</span><br><span class="line">docker-compose version</span><br></pre></td></tr></table></figure>
+
+<h3 id="常见命令讲解"><a href="#常见命令讲解" class="headerlink" title="常见命令讲解"></a>常见命令讲解</h3><h4 id="单机docker-compose模版"><a href="#单机docker-compose模版" class="headerlink" title="单机docker-compose模版"></a>单机docker-compose模版</h4><p>注意nginx、php、mysql、redis这几个容器的网络是怎么通讯的。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义docker-compose版本，有些参数只有高版本才有，底版本没有</span></span><br><span class="line"><span class="attr">version:</span> <span class="string">'3.4'</span></span><br><span class="line"><span class="comment"># 定义服务，可以是一个，也可以是多个</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">	<span class="comment"># 具体的服务名，其他的服务可以用过这个名字访问</span></span><br><span class="line"><span class="attr">    nginx:</span></span><br><span class="line">    	<span class="comment"># 定义这个服务所使用的镜像以及进项版本，若不指定版本默认是latest，生产环境不建议使用latest</span></span><br><span class="line"><span class="attr">        image:</span> <span class="attr">nginx:1.13.6-alpine</span></span><br><span class="line">        <span class="comment"># 定义容器启动后的主机名，其他的服务可以用过这个名字访问</span></span><br><span class="line"><span class="attr">        hostname:</span> <span class="string">nginx</span></span><br><span class="line">        <span class="comment"># 定义暴露端口，若写成 '80:80/tcp' 的格式则表示指定宿主机的80转发到容器的80，若写成 '80/tcp' 则表示Docker将随机分配一个宿主机端口给容器内的80端口，tcp表示协议类型，也可以是udp</span></span><br><span class="line"><span class="attr">        ports:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="number">80</span><span class="string">:80/tcp</span></span><br><span class="line">        <span class="comment"># 网络定义部分</span></span><br><span class="line"><span class="attr">        networks:</span></span><br><span class="line">        	<span class="comment"># 定义这个容器运行在哪个虚拟网络里面</span></span><br><span class="line"><span class="attr">            wordpress:</span></span><br><span class="line">            	<span class="comment"># 设置这个容器在网络中的别名，可以是一个，可以是多个，其他的服务可以用过这个名字访问</span></span><br><span class="line"><span class="attr">                aliases:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">nginx</span></span><br><span class="line">        <span class="comment"># 定义卷，可以是卷，也可以是目录，可以设置容器内的权限是什么</span></span><br><span class="line"><span class="attr">        volumes:</span></span><br><span class="line">        	<span class="comment"># 将docker-compose的相对目录下的nginx配置文件挂载到容器内的/etc/nginx/nginx.conf地方去，权限是只读</span></span><br><span class="line">        	<span class="comment"># 大致格式：src:dest:mode</span></span><br><span class="line">        	<span class="comment"># src: 可以是卷名，宿主机目录等，可以是文件或者目录，若是文件则文件必须存在，否则会是目录的形式挂载</span></span><br><span class="line">        	<span class="comment"># dest: 容器内的路径，可以是文件可以是目录，若是文件则文件必须存在，否则会是目录的形式挂载</span></span><br><span class="line">        	<span class="comment"># mode: 权限，只读(ro)，可读可写(rw)</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">./nginx/nginx.conf:/etc/nginx/nginx.conf:ro</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">./www:/var/www/html:rw</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:ro</span></span><br><span class="line">        <span class="comment"># 日志定义</span></span><br><span class="line"><span class="attr">        logging:</span></span><br><span class="line">        	<span class="comment"># 使用的驱动是什么，官方给出很多方式，具体可以查看官方文档，这里使用的json-file</span></span><br><span class="line"><span class="attr">            driver:</span> <span class="string">json-file</span></span><br><span class="line">            <span class="comment"># 定义日志的参数</span></span><br><span class="line"><span class="attr">            options:</span></span><br><span class="line">            	<span class="comment"># 设置最大文件数3个，每个文件大小为100MB</span></span><br><span class="line"><span class="attr">                max-file:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">                max-size:</span> <span class="number">100</span><span class="string">m</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 下面的部分我只会将上面没有出现的部分注释出来，有的部分不做说明</span></span><br><span class="line"><span class="attr">    wordpress:</span></span><br><span class="line"><span class="attr">        image:</span> <span class="attr">wordpress:4.9.1-php7.1-fpm-alpine</span></span><br><span class="line"><span class="attr">        hostname:</span> <span class="string">php</span></span><br><span class="line"><span class="attr">        networks:</span></span><br><span class="line"><span class="attr">            wordpress:</span></span><br><span class="line"><span class="attr">                aliases:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">wordpress</span></span><br><span class="line">        <span class="comment"># 环境变量设置，key=value</span></span><br><span class="line"><span class="attr">        environment:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">WORDPRESS_DB_HOST=mysql</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">WORDPRESS_DB_USER=root</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">WORDPRESS_DB_PASSWORD=root</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">WORDPRESS_DB_NAME=xbclub</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">WORDPRESS_TABLE_PREFIX=wp_</span></span><br><span class="line"><span class="attr">        volumes:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">./www:/var/www/html:rw</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">./php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:ro</span></span><br><span class="line"><span class="attr">        logging:</span></span><br><span class="line"><span class="attr">            driver:</span> <span class="string">json-file</span></span><br><span class="line"><span class="attr">            options:</span></span><br><span class="line"><span class="attr">                max-file:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">                max-size:</span> <span class="number">100</span><span class="string">m</span></span><br><span class="line"><span class="attr">    mysql:</span></span><br><span class="line"><span class="attr">        image:</span> <span class="attr">mysql:5.7.20</span></span><br><span class="line"><span class="attr">        hostname:</span> <span class="string">mysql</span></span><br><span class="line"><span class="attr">        networks:</span></span><br><span class="line"><span class="attr">            wordpress:</span></span><br><span class="line"><span class="attr">                aliases:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">mysql</span></span><br><span class="line"><span class="attr">        environment:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">MYSQL_ROOT_PASSWORD=root</span></span><br><span class="line"><span class="attr">        volumes:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">./mysql:/var/lib/mysql</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:ro</span></span><br><span class="line"><span class="attr">        logging:</span></span><br><span class="line"><span class="attr">            driver:</span> <span class="string">json-file</span></span><br><span class="line"><span class="attr">            options:</span></span><br><span class="line"><span class="attr">                max-file:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">                max-size:</span> <span class="number">100</span><span class="string">m</span></span><br><span class="line"><span class="attr">    redis:</span></span><br><span class="line"><span class="attr">        image:</span> <span class="attr">redis:4.0.6</span></span><br><span class="line"><span class="attr">        hostname:</span> <span class="string">redis</span></span><br><span class="line"><span class="attr">        networks:</span></span><br><span class="line"><span class="attr">            wordpress:</span></span><br><span class="line"><span class="attr">                aliases:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">redis</span></span><br><span class="line"><span class="attr">        volumes:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">./redis:/data:rw</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:ro</span></span><br><span class="line"><span class="attr">        logging:</span></span><br><span class="line"><span class="attr">            driver:</span> <span class="string">json-file</span></span><br><span class="line"><span class="attr">            options:</span></span><br><span class="line"><span class="attr">                max-file:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">                max-size:</span> <span class="number">100</span><span class="string">m</span></span><br><span class="line"><span class="comment"># 定义这个compose文件中使用的网络</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">	<span class="comment"># 网络名称，和上文中的wordpress一直，这里注意不是上文中出现的wordpress这个服务，而是是网络！！！</span></span><br><span class="line"><span class="attr">    wordpress:</span></span><br><span class="line">    	<span class="comment"># 是否是外部网络，这里可以理解为如果是外部网络那么网络的名字就叫wordpress，这样方便其他的服务接入到这个网络，如果不是，在你使用docker-compose up -d 命令的时候他会以你当前的文件夹的名字加上这里定义的网络名作为你这个compose的网络。比如我的这个compose文件在test下面，如果external为true，那么你需要手动创建这个网络然后去指定命令启动这个compose；如果为flase则网络的名字将会以test_wordpress出现在你的docker network ls中。具体可以自己去试一下就知道大概是什么意思了。</span></span><br><span class="line"><span class="attr">        external:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="集群docker-compose模版"><a href="#集群docker-compose模版" class="headerlink" title="集群docker-compose模版"></a>集群docker-compose模版</h4><p>以下文件中将只会备注单机版中没有说明的部分。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3.4'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">    nginx:</span></span><br><span class="line"><span class="attr">        image:</span> <span class="attr">nginx:1.13.6-alpine</span></span><br><span class="line"><span class="attr">        hostname:</span> <span class="string">nginx</span></span><br><span class="line"><span class="attr">        ports:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="number">3000</span><span class="string">:80/tcp</span></span><br><span class="line"><span class="attr">        networks:</span></span><br><span class="line"><span class="attr">            xbclub:</span></span><br><span class="line"><span class="attr">                aliases:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">nginx</span></span><br><span class="line"><span class="attr">        volumes:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/nfs/xbclub/nginx/nginx.conf:/etc/nginx/nginx.conf:ro</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/nfs/xbclub/www:/var/www/html:rw</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:ro</span></span><br><span class="line">        <span class="comment"># 定义你这个服务的运行方式</span></span><br><span class="line"><span class="attr">        deploy:</span></span><br><span class="line">        	<span class="comment"># 模式定义，主要两种，全局模式和副本模式(自己翻译的)，全局模式将会在所有的Swarm节点上运行一个实例，副本模式则指定运行你在replicas指定的个数。</span></span><br><span class="line"><span class="attr">            mode:</span> <span class="string">replicated</span></span><br><span class="line"><span class="attr">            replicas:</span> <span class="number">3</span></span><br><span class="line">            <span class="comment"># 服务的运行规则，下面这部分的意识是“这个Nginx服务将只会匹配集群中的工作节点，但是主机名不是‘Docker-Swarm-MySQL’，‘Docker-Swarm-Redis’，‘Docker-Swarm-NFS’的节点上运行这个Nginx服务”。下面的部分基本大同小异，这里就不啰嗦了。</span></span><br><span class="line"><span class="attr">            placement:</span></span><br><span class="line"><span class="attr">                constraints:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.role</span> <span class="string">==</span> <span class="string">worker</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.hostname</span> <span class="string">!=</span> <span class="string">Docker-Swarm-MySQL</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.hostname</span> <span class="string">!=</span> <span class="string">Docker-Swarm-Redis</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.hostname</span> <span class="string">!=</span> <span class="string">Docker-Swarm-NFS</span></span><br><span class="line"><span class="attr">    wordpress:</span></span><br><span class="line"><span class="attr">        image:</span> <span class="attr">wordpress:4.9.1-php7.1-fpm-alpine</span></span><br><span class="line"><span class="attr">        hostname:</span> <span class="string">php</span></span><br><span class="line"><span class="attr">        networks:</span></span><br><span class="line"><span class="attr">            xbclub:</span></span><br><span class="line"><span class="attr">                aliases:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">wordpress</span></span><br><span class="line"><span class="attr">        environment:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">WORDPRESS_DB_HOST=mysql</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">WORDPRESS_DB_USER=root</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">WORDPRESS_DB_PASSWORD=root</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">WORDPRESS_DB_NAME=xbclub</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">WORDPRESS_TABLE_PREFIX=wp_</span></span><br><span class="line"><span class="attr">        volumes:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/nfs/xbclub/www:/var/www/html:rw</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/nfs/xbclub/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:ro</span></span><br><span class="line"><span class="attr">        deploy:</span></span><br><span class="line"><span class="attr">            mode:</span> <span class="string">replicated</span></span><br><span class="line"><span class="attr">            replicas:</span> <span class="number">3</span></span><br><span class="line"><span class="attr">            placement:</span></span><br><span class="line"><span class="attr">                constraints:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.role</span> <span class="string">==</span> <span class="string">worker</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.hostname</span> <span class="string">!=</span> <span class="string">Docker-Swarm-MySQL</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.hostname</span> <span class="string">!=</span> <span class="string">Docker-Swarm-Redis</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.hostname</span> <span class="string">!=</span> <span class="string">Docker-Swarm-NFS</span></span><br><span class="line"><span class="attr">    mysql:</span></span><br><span class="line"><span class="attr">        image:</span> <span class="attr">mysql:5.7.20</span></span><br><span class="line"><span class="attr">        hostname:</span> <span class="string">mysql</span></span><br><span class="line"><span class="attr">        networks:</span></span><br><span class="line"><span class="attr">            xbclub:</span></span><br><span class="line"><span class="attr">                aliases:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">mysql</span></span><br><span class="line"><span class="attr">        environment:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">MYSQL_ROOT_PASSWORD=root</span></span><br><span class="line"><span class="attr">        volumes:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/mysql/xbclub:/var/lib/mysql</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:ro</span></span><br><span class="line"><span class="attr">        deploy:</span></span><br><span class="line"><span class="attr">            mode:</span> <span class="string">replicated</span></span><br><span class="line"><span class="attr">            replicas:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">            placement:</span></span><br><span class="line"><span class="attr">                constraints:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.hostname</span> <span class="string">==</span> <span class="string">Docker-Swarm-MySQL</span></span><br><span class="line"><span class="attr">        logging:</span></span><br><span class="line"><span class="attr">            driver:</span> <span class="string">json-file</span></span><br><span class="line"><span class="attr">            options:</span></span><br><span class="line"><span class="attr">                max-file:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">                max-size:</span> <span class="number">100</span><span class="string">m</span></span><br><span class="line"><span class="attr">    redis:</span></span><br><span class="line"><span class="attr">        image:</span> <span class="attr">redis:4.0.6</span></span><br><span class="line"><span class="attr">        hostname:</span> <span class="string">redis</span></span><br><span class="line"><span class="attr">        networks:</span></span><br><span class="line"><span class="attr">            xbclub:</span></span><br><span class="line"><span class="attr">                aliases:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">redis</span></span><br><span class="line"><span class="attr">        volumes:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/redis/xbclub:/data:rw</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:ro</span></span><br><span class="line"><span class="attr">        deploy:</span></span><br><span class="line"><span class="attr">            mode:</span> <span class="string">replicated</span></span><br><span class="line"><span class="attr">            replicas:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">            placement:</span></span><br><span class="line"><span class="attr">                constraints:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.hostname</span> <span class="string">==</span> <span class="string">Docker-Swarm-Redis</span></span><br><span class="line"><span class="comment"># 这里需要说明，集群环境下你需要执行“docker network create --driver overlay NetworkName”命令创建，网络的SCOPE部分显示的是Swarm才是对的。</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line"><span class="attr">    xbclub:</span></span><br><span class="line"><span class="attr">        external:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>这里我只是把我常用的贴出来加以说明，如果各位有想要补充的可以告诉我，我在加上去，详细介绍可以看官网</p>
+<p><a href="https://docs.docker.com/compose/compose-file/" target="_blank" rel="noopener">https://docs.docker.com/compose/compose-file/</a></p>
+<h2 id="根据项目如何使用Docker部署应用"><a href="#根据项目如何使用Docker部署应用" class="headerlink" title="根据项目如何使用Docker部署应用"></a>根据项目如何使用Docker部署应用</h2><h3 id="Swarm集群下发布基于LRNMP的WordPress应用发布"><a href="#Swarm集群下发布基于LRNMP的WordPress应用发布" class="headerlink" title="Swarm集群下发布基于LRNMP的WordPress应用发布"></a>Swarm集群下发布基于LRNMP的WordPress应用发布</h3><p>​    本实例，默认你已经装好系统，装好Docker并创建好Swarm集群。</p>
+<p>​    集群约定，对于无状态应用如Nginx，WordPress我们使用NFS去实现Web站点的数据保存以及共享服务以保证所有容器（Nginx、WordPress）数据一致性问题，MySQL数据库我将指定单台主机去实现MySQL数据库功能，数据库目录将存放在所在宿主机上，那么存在一个问题，MySQL高可用如何去实现，这里可以基于MySQL的架构去实现数据库这块的高可用性本篇不讨论如何实现。</p>
+<p>应用目录结构：</p>
+<p>站点在NFS主目录位置：/nfs/lnmp</p>
+<p>站点目录：/nfs/lnmp/www</p>
+<p>Nginx配置文件目录：/nfs/lnmp/nginx</p>
+<p>WordPress配合文件目录：/nfs/lnmp/php</p>
+<p>Redis数据目录（Docker-Swarm-Redis主机下）：/redis/lnmp</p>
+<p>MySQL数据目录（Docker-Swarm-MySQL主机下）：/mysql/lnmp</p>
+<p>镜像相关文档：</p>
+<p>Redi：<a href="https://hub.docker.com/_/redis/" target="_blank" rel="noopener">https://hub.docker.com/_/redis/</a></p>
+<p>Nginx：<a href="https://hub.docker.com/_/nginx/" target="_blank" rel="noopener">https://hub.docker.com/_/nginx/</a></p>
+<p>WordPress：<a href="https://hub.docker.com/_/wordpress/" target="_blank" rel="noopener">https://hub.docker.com/_/wordpress/</a></p>
+<p>MySQL：<a href="https://hub.docker.com/_/mysql/" target="_blank" rel="noopener">https://hub.docker.com/_/mysql/</a></p>
+<p>集群节点清单：</p>
+<table>
+<thead>
+<tr>
+<th>主机名</th>
+<th align="center">节点作用</th>
+<th align="right">运行的容器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Docker-Swarm-MySQL</td>
+<td align="center">MySQL节点，只跑MySQL不跑其他的应用</td>
+<td align="right">MySQL</td>
+</tr>
+<tr>
+<td>Docker-Swarm-Redis</td>
+<td align="center">Redis节点，只跑Redis不跑其他的应用</td>
+<td align="right">Redis</td>
+</tr>
+<tr>
+<td>Docker-Swarm-NFS</td>
+<td align="center">NFS节点，只用于数据共享，不运行任何应用</td>
+<td align="right">N/A</td>
+</tr>
+<tr>
+<td>Docker-Swarm-Master01</td>
+<td align="center">Swarm集群管理节点</td>
+<td align="right">N/A</td>
+</tr>
+<tr>
+<td>Docker-Swarm-Node01</td>
+<td align="center">Swarm集群工作节点</td>
+<td align="right">Nginx、WordPress</td>
+</tr>
+<tr>
+<td>Docker-Swarm-Node02</td>
+<td align="center">Swarm集群工作节点</td>
+<td align="right">Nginx、WordPress</td>
+</tr>
+</tbody></table>
+<p>准备编排文件，内容如下（docker-compose.yaml）：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3.4'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">    nginx:</span></span><br><span class="line"><span class="attr">        image:</span> <span class="attr">nginx:1.13.6-alpine</span></span><br><span class="line"><span class="attr">        hostname:</span> <span class="string">nginx</span></span><br><span class="line"><span class="attr">        ports:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="number">3000</span><span class="string">:80/tcp</span></span><br><span class="line"><span class="attr">        networks:</span></span><br><span class="line"><span class="attr">            xbclub:</span></span><br><span class="line"><span class="attr">                aliases:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">nginx</span></span><br><span class="line"><span class="attr">        volumes:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/nfs/lnmp/nginx/nginx.conf:/etc/nginx/nginx.conf:ro</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/nfs/lnmp/www:/var/www/html:rw</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:ro</span></span><br><span class="line"><span class="attr">        deploy:</span></span><br><span class="line"><span class="attr">            mode:</span> <span class="string">replicated</span></span><br><span class="line"><span class="attr">            replicas:</span> <span class="number">3</span></span><br><span class="line"><span class="attr">            placement:</span></span><br><span class="line"><span class="attr">                constraints:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.role</span> <span class="string">==</span> <span class="string">worker</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.hostname</span> <span class="string">!=</span> <span class="string">Docker-Swarm-MySQL</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.hostname</span> <span class="string">!=</span> <span class="string">Docker-Swarm-Redis</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.hostname</span> <span class="string">!=</span> <span class="string">Docker-Swarm-NFS</span></span><br><span class="line"><span class="attr">    wordpress:</span></span><br><span class="line"><span class="attr">        image:</span> <span class="attr">wordpress:4.9.1-php7.1-fpm-alpine</span></span><br><span class="line"><span class="attr">        hostname:</span> <span class="string">php</span></span><br><span class="line"><span class="attr">        networks:</span></span><br><span class="line"><span class="attr">            xbclub:</span></span><br><span class="line"><span class="attr">                aliases:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">wordpress</span></span><br><span class="line"><span class="attr">        environment:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">WORDPRESS_DB_HOST=mysql</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">WORDPRESS_DB_USER=root</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">WORDPRESS_DB_PASSWORD=root</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">WORDPRESS_DB_NAME=xbclub</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">WORDPRESS_TABLE_PREFIX=wp_</span></span><br><span class="line"><span class="attr">        volumes:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/nfs/lnmp/www:/var/www/html:rw</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/nfs/lnmp/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:ro</span></span><br><span class="line"><span class="attr">        deploy:</span></span><br><span class="line"><span class="attr">            mode:</span> <span class="string">replicated</span></span><br><span class="line"><span class="attr">            replicas:</span> <span class="number">3</span></span><br><span class="line"><span class="attr">            placement:</span></span><br><span class="line"><span class="attr">                constraints:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.role</span> <span class="string">==</span> <span class="string">worker</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.hostname</span> <span class="string">!=</span> <span class="string">Docker-Swarm-MySQL</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.hostname</span> <span class="string">!=</span> <span class="string">Docker-Swarm-Redis</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.hostname</span> <span class="string">!=</span> <span class="string">Docker-Swarm-NFS</span></span><br><span class="line"><span class="attr">    mysql:</span></span><br><span class="line"><span class="attr">        image:</span> <span class="attr">mysql:5.7.20</span></span><br><span class="line"><span class="attr">        hostname:</span> <span class="string">mysql</span></span><br><span class="line"><span class="attr">        networks:</span></span><br><span class="line"><span class="attr">            xbclub:</span></span><br><span class="line"><span class="attr">                aliases:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">mysql</span></span><br><span class="line"><span class="attr">        environment:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">MYSQL_ROOT_PASSWORD=root</span></span><br><span class="line"><span class="attr">        volumes:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/mysql/lnmp:/var/lib/mysql</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:ro</span></span><br><span class="line"><span class="attr">        deploy:</span></span><br><span class="line"><span class="attr">            mode:</span> <span class="string">replicated</span></span><br><span class="line"><span class="attr">            replicas:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">            placement:</span></span><br><span class="line"><span class="attr">                constraints:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.hostname</span> <span class="string">==</span> <span class="string">Docker-Swarm-MySQL</span></span><br><span class="line"><span class="attr">        logging:</span></span><br><span class="line"><span class="attr">            driver:</span> <span class="string">json-file</span></span><br><span class="line"><span class="attr">            options:</span></span><br><span class="line"><span class="attr">                max-file:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">                max-size:</span> <span class="number">100</span><span class="string">m</span></span><br><span class="line"><span class="attr">    redis:</span></span><br><span class="line"><span class="attr">        image:</span> <span class="attr">redis:4.0.6</span></span><br><span class="line"><span class="attr">        hostname:</span> <span class="string">redis</span></span><br><span class="line"><span class="attr">        networks:</span></span><br><span class="line"><span class="attr">            xbclub:</span></span><br><span class="line"><span class="attr">                aliases:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">redis</span></span><br><span class="line"><span class="attr">        volumes:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/redis/lnmp:/data:rw</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:ro</span></span><br><span class="line"><span class="attr">        deploy:</span></span><br><span class="line"><span class="attr">            mode:</span> <span class="string">replicated</span></span><br><span class="line"><span class="attr">            replicas:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">            placement:</span></span><br><span class="line"><span class="attr">                constraints:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">node.hostname</span> <span class="string">==</span> <span class="string">Docker-Swarm-Redis</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line"><span class="attr">    xbclub:</span></span><br><span class="line"><span class="attr">        external:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>Nginx配置文件（nginx.conf）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line">user  nginx nginx;</span><br><span class="line">worker_processes auto;</span><br><span class="line">error_log  /var/log/nginx/error.log warn;</span><br><span class="line">pid        /var/run/nginx.pid;</span><br><span class="line">worker_rlimit_nofile 51200;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    use epoll;</span><br><span class="line">    worker_connections 51200;</span><br><span class="line">    multi_accept on;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    log_format  main  &apos;&#123;&quot;remote_addr&quot;:&quot;$remote_addr&quot;,&apos;</span><br><span class="line">                      &apos;&quot;http_x_forwarded_for&quot;:&quot;$http_x_forwarded_for&quot;,&apos;</span><br><span class="line">                      &apos;&quot;remote_user&quot;:&quot;$remote_user&quot;,&apos;</span><br><span class="line">                      &apos;&quot;time_local&quot;:&quot;$time_local&quot;,&apos;</span><br><span class="line">                      &apos;&quot;request&quot;:&quot;$request&quot;,&apos;</span><br><span class="line">                      &apos;&quot;status&quot;:&quot;$status&quot;,&apos;</span><br><span class="line">                      &apos;&quot;request_time&quot;:&quot;$request_time&quot;,&apos;</span><br><span class="line">                      &apos;&quot;body_bytes_sent&quot;:&quot;$body_bytes_sent&quot;,&apos;</span><br><span class="line">                      &apos;&quot;http_referer&quot;:&quot;$http_referer&quot;,&apos;</span><br><span class="line">                      &apos;&quot;http_user_agent&quot;:&quot;$http_user_agent&quot;&#125;&apos;;</span><br><span class="line"></span><br><span class="line">    server_names_hash_bucket_size 128;</span><br><span class="line">    client_header_buffer_size 32k;</span><br><span class="line">    large_client_header_buffers 4 32k;</span><br><span class="line">    client_max_body_size 50m;</span><br><span class="line"></span><br><span class="line">    sendfile   on;</span><br><span class="line">    tcp_nopush on;</span><br><span class="line"></span><br><span class="line">    keepalive_timeout 60;</span><br><span class="line"></span><br><span class="line">    tcp_nodelay on;</span><br><span class="line"></span><br><span class="line">    fastcgi_connect_timeout 300;</span><br><span class="line">    fastcgi_send_timeout 300;</span><br><span class="line">    fastcgi_read_timeout 300;</span><br><span class="line">    fastcgi_buffer_size 64k;</span><br><span class="line">    fastcgi_buffers 4 64k;</span><br><span class="line">    fastcgi_busy_buffers_size 128k;</span><br><span class="line">    fastcgi_temp_file_write_size 256k;</span><br><span class="line"></span><br><span class="line">    gzip on;</span><br><span class="line">    gzip_min_length  1k;</span><br><span class="line">    gzip_buffers     4 16k;</span><br><span class="line">    gzip_http_version 1.1;</span><br><span class="line">    gzip_comp_level 2;</span><br><span class="line">    gzip_types     text/plain application/javascript application/x-javascript text/javascript text/css application/xml application/xml+rss;</span><br><span class="line">    gzip_vary on;</span><br><span class="line">    gzip_proxied   expired no-cache no-store private auth;</span><br><span class="line">    gzip_disable   &quot;MSIE [1-6]\.&quot;;</span><br><span class="line"></span><br><span class="line">    server_tokens off;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        server_name _;</span><br><span class="line">        index index.html index.htm index.php;</span><br><span class="line">        location / &#123;</span><br><span class="line">            deny all;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    server&#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        server_name www.example.com ;</span><br><span class="line">        server_name _;</span><br><span class="line">        index index.html index.htm index.php default.html default.htm default.php;</span><br><span class="line">        root  /var/www/html;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            try_files $uri $uri/ /index.php?$args;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        # Add trailing slash to */wp-admin requests.</span><br><span class="line">        rewrite /wp-admin$ $scheme://$host$uri/ permanent;</span><br><span class="line"></span><br><span class="line">        # Deny access to PHP files in specific directory</span><br><span class="line">        #location ~ /(wp-content|uploads|wp-includes|images)/.*\.php$ &#123; deny all; &#125;</span><br><span class="line"></span><br><span class="line">        location ~ [^/]\.php(/|$) &#123;</span><br><span class="line">          try_files $uri =404;</span><br><span class="line">          fastcgi_pass  wordpress:9000;</span><br><span class="line">          fastcgi_index index.php;</span><br><span class="line">          include fastcgi.conf;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$ &#123;</span><br><span class="line">            expires      30d;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location ~ .*\.(js|css)?$ &#123;</span><br><span class="line">            expires      12h;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location ~ /.well-known &#123;</span><br><span class="line">            allow all;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location ~ /\. &#123;</span><br><span class="line">            deny all;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>WordPress配置文件（uploads.ini）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">file_uploads = On</span><br><span class="line">memory_limit = 64M</span><br><span class="line">upload_max_filesize = 64M</span><br><span class="line">post_max_size = 64M</span><br><span class="line">max_execution_time = 600</span><br></pre></td></tr></table></figure>
+
+<p>本实例项目地址：<a href="https://github.com/buxiaomo/docker-compose/tree/master/wordpress" target="_blank" rel="noopener">https://github.com/buxiaomo/docker-compose/tree/master/wordpress</a></p>
+<p>总结：</p>
+<p>本实例我们直接使用的是官方的镜像，没有做定制操作，原因如下：</p>
+<p>1、不要重复造轮子，官方有镜像尽量使用官方的镜像不要自己构建</p>
+<p>2、官方镜像有人维护，不需要自己维护，较少成本</p>
+<p>3、官方镜像基本可以满足大部分应用需求，所以基本不需要进行定制化，如果需要定制化可以直接使用FROM BASEIMAGE去做定制化，而不是从头再来。</p>
+<h3 id="NodeJS应用发布"><a href="#NodeJS应用发布" class="headerlink" title="NodeJS应用发布"></a>NodeJS应用发布</h3><p>​    针对自己写Dockerfile构将APP镜像，首先需要有一点，你的APP必须可以前台运行！！！</p>
+<p>​    由于官方有镜像，我们就直接引用即可，不需要自己去构建NodeJS的镜像，这里我一一个NodeJS的WebUI去实现镜像封装以及运行。对于NodeJS应用，大概分为两部分，下载依赖包，运行分为，这里可以更具实际情况决定Dockerfile如何编写，理论上依赖包只需要下载一次就行了，不需要每次运行分为都去下载镜像包，那么针对这种情况可以在构建的时候把依赖包一起打包到镜像中，当然，将依赖包打包到镜像中构建出来的镜像会有点大，但是好处就是启动服务的时候不需要下载依赖包，启动时间会很快，适合离线环境；一种是在启动的时候去下载依赖包，这样的话镜像会小一点，但是启动时会去下载依赖包，启动时间会比较长，具体方式可以自己选。下面简要说一下步骤：</p>
+<p>编写Dockerfile内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">FROM node:9.3.0</span><br><span class="line"></span><br><span class="line">ADD app /app/</span><br><span class="line"></span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line">RUN npm i</span><br><span class="line"></span><br><span class="line">EXPOST 7001</span><br><span class="line"></span><br><span class="line">CMD [&quot;npm&quot;,&quot;run&quot;,&quot;dev&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>进入Dockerfile所在目录执行<code>docker build -t=nodejs .</code>构建镜像</p>
+<p>待补充</p>
+<h3 id="Flask应用发布"><a href="#Flask应用发布" class="headerlink" title="Flask应用发布"></a>Flask应用发布</h3><p>项目代码：<a href="https://github.com/buxiaomo/dockerfile/tree/master/ssserverweb" target="_blank" rel="noopener">https://github.com/buxiaomo/dockerfile/tree/master/ssserverweb</a></p>
+<p>​    应用简介：应用通过Docker Engine API对基于Docker Swarm提供的SS服务管理用户添加删除和添加节点的小demo项目，本应用通过Swarm实现。Docker化应用类似于NodeJS。通过阿里云的域名API配置主机IP与域名的关系，本篇只针对应用如何使用Docker部署，代码实现不在本篇讨论范围这里不详细说明。</p>
+<p>申明：代码可能存在逻辑问题，不要纠结这个，本篇只讨论如何容器化应用。</p>
+<p>可以直接看GitHub的代码查看详情。准备Dockerfile，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">FROM python:2.7.14</span><br><span class="line"></span><br><span class="line">ADD . /app</span><br><span class="line"></span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line">RUN pip install -r requirements.txt</span><br><span class="line"></span><br><span class="line">ENV ALIYUN_ID NULL</span><br><span class="line">ENV ALIYUN_Secret NULL</span><br><span class="line">ENV ALIYUN_RegionId cn-hangzhou</span><br><span class="line"></span><br><span class="line">ENV Domain NULL</span><br><span class="line">ENV ManagerIP NULL</span><br><span class="line"></span><br><span class="line">EXPOSE 8000</span><br><span class="line"></span><br><span class="line">CMD [&quot;python&quot;,&quot;ssserver.py&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>进入Dockerfile所在目录执行<code>docker build -t=ssserverweb .</code>构建镜像</p>
+<p>启动容器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name ssserverweb</span><br><span class="line">-p 8080:8000 \</span><br><span class="line">-v /var/run/docker.sock:/var/run/docker.sock:ro \</span><br><span class="line">-e ALIYUN_ID=*** \</span><br><span class="line">-e ManagerIP=*** \</span><br><span class="line">-e ALIYUN_Secret=**** \</span><br><span class="line">-e DomainName=www.example.com \</span><br><span class="line">ssserverweb:latest</span><br></pre></td></tr></table></figure>
+
+<p>查看服务，访问链接：<a href="http://IP:8080" target="_blank" rel="noopener">http://IP:8080</a> 即可访问到访问页面</p>
+<h3 id="基于Tomcat封装Jenkins镜像"><a href="#基于Tomcat封装Jenkins镜像" class="headerlink" title="基于Tomcat封装Jenkins镜像"></a>基于Tomcat封装Jenkins镜像</h3><p>待补充</p>
+<h2 id="搭建私有仓库"><a href="#搭建私有仓库" class="headerlink" title="搭建私有仓库"></a>搭建私有仓库</h2><h3 id="无SSL私有仓库搭建"><a href="#无SSL私有仓库搭建" class="headerlink" title="无SSL私有仓库搭建"></a>无SSL私有仓库搭建</h3><p>准备docker-compose.yml文件，内容如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">    registry:</span></span><br><span class="line"><span class="attr">        image:</span> <span class="attr">registry:2.6.1</span></span><br><span class="line"><span class="attr">        hostname:</span> <span class="string">registry</span></span><br><span class="line"><span class="attr">        ports:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="number">80</span><span class="string">:5000/tcp</span></span><br><span class="line"><span class="attr">        networks:</span></span><br><span class="line"><span class="attr">            registry:</span></span><br><span class="line"><span class="attr">                aliases:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">registry</span></span><br><span class="line"><span class="attr">        volumes:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/var/lib/registry:/var/lib/registry:rw</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line"><span class="attr">    registry:</span></span><br><span class="line"><span class="attr">        external:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>启动registry容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@registry:~# docker-compose -p my up -d</span><br></pre></td></tr></table></figure>
+
+<p>查看运行的私有仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@registry:~# docker ps</span><br><span class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                          NAMES</span><br><span class="line">e1b3c0551d05        registry:2.6.1      "/entrypoint.sh /e..."   4 seconds ago       Up 3 seconds        0.0.0.0:80-&gt;5000/tcp                           my_registry_1</span><br></pre></td></tr></table></figure>
+
+<p>测试私有仓库，假设我的私有仓库的IP地址为：192.168.0.10</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@registry:~# curl http://192.168.0.10/v2/_catalog</span><br><span class="line">&#123;&quot;repositories&quot;:[]&#125;</span><br></pre></td></tr></table></figure>
+
+<p>PUSH镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@registry:~# docker tag nginx:latest 192.168.0.10/my/nginx:latest</span><br><span class="line">root@registry:~# docker push 192.168.0.10/my/nginx:latest</span><br><span class="line">The push refers to a repository [192.168.0.10/my/nginx]</span><br><span class="line">Get https://192.168.0.10/v2/: http: server gave HTTP response to HTTPS client</span><br></pre></td></tr></table></figure>
+
+<p>上面的问题是因为你没事使用HTTPS，编辑docker配置文件即可，注意文件格式是JSON</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	# ------------增加的部分--------------</span><br><span class="line">    "insecure-registries" : [</span><br><span class="line">        <span class="string">"192.168.0.10"</span></span><br><span class="line">    ],</span><br><span class="line">	# ----------------------------------</span><br><span class="line">    "storage-driver": "overlay2",</span><br><span class="line">    "registry-mirrors" : [</span><br><span class="line">        <span class="string">"https://i3jtbyvy.mirror.aliyuncs.com"</span></span><br><span class="line">    ],</span><br><span class="line">    "debug" : true,</span><br><span class="line">    "experimental" : true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再次PUSH镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@registry:~# docker push 192.168.0.10/my/nginx:latest</span><br><span class="line">The push refers to a repository [192.168.0.10/my/nginx]</span><br><span class="line">352a1fdf8adb: Pushed</span><br><span class="line">8dfa3865d14e: Pushed</span><br><span class="line">8a22ff826675: Pushing [==&gt;                                                ]  4.309MB/103.6MB</span><br><span class="line">676c685b0f6f: Pushed</span><br><span class="line">e27a10675c56: Pushing [=&gt;                                                 ]  2.696MB/100.1MB</span><br></pre></td></tr></table></figure>
+
+<h3 id="有SSL私有仓库搭建"><a href="#有SSL私有仓库搭建" class="headerlink" title="有SSL私有仓库搭建"></a>有SSL私有仓库搭建</h3><p>准备证书</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /home/registry</span><br><span class="line">cd /home/registry</span><br><span class="line">HOSTNAME=hub.xmitd.com</span><br><span class="line">openssl req -newkey rsa:4096 -nodes -sha256 -keyout $&#123;HOSTNAME&#125;.key -x509 -days 365 -out $&#123;HOSTNAME&#125;.crt</span><br></pre></td></tr></table></figure>
+
+<p>准备docker-compose.yml文件</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">    registry:</span></span><br><span class="line"><span class="attr">        image:</span> <span class="attr">registry:2.6.1</span></span><br><span class="line"><span class="attr">        hostname:</span> <span class="string">registry</span></span><br><span class="line"><span class="attr">        ports:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="number">443</span><span class="string">:5000/tcp</span></span><br><span class="line"><span class="attr">        networks:</span></span><br><span class="line"><span class="attr">            registry:</span></span><br><span class="line"><span class="attr">                aliases:</span></span><br><span class="line"><span class="bullet">                    -</span> <span class="string">registry</span></span><br><span class="line"><span class="attr">        volumes:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/var/lib/registry:/var/lib/registry:rw</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/home/registry:/certs</span></span><br><span class="line"><span class="attr">        environment:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">REGISTRY_HTTP_TLS_KEY=/certs/hub.xmitd.com.key</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">REGISTRY_HTTP_TLS_CERTIFICATE=/certs/hub.xmitd.com.crt</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line"><span class="attr">    registry:</span></span><br><span class="line"><span class="attr">        external:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>启动registry容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@registry:~# docker-compose -p my up -d</span><br></pre></td></tr></table></figure>
+
+<p>查看运行的私有仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@registry:~# docker ps</span><br><span class="line">CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                                          NAMES</span><br><span class="line">a58bb9aa30c0        registry:2.6.1            "/entrypoint.sh /e..."   2 seconds ago       Up 2 seconds        0.0.0.0:443-&gt;5000/tcp                          my_registry_1</span><br></pre></td></tr></table></figure>
+
+<p>测试私有仓库，假设我的私有仓库的IP地址为：192.168.0.10</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@registry:~# curl -k https://192.168.0.10/v2/_catalog</span><br><span class="line">&#123;"repositories":[]&#125;</span><br></pre></td></tr></table></figure>
+
+<p>客户端配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /etc/docker/certs.d/hub.xmitd.com</span><br><span class="line">cp /home/registry/hub.xmitd.com.crt /etc/docker/certs.d/hub.xmitd.com/</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<p>未完待补充</p>
+<h2 id="每次代码写好了都要自己构建觉得麻烦怎么办？"><a href="#每次代码写好了都要自己构建觉得麻烦怎么办？" class="headerlink" title="每次代码写好了都要自己构建觉得麻烦怎么办？"></a>每次代码写好了都要自己构建觉得麻烦怎么办？</h2><p>1、可以结合GitHub与Dockerhub做到持续构建。</p>
+<p>2、使用GitHub代码托管与daocloud的公有云服务，构建速度不错，比Dockerhub快，不用等太久。</p>
+<p>3、Jenkins + github/Gitlab（自己动手丰衣足食）</p>
+<p>摘自陌陌<br>在线版：<a href="https://github.com/buxiaomo/MarkdownBooks" target="_blank" rel="noopener">https://github.com/buxiaomo/MarkdownBooks</a></p>
+
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            <hr>
+            <div class='new-meta-box'>
+              
+                <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-09-03T11:15:13+08:00">
+                  <a class='notlink'>
+                    <i class="fas fa-save" aria-hidden="true"></i>
+                    2019-09-03
+                  </a>
+                </div>
+              
+              
+                
+                <div class="new-meta-item meta-tags"><a class="tag" href="/tags/docker/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;docker</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/compose/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;compose</a></div>
+              
+              
+            </div>
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2017/09/08/Linux安装Redis/" rel="prev" title="Linux 常用命令">
+                                  
+                                      Linux 常用命令
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/linux/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>linux</a> <a class="tag" href="/tags/redis/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>redis</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2017/08/10/数据容器、数据卷、命名卷、匿名卷、挂载目录这些都有什么区别？/" rel="prev" title="数据容器、数据卷、命名卷、匿名卷、挂载目录这些都有什么区别？">
+                                    
+                                        数据容器、数据卷、命名卷、匿名卷、挂载目录这些都有什么区别？
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/docker/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>docker</a> <a class="tag" href="/tags/数据容器/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>数据容器</a> <a class="tag" href="/tags/数据卷/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>数据卷</a> <a class="tag" href="/tags/命名卷/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>命名卷</a> <a class="tag" href="/tags/匿名卷/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>匿名卷</a> <a class="tag" href="/tags/挂载目录/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>挂载目录</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+
+
+<script>
+    window.subData = {
+        title: 'Docker入门级简易手册',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='/images/logo.jpg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">柳暗花明又一村</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:1255791430@qq.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/tfssweb" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=63035382" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-music" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章目录</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker入门级简易手册"><span class="toc-text">Docker入门级简易手册</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker入门级简易手册-1"><span class="toc-text">Docker入门级简易手册</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CentOS7与Ubuntu下安装Docker"><span class="toc-text">CentOS7与Ubuntu下安装Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS7"><span class="toc-text">CentOS7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu"><span class="toc-text">Ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置加速器"><span class="toc-text">配置加速器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见Dockerfile命令讲解"><span class="toc-text">常见Dockerfile命令讲解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#FROM"><span class="toc-text">FROM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAINTAINER"><span class="toc-text">MAINTAINER</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RUN"><span class="toc-text">RUN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMD"><span class="toc-text">CMD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EXPOSE"><span class="toc-text">EXPOSE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ENV"><span class="toc-text">ENV</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ADD"><span class="toc-text">ADD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#COPY"><span class="toc-text">COPY</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ENTRYPOINT"><span class="toc-text">ENTRYPOINT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VOLUME"><span class="toc-text">VOLUME</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#USER"><span class="toc-text">USER</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WORKDIR"><span class="toc-text">WORKDIR</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#docker-compose安装与常见命令讲解"><span class="toc-text">docker-compose安装与常见命令讲解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-compose安装"><span class="toc-text">docker-compose安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方法一"><span class="toc-text">方法一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法二"><span class="toc-text">方法二</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常见命令讲解"><span class="toc-text">常见命令讲解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#单机docker-compose模版"><span class="toc-text">单机docker-compose模版</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#集群docker-compose模版"><span class="toc-text">集群docker-compose模版</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#根据项目如何使用Docker部署应用"><span class="toc-text">根据项目如何使用Docker部署应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Swarm集群下发布基于LRNMP的WordPress应用发布"><span class="toc-text">Swarm集群下发布基于LRNMP的WordPress应用发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NodeJS应用发布"><span class="toc-text">NodeJS应用发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Flask应用发布"><span class="toc-text">Flask应用发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于Tomcat封装Jenkins镜像"><span class="toc-text">基于Tomcat封装Jenkins镜像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建私有仓库"><span class="toc-text">搭建私有仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#无SSL私有仓库搭建"><span class="toc-text">无SSL私有仓库搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有SSL私有仓库搭建"><span class="toc-text">有SSL私有仓库搭建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#每次代码写好了都要自己构建觉得麻烦怎么办？"><span class="toc-text">每次代码写好了都要自己构建觉得麻烦怎么办？</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        <section class='plain'>
+  
+<header class='pure'>
+  <div><i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;注意啦～</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="http://192.144.130.131/"
+    title="http://192.144.130.131/">
+    <i class="fas fa-question-circle fa-fw"></i></a>
+  
+</header>
+
+  <div class='content pure'>
+    <p>微信关注公众号《颓废书生》，精选毕业设计、技术文章哦～ <br/>QQ：1255791430</p>
+
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='category'>
+    
+<header class='pure'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;所有分类</div>
+  
+</header>
+
+    <div class='content pure'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/docker/" href="/categories/docker/"><div class='name'>docker</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/java/" href="/categories/java/"><div class='name'>java</div><div class='badge'>(27)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/linux/" href="/categories/linux/"><div class='name'>linux</div><div class='badge'>(8)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/maven/" href="/categories/maven/"><div class='name'>maven</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/mysql/" href="/categories/mysql/"><div class='name'>mysql</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/python/" href="/categories/python/"><div class='name'>python</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/vpn/" href="/categories/vpn/"><div class='name'>vpn</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/分类/" href="/categories/分类/"><div class='name'>分类</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/小技巧/" href="/categories/小技巧/"><div class='name'>小技巧</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/数据库/" href="/categories/数据库/"><div class='name'>数据库</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/算法/" href="/categories/算法/"><div class='name'>算法</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/网站/" href="/categories/网站/"><div class='name'>网站</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/Cron/" style="font-size: 14px; color: #999">Cron</a> <a href="/tags/SQL-Server/" style="font-size: 14px; color: #999">SQL Server</a> <a href="/tags/aof/" style="font-size: 14px; color: #999">aof</a> <a href="/tags/cdn/" style="font-size: 14px; color: #999">cdn</a> <a href="/tags/centos/" style="font-size: 14px; color: #999">centos</a> <a href="/tags/compose/" style="font-size: 16.5px; color: #888">compose</a> <a href="/tags/create/" style="font-size: 14px; color: #999">create</a> <a href="/tags/db2/" style="font-size: 16.5px; color: #888">db2</a> <a href="/tags/docker/" style="font-size: 24px; color: #555">docker</a> <a href="/tags/docker-machine/" style="font-size: 15.25px; color: #919191">docker-machine</a> <a href="/tags/dwr/" style="font-size: 14px; color: #999">dwr</a> <a href="/tags/elasticsearch/" style="font-size: 14px; color: #999">elasticsearch</a> <a href="/tags/elk/" style="font-size: 14px; color: #999">elk</a> <a href="/tags/excel/" style="font-size: 14px; color: #999">excel</a> <a href="/tags/expose/" style="font-size: 14px; color: #999">expose</a> <a href="/tags/git/" style="font-size: 14px; color: #999">git</a> <a href="/tags/harbor/" style="font-size: 14px; color: #999">harbor</a> <a href="/tags/headers/" style="font-size: 14px; color: #999">headers</a> <a href="/tags/hibernate/" style="font-size: 14px; color: #999">hibernate</a> <a href="/tags/hosts/" style="font-size: 14px; color: #999">hosts</a> <a href="/tags/hutool/" style="font-size: 14px; color: #999">hutool</a> <a href="/tags/image/" style="font-size: 14px; color: #999">image</a> <a href="/tags/ip/" style="font-size: 14px; color: #999">ip</a> <a href="/tags/java/" style="font-size: 22.75px; color: #5e5e5e">java</a> <a href="/tags/java8/" style="font-size: 14px; color: #999">java8</a> <a href="/tags/javascript/" style="font-size: 14px; color: #999">javascript</a> <a href="/tags/jdbc/" style="font-size: 14px; color: #999">jdbc</a> <a href="/tags/js/" style="font-size: 14px; color: #999">js</a> <a href="/tags/kibana/" style="font-size: 14px; color: #999">kibana</a> <a href="/tags/link/" style="font-size: 14px; color: #999">link</a> <a href="/tags/linux/" style="font-size: 21.5px; color: #666">linux</a> <a href="/tags/login/" style="font-size: 14px; color: #999">login</a> <a href="/tags/logstash/" style="font-size: 14px; color: #999">logstash</a> <a href="/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/tags/maven/" style="font-size: 17.75px; color: #808080">maven</a> <a href="/tags/mybatis/" style="font-size: 15.25px; color: #919191">mybatis</a> <a href="/tags/mysql/" style="font-size: 20.25px; color: #6f6f6f">mysql</a> <a href="/tags/nginx/" style="font-size: 14px; color: #999">nginx</a> <a href="/tags/oracle/" style="font-size: 15.25px; color: #919191">oracle</a> <a href="/tags/pull/" style="font-size: 14px; color: #999">pull</a> <a href="/tags/python/" style="font-size: 17.75px; color: #808080">python</a> <a href="/tags/rdb/" style="font-size: 14px; color: #999">rdb</a> <a href="/tags/redis/" style="font-size: 15.25px; color: #919191">redis</a> <a href="/tags/root/" style="font-size: 14px; color: #999">root</a> <a href="/tags/service/" style="font-size: 14px; color: #999">service</a> <a href="/tags/session/" style="font-size: 14px; color: #999">session</a> <a href="/tags/sheet/" style="font-size: 14px; color: #999">sheet</a> <a href="/tags/site/" style="font-size: 14px; color: #999">site</a> <a href="/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/tags/springboot/" style="font-size: 16.5px; color: #888">springboot</a> <a href="/tags/springmvc/" style="font-size: 14px; color: #999">springmvc</a> <a href="/tags/ssh/" style="font-size: 15.25px; color: #919191">ssh</a> <a href="/tags/stream/" style="font-size: 14px; color: #999">stream</a> <a href="/tags/struts2/" style="font-size: 14px; color: #999">struts2</a> <a href="/tags/swagger/" style="font-size: 15.25px; color: #919191">swagger</a> <a href="/tags/swarm/" style="font-size: 14px; color: #999">swarm</a> <a href="/tags/tag1/" style="font-size: 14px; color: #999">tag1</a> <a href="/tags/tag2/" style="font-size: 14px; color: #999">tag2</a> <a href="/tags/toolbox/" style="font-size: 14px; color: #999">toolbox</a> <a href="/tags/ubuntu/" style="font-size: 15.25px; color: #919191">ubuntu</a> <a href="/tags/utils/" style="font-size: 14px; color: #999">utils</a> <a href="/tags/vpn/" style="font-size: 14px; color: #999">vpn</a> <a href="/tags/vue/" style="font-size: 15.25px; color: #919191">vue</a> <a href="/tags/web/" style="font-size: 15.25px; color: #919191">web</a> <a href="/tags/windows/" style="font-size: 14px; color: #999">windows</a> <a href="/tags/zookeeper/" style="font-size: 14px; color: #999">zookeeper</a> <a href="/tags/内存/" style="font-size: 14px; color: #999">内存</a> <a href="/tags/初始化/" style="font-size: 14px; color: #999">初始化</a> <a href="/tags/加密，jasypt/" style="font-size: 14px; color: #999">加密，jasypt</a> <a href="/tags/加速/" style="font-size: 14px; color: #999">加速</a> <a href="/tags/动态/" style="font-size: 14px; color: #999">动态</a> <a href="/tags/匿名卷/" style="font-size: 14px; color: #999">匿名卷</a> <a href="/tags/卷/" style="font-size: 15.25px; color: #919191">卷</a> <a href="/tags/命名卷/" style="font-size: 14px; color: #999">命名卷</a> <a href="/tags/坐标/" style="font-size: 14px; color: #999">坐标</a> <a href="/tags/容器/" style="font-size: 14px; color: #999">容器</a> <a href="/tags/宿主机/" style="font-size: 14px; color: #999">宿主机</a> <a href="/tags/小技巧/" style="font-size: 14px; color: #999">小技巧</a> <a href="/tags/批量/" style="font-size: 15.25px; color: #919191">批量</a> <a href="/tags/挂载目录/" style="font-size: 14px; color: #999">挂载目录</a> <a href="/tags/数据卷/" style="font-size: 14px; color: #999">数据卷</a> <a href="/tags/数据容器/" style="font-size: 14px; color: #999">数据容器</a> <a href="/tags/数据库/" style="font-size: 19px; color: #777">数据库</a> <a href="/tags/权限/" style="font-size: 14px; color: #999">权限</a> <a href="/tags/爬虫/" style="font-size: 15.25px; color: #919191">爬虫</a> <a href="/tags/私服/" style="font-size: 14px; color: #999">私服</a> <a href="/tags/科学上网/" style="font-size: 14px; color: #999">科学上网</a> <a href="/tags/索引/" style="font-size: 14px; color: #999">索引</a> <a href="/tags/线程池/" style="font-size: 14px; color: #999">线程池</a> <a href="/tags/经纬度/" style="font-size: 14px; color: #999">经纬度</a> <a href="/tags/网站/" style="font-size: 14px; color: #999">网站</a> <a href="/tags/虚拟机/" style="font-size: 14px; color: #999">虚拟机</a> <a href="/tags/迁移/" style="font-size: 14px; color: #999">迁移</a> <a href="/tags/镜像/" style="font-size: 14px; color: #999">镜像</a> <a href="/tags/集群/" style="font-size: 14px; color: #999">集群</a>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        <section class='list'>
+  
+<header class='pure'>
+  <div><i class="fas fa-medal fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;精选项目</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="http://192.144.130.131/"
+    title="http://192.144.130.131/">
+    <i class="fas fa-arrow-right fa-fw"></i></a>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="https://github.com/tfssweb/tale/" href="https://github.com/tfssweb/tale/">
+          <div class='name'>
+            
+              <i class="fas fa-cube fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Tale
+          </div>
+          
+            <div class='badge'>(Tale卡片式博客)</div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://github.com/tfssweb/Dockerfile/" href="https://github.com/tfssweb/Dockerfile/">
+          <div class='name'>
+            
+              <i class="fas fa-cube fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Dockerfile
+          </div>
+          
+            <div class='badge'>(Dockerfile)</div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://github.com/tfssweb/pythons/" href="https://github.com/tfssweb/pythons/">
+          <div class='name'>
+            
+              <i class="fas fa-heartbeat fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Python
+          </div>
+          
+            <div class='badge'>(Python)</div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+
+      
+    
+  
+    
+      
+      
+        
+
+
+  <section class='music'>
+    
+<header class='pure'>
+  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="https://music.163.com/#/user/home?id=63035382"
+    title="https://music.163.com/#/user/home?id=63035382">
+    <i class="far fa-heart fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer"
+    data-theme="#1BCDFC"
+    
+    
+    data-mode="circulation"
+    data-server="netease"
+    data-type="playlist"
+    data-id="2615636388"
+    data-volume="0.7">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+    <div class="footer">
+      <p><strong>凡人皆有一死，凡人皆需侍奉。</strong></p>
+
+    </div>
+    <br>
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:1255791430@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/tfssweb" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=63035382" class="social fas fa-music flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div> 总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>为什么执行 docker 命令会报 permission denied 没权限的错误啊？ | 颓废书生</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          颓废书生
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="home"
+								 class="nav flat-box" href="/">
+									<i class='fas fa-home fa-fw'></i>&nbsp;主页
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="home"
+								 class="nav flat-box" href="/">
+									<i class='fas fa-rss fa-fw'></i>&nbsp;博客
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="tags"
+								 class="nav flat-box" href="/tags/">
+									<i class='fas fa-tags fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="friends"
+								 class="nav flat-box" href="/friends/">
+									<i class='fas fa-users fa-fw'></i>&nbsp;朋友
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="home" class="nav flat-box" href="/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="home" class="nav flat-box" href="/">
+											<i class='fas fa-rss fa-fw'></i>&nbsp;博客
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="tags" class="nav flat-box" href="/tags/">
+											<i class='fas fa-tags fa-fw'></i>&nbsp;标签
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="friends" class="nav flat-box" href="/friends/">
+											<i class='fas fa-users fa-fw'></i>&nbsp;朋友
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">为什么执行 docker 命令会报 permission denied 没权限的错误啊？</h1>
+      
+    
+
+    <div class='new-meta-box'>
+      
+        <div class='new-meta-item author'>
+          <a href="https://tfssweb.github.io">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            Tfss
+          </a>
+        </div>
+      
+      
+        <div class="new-meta-item date">
+          <a class='notlink'>
+            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+            2017-07-12
+          </a>
+        </div>
+      
+      
+        
+          
+          <div class='new-meta-item category'>
+            <a href='/categories/docker/'>
+              <i class="fas fa-folder-open" aria-hidden="true"></i>
+              docker
+            </a>
+          </div>
+        
+      
+      
+        
+          <div class="new-meta-item browse busuanzi">
+            <a class='notlink'>
+              <i class="fas fa-eye" aria-hidden="true"></i>
+              <span id="busuanzi_value_page_pv">
+                <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        
+      
+      
+    </div>
+    <hr>
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p>在 Linux 环境下，一些新装了 docker 的用户，特别是使用了 sudo 命令安装好了 Docker 后，发现当前用户一执行 docker 命令，就会报没权限的错误：</p>
+<a id="more"></a>
+
+<p>dial unix /var/run/docker.sock: permission denied<br>一些来自于 Windows 世界的人，就会蹦出来说，用 root 呀……😓。而另一些有基本常识、知道不应该使用 root 人可能会说，那就用 sudo docker 吧。这两者都是不对的，或者说不合适的。</p>
+<p>说使用 root 的人，应该回去好好学习一下 Linux 权限常识。一般 不应该直接使用 root 用户，直接使用 root 用户不仅仅是严重的违反了安全规范，而且也极容易造成操作事故。这不是 Windows 世界，Linux/Unix 世界是有严格的权限要求的，只应该使用最小的权限做事情。如果还不熟悉 Linux 权限机制，那就去学习一下，不要把 Windows 的坏毛病带过来。</p>
+<p>说使用 sudo docker 的人，思路是对的，因为理解了平时操作应该使用普通用户，只有在需要的时候，才 sudo 提升权限进行操作。但是问题就在这个需要二字上，事实上，不需要 root 权限就可以执行 docker 命令。</p>
+<p>其实如果看过官方安装文档的话都会知道，只需要将操作 docker 的用户，加入 docker 组，那么该用户既拥有了操作 docker 的权限。</p>
+<p>因此，只需要执行：</p>
+<p>sudo usermod -aG docker $USER<br>就可以把当前用户加入 docker 组，退出、重新登录系统后，执行 docker info 看一下，就会发现可以不用 sudo 直接执行 docker 命令了。</p>
+<p>如果需要添加别的用户，将其中的 $USER 换成对应的用户名即可。</p>
+<p>将用户添加到 docker 组，可以避免 root 权限误操作的问题，但是由于 dockerd 引擎是运行在 root 用户下的，而 docker 组成员有权限指挥 dockerd 引擎来做很多事情，因此，该用户实际上是拥有了 root 的权限的。因此不要误解了将当前用户加入 docker 组的初衷，这和赋予用户 sudo 权力是一样的，可不是说这个用户就没有 root 权限了。这样做，只是不再需要使用 sudo 了，也降低了使用 sudo 时误操作的可能。</p>
+<p>此外，这里说的权限问题，全是指使用 docker 命令操作本机 dockerd 引擎，也就是通过 /var/run/docker.sock 来操作 dockerd 引擎的事情，只有这种有之前说的权限类的问题。</p>
+<p>而 docker 命令还可以操作远程 dockerd 的引擎，也就是 -H 参数，或者 DOCKER_HOST 环境变量所指定的 Docker 主机。这种情况通讯走的是网络、HTTP，不会有权限问题。所以，如果不打算操作本机的 dockerd 引擎，则不需要将用户加入 docker 组，也是可以操作远程服务器的。</p>
+<p>服务器上线后，怎么发</p>
+
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            <hr>
+            <div class='new-meta-box'>
+              
+                <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-09-03T11:15:14+08:00">
+                  <a class='notlink'>
+                    <i class="fas fa-save" aria-hidden="true"></i>
+                    2019-09-03
+                  </a>
+                </div>
+              
+              
+                
+                <div class="new-meta-item meta-tags"><a class="tag" href="/tags/docker/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;docker</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/权限/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;权限</a></div>
+              
+              
+            </div>
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2017/07/17/如果 Docker 升级或者重启的话，那容器是不是都会被停掉然后重启啊？/" rel="prev" title="如果 Docker 升级或者重启的话，那容器是不是都会被停掉然后重启啊？">
+                                  
+                                      如果 Docker 升级或者重启的话，那容器是不是都会被停掉然后重启啊？
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/docker/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>docker</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2017/07/10/怎么修改了 docker 服务配置后不起作用？/" rel="prev" title="怎么修改了 docker 服务配置后不起作用？">
+                                    
+                                        怎么修改了 docker 服务配置后不起作用？
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/docker/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>docker</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+
+
+<script>
+    window.subData = {
+        title: '为什么执行 docker 命令会报 permission denied 没权限的错误啊？',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='/images/logo.jpg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">柳暗花明又一村</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:1255791430@qq.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/tfssweb" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=63035382" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-music" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+
+      
+    
+  
+    
+      
+      
+        <section class='plain'>
+  
+<header class='pure'>
+  <div><i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;注意啦～</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="http://192.144.130.131/"
+    title="http://192.144.130.131/">
+    <i class="fas fa-question-circle fa-fw"></i></a>
+  
+</header>
+
+  <div class='content pure'>
+    <p>微信关注公众号《颓废书生》，精选毕业设计、技术文章哦～ <br/>QQ：1255791430</p>
+
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='category'>
+    
+<header class='pure'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;所有分类</div>
+  
+</header>
+
+    <div class='content pure'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/docker/" href="/categories/docker/"><div class='name'>docker</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/java/" href="/categories/java/"><div class='name'>java</div><div class='badge'>(27)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/linux/" href="/categories/linux/"><div class='name'>linux</div><div class='badge'>(8)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/maven/" href="/categories/maven/"><div class='name'>maven</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/mysql/" href="/categories/mysql/"><div class='name'>mysql</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/python/" href="/categories/python/"><div class='name'>python</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/vpn/" href="/categories/vpn/"><div class='name'>vpn</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/分类/" href="/categories/分类/"><div class='name'>分类</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/小技巧/" href="/categories/小技巧/"><div class='name'>小技巧</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/数据库/" href="/categories/数据库/"><div class='name'>数据库</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/算法/" href="/categories/算法/"><div class='name'>算法</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/网站/" href="/categories/网站/"><div class='name'>网站</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/Cron/" style="font-size: 14px; color: #999">Cron</a> <a href="/tags/SQL-Server/" style="font-size: 14px; color: #999">SQL Server</a> <a href="/tags/aof/" style="font-size: 14px; color: #999">aof</a> <a href="/tags/cdn/" style="font-size: 14px; color: #999">cdn</a> <a href="/tags/centos/" style="font-size: 14px; color: #999">centos</a> <a href="/tags/compose/" style="font-size: 16.5px; color: #888">compose</a> <a href="/tags/create/" style="font-size: 14px; color: #999">create</a> <a href="/tags/db2/" style="font-size: 16.5px; color: #888">db2</a> <a href="/tags/docker/" style="font-size: 24px; color: #555">docker</a> <a href="/tags/docker-machine/" style="font-size: 15.25px; color: #919191">docker-machine</a> <a href="/tags/dwr/" style="font-size: 14px; color: #999">dwr</a> <a href="/tags/elasticsearch/" style="font-size: 14px; color: #999">elasticsearch</a> <a href="/tags/elk/" style="font-size: 14px; color: #999">elk</a> <a href="/tags/excel/" style="font-size: 14px; color: #999">excel</a> <a href="/tags/expose/" style="font-size: 14px; color: #999">expose</a> <a href="/tags/git/" style="font-size: 14px; color: #999">git</a> <a href="/tags/harbor/" style="font-size: 14px; color: #999">harbor</a> <a href="/tags/headers/" style="font-size: 14px; color: #999">headers</a> <a href="/tags/hibernate/" style="font-size: 14px; color: #999">hibernate</a> <a href="/tags/hosts/" style="font-size: 14px; color: #999">hosts</a> <a href="/tags/hutool/" style="font-size: 14px; color: #999">hutool</a> <a href="/tags/image/" style="font-size: 14px; color: #999">image</a> <a href="/tags/ip/" style="font-size: 14px; color: #999">ip</a> <a href="/tags/java/" style="font-size: 22.75px; color: #5e5e5e">java</a> <a href="/tags/java8/" style="font-size: 14px; color: #999">java8</a> <a href="/tags/javascript/" style="font-size: 14px; color: #999">javascript</a> <a href="/tags/jdbc/" style="font-size: 14px; color: #999">jdbc</a> <a href="/tags/js/" style="font-size: 14px; color: #999">js</a> <a href="/tags/kibana/" style="font-size: 14px; color: #999">kibana</a> <a href="/tags/link/" style="font-size: 14px; color: #999">link</a> <a href="/tags/linux/" style="font-size: 21.5px; color: #666">linux</a> <a href="/tags/login/" style="font-size: 14px; color: #999">login</a> <a href="/tags/logstash/" style="font-size: 14px; color: #999">logstash</a> <a href="/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/tags/maven/" style="font-size: 17.75px; color: #808080">maven</a> <a href="/tags/mybatis/" style="font-size: 15.25px; color: #919191">mybatis</a> <a href="/tags/mysql/" style="font-size: 20.25px; color: #6f6f6f">mysql</a> <a href="/tags/nginx/" style="font-size: 14px; color: #999">nginx</a> <a href="/tags/oracle/" style="font-size: 15.25px; color: #919191">oracle</a> <a href="/tags/pull/" style="font-size: 14px; color: #999">pull</a> <a href="/tags/python/" style="font-size: 17.75px; color: #808080">python</a> <a href="/tags/rdb/" style="font-size: 14px; color: #999">rdb</a> <a href="/tags/redis/" style="font-size: 15.25px; color: #919191">redis</a> <a href="/tags/root/" style="font-size: 14px; color: #999">root</a> <a href="/tags/service/" style="font-size: 14px; color: #999">service</a> <a href="/tags/session/" style="font-size: 14px; color: #999">session</a> <a href="/tags/sheet/" style="font-size: 14px; color: #999">sheet</a> <a href="/tags/site/" style="font-size: 14px; color: #999">site</a> <a href="/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/tags/springboot/" style="font-size: 16.5px; color: #888">springboot</a> <a href="/tags/springmvc/" style="font-size: 14px; color: #999">springmvc</a> <a href="/tags/ssh/" style="font-size: 15.25px; color: #919191">ssh</a> <a href="/tags/stream/" style="font-size: 14px; color: #999">stream</a> <a href="/tags/struts2/" style="font-size: 14px; color: #999">struts2</a> <a href="/tags/swagger/" style="font-size: 15.25px; color: #919191">swagger</a> <a href="/tags/swarm/" style="font-size: 14px; color: #999">swarm</a> <a href="/tags/tag1/" style="font-size: 14px; color: #999">tag1</a> <a href="/tags/tag2/" style="font-size: 14px; color: #999">tag2</a> <a href="/tags/toolbox/" style="font-size: 14px; color: #999">toolbox</a> <a href="/tags/ubuntu/" style="font-size: 15.25px; color: #919191">ubuntu</a> <a href="/tags/utils/" style="font-size: 14px; color: #999">utils</a> <a href="/tags/vpn/" style="font-size: 14px; color: #999">vpn</a> <a href="/tags/vue/" style="font-size: 15.25px; color: #919191">vue</a> <a href="/tags/web/" style="font-size: 15.25px; color: #919191">web</a> <a href="/tags/windows/" style="font-size: 14px; color: #999">windows</a> <a href="/tags/zookeeper/" style="font-size: 14px; color: #999">zookeeper</a> <a href="/tags/内存/" style="font-size: 14px; color: #999">内存</a> <a href="/tags/初始化/" style="font-size: 14px; color: #999">初始化</a> <a href="/tags/加密，jasypt/" style="font-size: 14px; color: #999">加密，jasypt</a> <a href="/tags/加速/" style="font-size: 14px; color: #999">加速</a> <a href="/tags/动态/" style="font-size: 14px; color: #999">动态</a> <a href="/tags/匿名卷/" style="font-size: 14px; color: #999">匿名卷</a> <a href="/tags/卷/" style="font-size: 15.25px; color: #919191">卷</a> <a href="/tags/命名卷/" style="font-size: 14px; color: #999">命名卷</a> <a href="/tags/坐标/" style="font-size: 14px; color: #999">坐标</a> <a href="/tags/容器/" style="font-size: 14px; color: #999">容器</a> <a href="/tags/宿主机/" style="font-size: 14px; color: #999">宿主机</a> <a href="/tags/小技巧/" style="font-size: 14px; color: #999">小技巧</a> <a href="/tags/批量/" style="font-size: 15.25px; color: #919191">批量</a> <a href="/tags/挂载目录/" style="font-size: 14px; color: #999">挂载目录</a> <a href="/tags/数据卷/" style="font-size: 14px; color: #999">数据卷</a> <a href="/tags/数据容器/" style="font-size: 14px; color: #999">数据容器</a> <a href="/tags/数据库/" style="font-size: 19px; color: #777">数据库</a> <a href="/tags/权限/" style="font-size: 14px; color: #999">权限</a> <a href="/tags/爬虫/" style="font-size: 15.25px; color: #919191">爬虫</a> <a href="/tags/私服/" style="font-size: 14px; color: #999">私服</a> <a href="/tags/科学上网/" style="font-size: 14px; color: #999">科学上网</a> <a href="/tags/索引/" style="font-size: 14px; color: #999">索引</a> <a href="/tags/线程池/" style="font-size: 14px; color: #999">线程池</a> <a href="/tags/经纬度/" style="font-size: 14px; color: #999">经纬度</a> <a href="/tags/网站/" style="font-size: 14px; color: #999">网站</a> <a href="/tags/虚拟机/" style="font-size: 14px; color: #999">虚拟机</a> <a href="/tags/迁移/" style="font-size: 14px; color: #999">迁移</a> <a href="/tags/镜像/" style="font-size: 14px; color: #999">镜像</a> <a href="/tags/集群/" style="font-size: 14px; color: #999">集群</a>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        <section class='list'>
+  
+<header class='pure'>
+  <div><i class="fas fa-medal fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;精选项目</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="http://192.144.130.131/"
+    title="http://192.144.130.131/">
+    <i class="fas fa-arrow-right fa-fw"></i></a>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="https://github.com/tfssweb/tale/" href="https://github.com/tfssweb/tale/">
+          <div class='name'>
+            
+              <i class="fas fa-cube fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Tale
+          </div>
+          
+            <div class='badge'>(Tale卡片式博客)</div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://github.com/tfssweb/Dockerfile/" href="https://github.com/tfssweb/Dockerfile/">
+          <div class='name'>
+            
+              <i class="fas fa-cube fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Dockerfile
+          </div>
+          
+            <div class='badge'>(Dockerfile)</div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://github.com/tfssweb/pythons/" href="https://github.com/tfssweb/pythons/">
+          <div class='name'>
+            
+              <i class="fas fa-heartbeat fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Python
+          </div>
+          
+            <div class='badge'>(Python)</div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+
+      
+    
+  
+    
+      
+      
+        
+
+
+  <section class='music'>
+    
+<header class='pure'>
+  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="https://music.163.com/#/user/home?id=63035382"
+    title="https://music.163.com/#/user/home?id=63035382">
+    <i class="far fa-heart fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer"
+    data-theme="#1BCDFC"
+    
+    
+    data-mode="circulation"
+    data-server="netease"
+    data-type="playlist"
+    data-id="2615636388"
+    data-volume="0.7">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+    <div class="footer">
+      <p><strong>凡人皆有一死，凡人皆需侍奉。</strong></p>
+
+    </div>
+    <br>
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:1255791430@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/tfssweb" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=63035382" class="social fas fa-music flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div> 总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

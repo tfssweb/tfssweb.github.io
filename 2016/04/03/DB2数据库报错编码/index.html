@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>DB2数据库报错编码 | 颓废书生</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          颓废书生
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="home"
+								 class="nav flat-box" href="/">
+									<i class='fas fa-home fa-fw'></i>&nbsp;主页
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="home"
+								 class="nav flat-box" href="/">
+									<i class='fas fa-rss fa-fw'></i>&nbsp;博客
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="tags"
+								 class="nav flat-box" href="/tags/">
+									<i class='fas fa-tags fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="friends"
+								 class="nav flat-box" href="/friends/">
+									<i class='fas fa-users fa-fw'></i>&nbsp;朋友
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="home" class="nav flat-box" href="/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="home" class="nav flat-box" href="/">
+											<i class='fas fa-rss fa-fw'></i>&nbsp;博客
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="tags" class="nav flat-box" href="/tags/">
+											<i class='fas fa-tags fa-fw'></i>&nbsp;标签
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="friends" class="nav flat-box" href="/friends/">
+											<i class='fas fa-users fa-fw'></i>&nbsp;朋友
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">DB2数据库报错编码</h1>
+      
+    
+
+    <div class='new-meta-box'>
+      
+        <div class='new-meta-item author'>
+          <a href="https://tfssweb.github.io">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            Tfss
+          </a>
+        </div>
+      
+      
+        <div class="new-meta-item date">
+          <a class='notlink'>
+            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+            2016-04-03
+          </a>
+        </div>
+      
+      
+        
+          
+          <div class='new-meta-item category'>
+            <a href='/categories/数据库/'>
+              <i class="fas fa-folder-open" aria-hidden="true"></i>
+              数据库
+            </a>
+          </div>
+        
+      
+      
+        
+          <div class="new-meta-item browse busuanzi">
+            <a class='notlink'>
+              <i class="fas fa-eye" aria-hidden="true"></i>
+              <span id="busuanzi_value_page_pv">
+                <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        
+      
+      
+    </div>
+    <hr>
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p>DB2数据库报错编码</p>
+<a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br></pre></td><td class="code"><pre><span class="line">SQLCODE SQLSTATE SQLSTATE 说明</span><br><span class="line"></span><br><span class="line">      000 00000 SQL语句成功完成</span><br><span class="line">       　 01xxx SQL语句成功完成，但是有警告</span><br><span class="line">      +012 01545 未限定的列名被解释为一个有相互关系的引用</span><br><span class="line">      +098 01568 动态SQL语句用分号结束</span><br><span class="line">      +100 02000 没有找到满足SQL语句的行</span><br><span class="line">      +110 01561 用DATA CAPTURE定义的表的更新操作不能发送到原来的子系统</span><br><span class="line">      +111 01590 为2型索引设置了SUBPAGES语句</span><br><span class="line">      +117 01525 要插入的值的个数不等于被插入表的列数</span><br><span class="line">      +162 01514 指定的表空间被置为检查挂起状态</span><br><span class="line">      +203 01552 使用非唯一的名字来解决命名的限定列</span><br><span class="line">      +204 01532 命名的对象未在DB2中定义</span><br><span class="line">      +206 01533 命名的列不在SQL语句中指定的任何表中存在</span><br><span class="line">      +218 01537 因为SQL语句引用一个远程对象，不能为该SQL语句执行EXPLAIN</span><br><span class="line">      +219 01532 命名的PLAN TABLE不存在</span><br><span class="line">      +220 01546 不正确定义PLAN TABLE，检查命名列的定义</span><br><span class="line">      +236 01005 SQLDA中的SQLN的值至少应于所描述的列的个数一样大</span><br><span class="line">      +237 01594 至少有一个被描述的列应该是单值类型，因此扩展的SQLVAR条目需要另外的空间</span><br><span class="line">      +238 01005 至少应有一个被描述的列是一个LOB，因此扩展的SQLVAR条目需要另外的空间</span><br><span class="line">      +239 01005 至少应有一个被描述的列应是单值类型，因此扩展的SQLVAR条目需要另外的空间</span><br><span class="line">      +304 01515 该值不能被分配给宿主变量，因为该值不再数据类型的范围之内</span><br><span class="line">      +331 01520 不能被翻译的字符串，因此被设置为NULL</span><br><span class="line">      +339 01569 由于与DB2 2.2版本的子系统连接，所以可能存在字符转换问题</span><br><span class="line">      +394 01629 使用优化提示来选择访问路径</span><br><span class="line">      +395 01628 设置了无效的优化提示，原因代码指定了为什么，忽略优化提示</span><br><span class="line">      +402 01521 未知的位置</span><br><span class="line">      +403 01522 本地不存在CREAT ALIAS对象</span><br><span class="line">      +434 01608 在DB2未来发布的版本中将不支持指定的特性，IBM建议你停止使用这些特性</span><br><span class="line">      +445 01004 值被CAST函数截取</span><br><span class="line">      +462 01Hxx 由用户定义的函数或存储过程发出的警告</span><br><span class="line">      +464 01609 命名的存储过程超出了它可能返回的查询结果集的个数限制</span><br><span class="line">      +466 01610 指定由命名的存储过程返回的查询结果集的个数。成功完成</span><br><span class="line">      +494 01614 由存储过程返回的结果集的个数超过了由ASSOCIATE LOCATORS语句指定的结果集定位器的个数</span><br><span class="line">      +495 01616 因为倒台SQL的成本估算超出了在ELST中指定的警告阀值，所以发出警告</span><br><span class="line">      +535 01591 请求一个主健的定位更新，或请求一个使用自我引出约束的表的删除操作</span><br><span class="line">      +541 01543 命名外健是一个重复的引用约束</span><br><span class="line">      +551 01548 命名的授权ID缺少在命名的DB2对象上执行命名操作的权限</span><br><span class="line">      +552 01542 命名的授权ID缺少执行命名操作的权限</span><br><span class="line">      +558 01516 已经被授权该PUBLIC，因此WITH GRANT OPTION不可用</span><br><span class="line">      +561 01523 对ALTER REFERENCES INDEX 和TRIGGER特权，PUBLIC AT ALL LOCATION无效</span><br><span class="line">      +562 01560 因为GRANTEE已经拥有这些特权，所以一个或更多的特权被忽略</span><br><span class="line">      +585 01625 模式名指定了不止一次</span><br><span class="line">      +599 01596 没有为长字符数据类型（BLOB，CLOB和DBCLOB）建立比较函数</span><br><span class="line">      +610 01566 由于建立了一个指定为DEFER YES的索引，指定的对象处于PENDING状态，或者因为使用了ALTER</span><br><span class="line">      INDEX改变关键值的范围，所以指定的对象处于PENDING状态</span><br><span class="line">      +625 01518 因为删除了主健索引，所以表定义被标注为不完整</span><br><span class="line">      +626 01529 删除了加强UNIQUE约束的索引，唯一性不在被加强</span><br><span class="line">      +645 01528 因为建立的索引中没有包含NULL，所以WHERE NOT NULL被忽略</span><br><span class="line">      +650 01538 不能更改或者建立已命名的表为从属表</span><br><span class="line">      +653 01551 在已指定的分区表空间中尚没有建立指定的分区索引，所以分区索引不可得</span><br><span class="line">      +655 01597 为CREATE或ALTER</span><br><span class="line">      STOGROUP语句指定特定或者非特定的卷ID，在DB2较新发布的版本中（版本6以后）将不再支持他们</span><br><span class="line">      +658 01600 当建立目录索引时，不能指定SUBPAGES语句，SUBPAGES将被忽略，并缺省为1</span><br><span class="line">      +664 01540 分区索引的限制关键字超出了最大值</span><br><span class="line">      +738 01530 已命名的对象的更改可能像只读系统中对象的改变要求一样</span><br><span class="line">      +799 0157 ET语句中引用的特定寄存器不存在，将忽略 SET请求</span><br><span class="line">      +802 01519 数据溢出或者因除法异常而引起的数据异常错误</span><br><span class="line">      +806 01553 ISOLATION（RR）与LOCKSIZE PAGE 冲突</span><br><span class="line">      +807 01554 由于十进制乘法导致溢出</span><br><span class="line">      +863 01539 连接成功，但是只支持SBCS</span><br><span class="line">      +2000 56094 SUBPAGES不等于1的1型索引不能成为数据共享环境中的缓冲池组依赖者</span><br><span class="line">      +2002 01624 因为指定的缓冲池不允许超高速缓存，GNPCACHE指定被忽略</span><br><span class="line">      +2007 01602 因为DB2子系统的参数禁用&quot;提示(hiats）&quot;所以不能指定优化提示</span><br><span class="line">      +30100 01558 分布式协议错误被检测到，提供原来的SQLCODE和SQLSTATE</span><br><span class="line">      -007 42601 SQL语句中由非法字符</span><br><span class="line">      -010 42603 字符串常量非正常终止；检查到有遗漏的引号标志</span><br><span class="line">      -029 42601 需要INTO语句</span><br><span class="line">      -060 42815 某特定数据类型的长度或者标量规范无效</span><br><span class="line">      -084 42612 不能执行SQL语句，因为该语句对动态SQL无效或者对OS/390的DB2无效</span><br><span class="line">      -097 42601 在单位类型、用户自定义的函数以及过程中不能使用带有CAST的LONG VARCHAR或LONGVARGRAPHIC</span><br><span class="line">      -101 54001 SQL语句超出了已确定的DB2限制：例如，表的数目太多，语句中的字节太多</span><br><span class="line">      -102 54002 字符串常量太长</span><br><span class="line">      -103 42604 无效数学文字</span><br><span class="line">      -104 42601 SQL语句中遇到非法符号</span><br><span class="line">      -105 42604 无效的字符串格式；通常引用一个格式不正确的图形字符串</span><br><span class="line">      -107 42622 对象名太长</span><br><span class="line">      -108 42601 RENAME语句中指定的名字有错误，不能使用限定词</span><br><span class="line">      -109 42601 指定了无效语句；例如CREATE VIEW不能包含ORDER BY 语句</span><br><span class="line">      -110 42606 遇到了无效的十六进制的文字</span><br><span class="line">      -111 42901 指定的列函数没有给出列名</span><br><span class="line">      -112 42607 无效的列函数语法；列函数不能运行与其他的列函数之上</span><br><span class="line">      -113 42602 遇到无效字符</span><br><span class="line">      -114 42961 该语句的位置名称必须与当前服务器匹配，但是却没有匹配</span><br><span class="line">      -115 42601 因为比较运算符没有伴着一个表达式或者列表，遇到了无效谓词</span><br><span class="line">      -117 42802 待插入的数值的个数于被插入的行中的列数不相等</span><br><span class="line">      -118 42902 数据修改语句(UPDATE或DELETE）和FROM语句中的表和视图命名不合法</span><br><span class="line">      -119 42803 HAVING语句中的列的列表与GROUP BY语句中的列列表不匹配</span><br><span class="line">      -120 42903 不允许WHERE语句、SET语句、VALUES语句或者SET ASSIGNMENT语句引用列函数</span><br><span class="line">      -121 42701 在INSERT或UPDATE语句中，某一列被非法引用了两次</span><br><span class="line">      -122 42803 非法使用了列函数。因为没有用于一个列函数的所有列不再GROUP BY语句中</span><br><span class="line">      -123 42601 特定位置的参数必须是一个常数或者一个关键词</span><br><span class="line">      -125 42805 ORDER BY语句中指定了无效数字，该数字要么小于1要么大于选定的列数</span><br><span class="line">      -126 42829 不能为一个UPDATE语句指定ORDER BY语句</span><br><span class="line">      -127 42905 在子选择中DISTINCT只能指定一次</span><br><span class="line">      -128 42601 SQL谓词中NULL使用不当</span><br><span class="line">      -129 54004 SQL语句中包含的表多于15个</span><br><span class="line">      -130 22019 ESCAPE语句必须为一个字符</span><br><span class="line">       　  22025 无效的ESCAPE模式</span><br><span class="line">      -131 42818 LIKE谓词只能用于字符数据</span><br><span class="line">      -132 42824 LIKE语句、ESCAPE语句、LOCATE函数或POSSTR函数中有无效运算对象</span><br><span class="line">      -133 42906 无效相关子查询引用</span><br><span class="line">      -134 42907 大于255字节的列被不正确使用</span><br><span class="line">      -136 54005 排序关键字的长度大于4000字节</span><br><span class="line">      -137 54006 被连接的字符串太大；字符的最大值为32767；图形的最大值为16382</span><br><span class="line">      -138 22011 SUBSTR列函数的第二个或第三个操作符无效</span><br><span class="line">      -142 42612 不支持的SQL语句。该语句可能在另外的RDBMS上有效，也有可能在其他的上下文中有效（例如，VALUES只能在触发器中出现）</span><br><span class="line">      -144 58003 指定的段号无效</span><br><span class="line">      -147 42809 某一源函数不能更改。要改变源函数，必须删除该源函数并重新建立他</span><br><span class="line">      -148 42809</span><br><span class="line">      RENAME和ALTER无法执行。RENAME不能对视图或者活动RI.ST表重新命名。ALTER不能用于改变列的长度，因为该列参与了RI、一个用户退出程序、全局的临时表或打开DATACAPTURE</span><br><span class="line">      CHANGES表的列</span><br><span class="line">      -150 42807 触发活动的INSERT，UPDATE或DELETE语句中指定了无效的视图更新或一个无效的转换表</span><br><span class="line">      -151 42808 试图更新一个不可更新的视图的列、一个DB2 CATALOG表的列或者一个ROWID列</span><br><span class="line">      -152 42809 DROP CHECK试图删除一个参照约束，或者DROP FOREIGN试图删除一个检查约束</span><br><span class="line">      -153 42908 无效的视图建立请求，必须为旋转列表中列出的列出的未命名的列或者重复的列提供一个名字</span><br><span class="line">      -154 42909 不能用UNION、UNION ALL或者一个远程表建立视图</span><br><span class="line">      -156 42809 在视图上建立索引是非法的，或者在ALTER TABLE，CREATE TRIGGER，DROP</span><br><span class="line">      TABLE或LOCKTABLE语句上指定一个不是表的其他对象这是无效的</span><br><span class="line">      -157 42810 必须在FOREIGN KEY语句中指定一个表名</span><br><span class="line">      -158 42811 视图的列和选择列表中的列不相匹配</span><br><span class="line">      -159 42089 无效DROP或COMMENT ON语句</span><br><span class="line">      -160 42813 对该视图的WITH CHECK OPTION无效</span><br><span class="line">      -161 44000 正被更新的视图WITH CHECK OPTION语句使得这行不能被插入或更新</span><br><span class="line">      -164 42502 用户没有建立这个视图的权限</span><br><span class="line">      -170 42605 标量函数指定了无效的参数个数</span><br><span class="line">      -171 42815 标量函数指定了无效的数据类型长度或者无效数值</span><br><span class="line">      -173 42801 在非只读型的游标上不能指定隔离级别UR</span><br><span class="line">      -180 22007 DATE、TIME、TIMESTAMP值的字符串表示法的语法不对</span><br><span class="line">      -181 22001 不是有效的DATE、TIME、TIMESTAMP值</span><br><span class="line">      -182 42816 在算术表达式中的日期/时间值无效</span><br><span class="line">      -183 22008 在算术表达式中返回的日期/时间值的结果不在有效值的范围内</span><br><span class="line">      -184 42610 没有正确使用日期/时间值的参数标记</span><br><span class="line">      -185 57008 没有定义本定的日期/时间出口</span><br><span class="line">      -186 22505 改变本定的日期/时间出口引发这个程序的长度无效</span><br><span class="line">      -187 22506 MVS返回无效的当前日期/时间</span><br><span class="line">      -188 22503 字符串表示无效</span><br><span class="line">      -189 22522 指定的编码字符集的ID无效或没有定义</span><br><span class="line">      -190 42837 不能象所设定的那样改变（ALTER）列。只能改变（ALTER）VARCHAR列的长度</span><br><span class="line">      -191 22504 字符串中包含了无效的混合数据</span><br><span class="line">      -197 42877 当两个或多个表被联合在一起排序时，限定的列名不能在ORDER BY语句中使用</span><br><span class="line">      -198 42617 试图对空的字符串发布一个PREPARE或EXECUTE IMMEDIATE语句</span><br><span class="line">      -199 42601 SQL语句中使用了非法关键词</span><br><span class="line">      -203 42702 模糊列引用</span><br><span class="line">      -204 42704 没有定义的对象名</span><br><span class="line">      -205 42703 指定的表的列名无效</span><br><span class="line">      -206 42703 列名没有在FROM语句所引用的任何表中，或者没有在定义触发器所在的表中</span><br><span class="line">      -208 42707 不能ORDER BY指定列，应为该列不在选择列表中</span><br><span class="line">      -212 42712 指定的表名在触发器中不允许多次使用，只能使用一次</span><br><span class="line">      -214 42822 DISTINCT、ORDER BY 引起的无效表达式</span><br><span class="line">      -219 42704 因为PLAN_TABLE不存在，EXPLAIN无法执行</span><br><span class="line">      -220 55002 遇到无效的PLAN_TABLE列</span><br><span class="line">      -221 55002 如果为PLAN_TABLE定义了可供选择的列，那么，必须定义所有的列</span><br><span class="line">      -229 42708 指定的现场找不到</span><br><span class="line">      -240 428B4 LOCK TABLE语句的PART子句无效</span><br><span class="line">      -250 42718 没有定义本地位置名</span><br><span class="line">      -251 42602 记号无效</span><br><span class="line">      -300 22024 宿主变量或参数中的字符串不是以NULL为终止</span><br><span class="line">      -301 42895 无效的宿主变量数据类型</span><br><span class="line">      -302 22001 输入的变量值对指定的列无效，可能传的参数字段类型与数据库中的不匹配</span><br><span class="line">      -302 22003 输入的变量值对指定的列而言太大</span><br><span class="line">      -303 42806 因为数据类型不兼容，不能分配数值</span><br><span class="line">      -304 22003 因为数据超出了范围，不能分配数值</span><br><span class="line">      -305 22002 没有NULL指示符变量</span><br><span class="line">      -309 22512 因为引用的宿主变量被设置成NULL，所以谓词无效</span><br><span class="line">      -310 22501 十进制的宿主变量或参数包含非十进制数据</span><br><span class="line">      -311 22501 输入的宿主变量长度无效，或者时负值或者太大</span><br><span class="line">      -312 42618 没有定义宿主变量或者宿主变量不可用</span><br><span class="line">      -313 07001 宿主变量的个数不等于参数标识的个数</span><br><span class="line">      -314 42714 模糊的宿主变量引用</span><br><span class="line">      -327 22525 在最后分区的关键字范围内，不能插入行</span><br><span class="line">      -330 22021 不能成功的翻译字符串</span><br><span class="line">      -331 22021 字符串不能分配到宿主变量，因为其不能成功的被翻译</span><br><span class="line">      -332 57017 不能为两个命名的编码字符集的ID定义翻译规则</span><br><span class="line">      -333 56010 子类型无效导致翻译失败</span><br><span class="line">      -338 42972 ON语句无效，必须引用连接的列</span><br><span class="line">      -339 56082 访问DB2 2.2版本的子系统被拒绝，原因时ASCII到EBCDIC翻译不能进行</span><br><span class="line">      -350 42962 无效的大对象规范</span><br><span class="line">      -351 56084 SELECT列表中有不支持的数据类型</span><br><span class="line">      -352 56084 输入列表中有不支持的数据类型</span><br><span class="line">      -355 42993 LOB列太大，以至不能被记录在日志中</span><br><span class="line">      -372 428C1 每个表只允许有一个ROWID列</span><br><span class="line">      -390 42887 在上下文中指定的函数无效</span><br><span class="line">      -392 42855 自从前一次FETCH以来，指定游标的SQLDA已被不恰当的改变</span><br><span class="line">      -396 38505 在最后的访问过程中，视图执行SQL语句</span><br><span class="line">      -397 428D3 在某一列上不恰当的指定了GENERATED因为该列不是ROWID数据类型</span><br><span class="line">      -398 428D2 为某一个宿主变量请求LOCATOR，但是该宿主变量不是一个LOB</span><br><span class="line">      -399 22511 在INSERT语句中为ROWID列指定的值无效</span><br><span class="line">      -400 54027 在DB2编目中定义的用户自定义索引不能超过100个</span><br><span class="line">      -401 42818 算术操作符或比较操作符的操作对象不是兼容的</span><br><span class="line">      -402 42819 算术函数不能用于字符或日期时间数据</span><br><span class="line">      -404 22001 SQL语句指定的字符串太长</span><br><span class="line">      -405 42820 数值文字超出了范围</span><br><span class="line">      -406 22003 计算出的或者倒出的数值超出了范围</span><br><span class="line">      -407 23502 不能把NULL值插到定义为NOT NULL的列中</span><br><span class="line">    解决方法：</span><br><span class="line">其中对于DB2数据库错误信息的说明：SQLSTATE: 23502 插入或更新值为空，但该列不能包含空值。</span><br><span class="line">分析DB2报出的错误信息，主要从六个方面进行分析：SQLCODE,        SQLSTATE,    ,SQLERRMC,     TBSPACEID,     TABLEID,     COLNO</span><br><span class="line">1、先从SQLCODE和SQLSTATE两方面的数字确认是什么原因（见网址：http://www.knowsky.com/538581.html）</span><br><span class="line">2、在根据TBSPACEID和TABLEID两方面确认是哪个表</span><br><span class="line">    SQL语句：select * from syscat.tables where tbspaceid=&quot;&quot; and tableid=&quot;&quot;</span><br><span class="line">3、根据COLNO确认是哪个列出问题</span><br><span class="line"></span><br><span class="line">                    上面三步可以汇总成一个SQL语句</span><br><span class="line">        SELECT tabschema, tabname, colname</span><br><span class="line">FROM syscat.columns</span><br><span class="line">WHERE colno = 4 AND</span><br><span class="line">( tabschema, tabname ) IN</span><br><span class="line">( SELECT tabschema, tabname</span><br><span class="line">FROM syscat.tables</span><br><span class="line">WHERE tbspaceid = 4 AND</span><br><span class="line">tableid = 47 )</span><br><span class="line"></span><br><span class="line">      -408 42821 数值不能被更新或插入，因为他与列的数据类型不兼容</span><br><span class="line">      -409 42607 COUNT函数指定的运算对象无效</span><br><span class="line">      -410 42820 浮点文字笔30个字符的最大允许长度长</span><br><span class="line">      -411 56040 CURRENT SQLID使用无效</span><br><span class="line">      -412 42823 在子查询的选择列表中遇到了多个列</span><br><span class="line">      -413 22003 当转换为一个数字型数据类型时，数据溢出</span><br><span class="line">      -414 42824 LIKE谓词不能运行于用数字或日期时间类型定义的列</span><br><span class="line">      -415 42825 为UNION操作指定的选择列表不是联合兼容的</span><br><span class="line">      -416 42907 包含UNION操作符的SQL语句不允许有长的字符串列</span><br><span class="line">      -417 42609 两参数标识符作为运算对象被指定在同一谓词的两边</span><br><span class="line">      -418 42610 参数标识符使用无效</span><br><span class="line">      -419 42911 十进制除法无效</span><br><span class="line">      -420 22018 字符串自变量值不符合函数的要求</span><br><span class="line">      -421 42826 UNION操作的选择列表中没有提供相同数目的列</span><br><span class="line">      -423 0F001 为LOB或结果集定位器指定的值无效</span><br><span class="line">      -426 2D528 在不允许更新的应用服务器不允许执行COMMIT语句</span><br><span class="line">      -427 2D529 在不允许更新的应用服务器不允许执行ROLLBACK语句</span><br><span class="line">      -430 38503 在用户自定义的函数或存储过程中遇到了错误</span><br><span class="line">      -433 22001 指定的值太长</span><br><span class="line">      -435 428B3 无效的应用定义的SQLSTATE</span><br><span class="line">      -438 xxxxx 使用了RAISE_ERROR函数的应用发出了一个错误</span><br><span class="line">      -440 42884 存储过程或用户自定义函数的参数列表参数个数于预期的个数不匹配</span><br><span class="line">      -441 42601 与标量函数一起使用DISTINCT或ALL是不正确的用法</span><br><span class="line">      -443 42601 指定的外部函数返回错误的SQLSTATE</span><br><span class="line">      -444 42724 与被称为存储过程或用户自定义函数有关的程序不能找到</span><br><span class="line">      -449 42878 对存储过程或用户自定义的函数，CREATE或ALTER语句不正确（缺失EXTERNAL NAME 子句)</span><br><span class="line">      -450 39501 存储过程或用户自定义函数写入存储器的值超过了参数声明的长度</span><br><span class="line">      -451 42815 CREATE FUNCTION中指定了不正确的数据类型</span><br><span class="line">      -453 42880 用户自定义函数中的RETURNS语句无效</span><br><span class="line">      -454 42723 指定的函数识别标记与已存在的另一函数的识别标记冲突</span><br><span class="line">      -455 42882 模式名不比配</span><br><span class="line">      -456 42710 为用户自定义函数指定的函数名已经存在</span><br><span class="line">      -457 42939 用户自定义函数或用户自定义类型正试图使用系统中定义的函数或者类型所用的名称</span><br><span class="line">      -458 42883 没有找到函数</span><br><span class="line">      -463 39001 特定的外部例程返回无效的SQLSTATE</span><br><span class="line">      -469 42886 参数定义为OUT或INOUT的CALL语句必须提供宿主变量</span><br><span class="line">      -470 39002 指定了NULL参数，但是该例程却不支持NULL</span><br><span class="line">      -471 55023 存储过程或用户自定义函数失败：提供原因代码</span><br><span class="line">      -472 24517 外部的函数程序使游标处于打开状态</span><br><span class="line">      -473 42918 用户自定义数据类型命名不能和系统定义的数据类型一样</span><br><span class="line">      -475 42866 结果类型不能被转换成RETURNS类型</span><br><span class="line">      -476 42725 在其模式中该函数不是独一无二的</span><br><span class="line">      -478 42893 不能DROP或REVOKE特定的对象，因为其他对象依赖于该对象</span><br><span class="line">      -480 51030 直到存储过程已经被CALL后，DESCRIBE PROCEDURE和ASSOCIATE LOCATORS才能被发布</span><br><span class="line">      -482 51030 存储过程不返回到任何一个定位器</span><br><span class="line">      -483 42885 CREATE FUNCTION语句中的参数个数与源函数中的参数个数不匹配</span><br><span class="line">      -487 38001 选择了NO SQL选项建立指定的存储过程或用户自定义函数，但却视图发布SQL语句</span><br><span class="line">      -491 42601 CREATE</span><br><span class="line">      FUNCTION语句无效，因为该语句没有RETURNS语句或者因为该语句没有指定有效的SOURCE或者EXTERNAL语句</span><br><span class="line">      -492 42879 指定函数的指定参数的个数有错误</span><br><span class="line">      -495 57051 语句的估计处理器成本超出了资源限制</span><br><span class="line">      -496 51033 语句无法执行，因为当前服务器与调用存储过程的服务器不同</span><br><span class="line">      -497 54041 指定的数据库超过了32767 OBID的上限，或者CREATE DATABASE语句使之达到了32511DBID的上限</span><br><span class="line">      -499 24516 指定的游标已被分配到结果集，该结果集来自已经指定的存储过程</span><br><span class="line">      -500 24501 因为连接被破坏，WITH HOLD游标被关闭</span><br><span class="line">      -501 24501 在试图获取数据或关闭一个游标前必须打开一个游标</span><br><span class="line">      -502 24502 在没有关闭游标前不能再次打开游标</span><br><span class="line">      -503 42912 因为列在游标的FOR UPDATE OF语句中没有被指定，该游标用于获取该列，所以不能更新该列</span><br><span class="line">      -504 34000 不能引用一个游标，因为他不是定义到程序里的</span><br><span class="line">      -507 24501 在试图更新或者删除WHERE CURRENT OF前，必须打开游标</span><br><span class="line">      -508 24504 因为被引用的游标当前不是处于数据行上，所以不能被更新或删除</span><br><span class="line">      -509 42827 除了在游标上指定的那个表（该表由WHERE CURRENT OF语句引用的）以外，再也不能从别的表上更新数据</span><br><span class="line">      -510 42828 表或视图不能被修改</span><br><span class="line">      -511 42829 对不可修改的表或视图，FOR UPDATE OF语句无效</span><br><span class="line">      -512 56023 对远程对象的无效引用</span><br><span class="line">      -513 42924 一个别名不能再被定义成另外的别名</span><br><span class="line">      -514 26501 游标尚没有被准备</span><br><span class="line">      -516 26501 试图描述未准备好的SQL语句</span><br><span class="line">      -517 07005 因为SQL语句尚没有准备好，游标无效</span><br><span class="line">      -518 07003 试图执行尚没有准备好的SQL语句</span><br><span class="line">      -519 24506 当为游标的SQL语句发布一个准备语句是，游标不能是打开的</span><br><span class="line">      -525 51015 不能在已指定的程序包中执行SQL语句，因为在绑定时间内该程序包无效</span><br><span class="line">      -526 42995 在给定的上下文中，不能使用全局的临时表</span><br><span class="line">      -530 23503 对特定的约束名指定了无效的外健值</span><br><span class="line">      -531 23504 从版本5开始，父关键字的多行更新将试图删除一个外关键字依赖的父关键字值，在版本5以前，当引用主关键值外健值当前</span><br><span class="line">      存在时，试图更新该主健值</span><br><span class="line">      -532 23504 删除操作违反了已指定的参照约束</span><br><span class="line">      -533 21501 多行插入无效，试图将多行插到自我引用的表中</span><br><span class="line">      -534 21502 可改变主健列值的更新语句不能在同一时刻用于更新多行</span><br><span class="line">      -535 21502 当从自我引用表中删除数据或者更新主健列时，不能指定WHERE CURRENT OF。不是版本5的子系统才调用该代码</span><br><span class="line">      -536 42914 因为某一特定表的参照约束存在，所以删除语句无效</span><br><span class="line">      -537 42709 在外健语句或主健语句的规范中，每个列的出现不能多于一次</span><br><span class="line">      -538 42830 无效的外健；不符合引用的表没有主健</span><br><span class="line">      -539 42888 不能定义外健，因为被引用的表没有主健</span><br><span class="line">      -540 57001 表定义不完整，直到为主健建立了唯一索引或UNIQUE语句、或者包含GENERATED BYDEFAULT属性的ROWID列</span><br><span class="line">      -542 42831 可以为空的列不允许作为主健的一部分包含在内</span><br><span class="line">      -543 23511 因为该表是指定了SET NULL删除规则的参照约束的父表而且检查约束不允许NULL，所以DELETE不能发生</span><br><span class="line">      -544 23512 不能用ALTER添加检查约束，因为已存在的某行与该检查约束冲突</span><br><span class="line">      -545 23513 INSERT或者UPDATE导致检查约束冲突</span><br><span class="line">      -546 42621 在CREATE或ALTER TABLE中指定的检查约束无效</span><br><span class="line">      -548 42621 因为指定的列而引起的检查约束无效</span><br><span class="line">      -549 42509 DYNAMICRULES（BIND）计划或程序包的无效SQL语句</span><br><span class="line">      -551 42501 用户试图对不拥有权限的特定的对象进行操作，或者表不存在</span><br><span class="line">      -552 42502 用户试图执行未被授权的操作</span><br><span class="line">      -553 42503 不能指定CURRENT SQLID，因为用户尚没有被允许改变那个ID</span><br><span class="line">      -554 42502 不能对你本身赋予一个权限</span><br><span class="line">      -555 42502 不能对你本身撤销一个权限</span><br><span class="line">      -556 42504 不能撤销用户没有拥有的权限</span><br><span class="line">      -557 42852 指定了不一致的授予或撤销关键词</span><br><span class="line">      -558 56025 为授予或撤销语句指定了无效的语句（一个或一组）</span><br><span class="line">      -559 57002 DB2权限机制已经禁用，授予或者撤销不能被发布</span><br><span class="line">      -567 42501 指定的权限ID缺少对指定的程序包的绑定权限</span><br><span class="line">      -571 25000 不允许多点更新</span><br><span class="line">      -573 42890 不能定义参照约束，因为已指定的父表中在指定的列上没有唯一健</span><br><span class="line">      -574 42864 指定的缺省与列定义冲突</span><br><span class="line">      -577 38002 试图修改用户自定义函数中的数据或者存储过程中的数据，但这些对象的建立没有选择MODIFIES SQL DATA选项</span><br><span class="line">      -579 38004 试图修改用户自定义函数中的数据或者存储过程中的数据，但这些对象的建立没有选择READ SQL DATA选项，也没有选择</span><br><span class="line">      MODIFIES SQL DATA选项</span><br><span class="line">      -580 42625 CASE表达式中的结果表达式不能都是空的</span><br><span class="line">      -581 42804 CASE表达式中的结果表达式为不兼容的数据类型</span><br><span class="line">      -582 42625 SEARCHED－WHEN－CLAUSE中的查找条件指定了一个限定的、IN或EXISTS谓词</span><br><span class="line">      -583 42845 指定的函数失败，因为他不是决定性的，或者可能有外部动作</span><br><span class="line">      -585 42732 在当前路径中模式名不止一次出现</span><br><span class="line">      -586 42907 CURRENT PATH专用寄存器在长度上不能超过254字符</span><br><span class="line">      -587 428C6 项目引用的列表必须是同一个家族</span><br><span class="line">      -590 42734 在命名的存储过程或用户自定义的函数中的参数必须是独一无二的</span><br><span class="line">      -592 42510 没有授权权限，让你在WLM环境中建立的存储过程或者用户自定义函数</span><br><span class="line">      -601 42710 试图创建（或重命名）已经存在的对象</span><br><span class="line">      -602 54008 CREATE INDEX语句中指定的列太多</span><br><span class="line">      -603 23515 因为发现有重复值，所以不能建立唯一的索引</span><br><span class="line">      -604 42611 在CREATE或ALTER TABLE语句中的为数据类型指定的长度、精度以及标度无效</span><br><span class="line">      -607 42832 指定的INSERT、UPDATE或DELETE语句不能被发布，应为这些语句对DB2 CATLOG表执行写操作</span><br><span class="line">      -611 53088 当LOCKSIZE是TABLE或者TABLESPACE时，LOCKMAX必须为0</span><br><span class="line">      -612 42711 在同一个表、索引或试图中不允许有重复列名</span><br><span class="line">      -613 54008 主健或UNIQUE约束太长或者包含了太多的列</span><br><span class="line">      -614 54008 已经超过了索引的内部健长度的最大长度（255）限制</span><br><span class="line">      -615 55006 不能删除这个程序包，因为该程序包目前正在执行</span><br><span class="line">      -616 42893 指定的对象不能被删除，因为其他对象依赖于该对象</span><br><span class="line">      -617 56089 对于DB2版本6，1型索引无效。对于以前的版本，1型索引不能用LOCKSIZE ROW或LARGE表空间定义</span><br><span class="line">      -618 42832 对DB2 CATALOG表的请求操作时不允许的</span><br><span class="line">      -619 55011 DSNDB07不能修改，除非他先被停止了</span><br><span class="line">      -620 53001 对在DSNDB07中的表空间不允许指定该关键词</span><br><span class="line">      -621 58001 遇到了重复的DBID，遇到了系统问题</span><br><span class="line">      -622 56031 不能指定FOR MIXED DATA因为没有安装混合数据选项</span><br><span class="line">      -623 55012 不能为单一的表定义多个族索引</span><br><span class="line">      -624 42889 不能为单一的表定义多个主健</span><br><span class="line">      -625 55014 用主健定义的表要求唯一索引</span><br><span class="line">      -626 55015 不能发布ALTER语句来改变PRIQTY SECQTY或ERASE，除非先停止了表空间</span><br><span class="line">      -627 55016 不能发布ALTER语句来改变PRIQTY SECQTY或ERASE，除非先把表空间定义为使用存储器组的表空间</span><br><span class="line">      -628 42613 指定语句时相互排斥的（例如，不能分区一个分段的表空间）</span><br><span class="line">      -629 42834 因为该外健不能包含空值，所以SET NULL无效</span><br><span class="line">      -630 56089 不能为1型索引指定WHERE NOT NULL</span><br><span class="line">      -631 54008 无效的外健；要么是比254个字节长，要么包含的列数多于40</span><br><span class="line">      -632 42915 指定的删除规则禁止把这个表定义为已制定表的从属表</span><br><span class="line">      -633 42915 无效删除规则；必须使用特定的强制删除规则</span><br><span class="line">      -634 42915 在这种情况下，DELETE CASCADE不允许</span><br><span class="line">      -635 42915 删除规则不能有差异或者不能为SET NULL</span><br><span class="line">      -636 56016 在分区索引健的升序或降序规范中，分区所以必须与该规范一致</span><br><span class="line">      -637 42614 遇到重复的关键词</span><br><span class="line">      -638 42601 在CREATE TABLE语句中缺少列定义</span><br><span class="line">      -639 56027 带有SET NULL的删除规则的外健的可空列不能是分区索引的列</span><br><span class="line">      -640 56089 不能为这个表空间指定LOCKSIZE ROW，因为在该表空间中的表上定义了1型索引</span><br><span class="line">      -642 54021 唯一约束包含太多的列</span><br><span class="line">      -643 54024 检查约束超出了3800个字符的最大长度</span><br><span class="line">      -644 42615 在SQL语句中为关键词指定的值无效</span><br><span class="line">      -646 55017 在指定的分区表空间或者缺省表空间中不能创建表，因为指定的表空间已经包含了一个表</span><br><span class="line">      -647 57003 指定的缓冲池无效，因为他没有被激活</span><br><span class="line">      -650 56090 ALTER INDEX不能被执行；提供了原因代码</span><br><span class="line">      -651 54025 如果CREARE或ALTER TABLE被允许，表对象的描述词（object</span><br><span class="line">      descriptor,OBD）将超过最大值（32KB）</span><br><span class="line">      -652 23506 遇到了EDITRPROC或VALIDPROC冲突</span><br><span class="line">      -653 57004 在分区表空间中的表不可用，因为分区索引尚未被创建</span><br><span class="line">      -655 56036 在卷的列表中，STOGROUP不能指定为特定的或不特定（&quot;*&quot;）的卷</span><br><span class="line">      -658 42917 当试图删除指定的对象时，无法删除该对象，该对象的删除必须通过删除与之相关联的对象完成</span><br><span class="line">      -660 53035 不正确的分区索引规范，必须为族索引定义有限制的关键字</span><br><span class="line">      -661 53036 分区索引没有指定恰当的分区数目</span><br><span class="line">      -662 53037 试图在未分区的表空间（分段的或简单的）上建立分区索引</span><br><span class="line">      -663 53038 为分区索引指定的关键字限制值是一个无效数字</span><br><span class="line">      -665 53039 为ALTER TABLESOACE语句指定了无效的PART语句</span><br><span class="line">      -666 57005 SQL语句不能被处理，因为指定的函数当前正处于进行过程中</span><br><span class="line">      -667 42917 不能明确的删除分区表空间的族索引，必须除去分区表空间来去掉分区索引</span><br><span class="line">      -668 56018 不能向用EDITPROC定义的表中添加列</span><br><span class="line">                解决：CALL SYSPROC.ADMIN_CMD(&apos;reorg table FININCCALDTLHIST&apos;);</span><br><span class="line"></span><br><span class="line">      -669 42917 不能显式的删除分区表空间中的表，必须删除分区表空间来删除表</span><br><span class="line">      -670 54010 表的记录长度超过了页面的大小</span><br><span class="line">      -671 53040 不能更改指定的表空间的缓冲池，因为这将改变表空间的页面大小</span><br><span class="line">      -672 55035 在命名的表上不允许DROP</span><br><span class="line">      -676 53041 只有4KB的缓冲池可被用于一个索引</span><br><span class="line">      -677 57011 缓冲池扩展失败，由于可用的虚拟内存的大小不足</span><br><span class="line">      -678 53045 为才分区索引中指定的限制健提供的值与数据类型不符</span><br><span class="line">      -679 57006 不能创建某一个特定对象，因为该对象的一个drop目前正在挂起</span><br><span class="line">      -680 54011 对DB2表不能超过750列</span><br><span class="line">      -681 23507 列违反了指定的FIELDPROC</span><br><span class="line">      -682 57010 不能载入FIELDPROC</span><br><span class="line">      -683 42842 列、单值类型、函数或者过程无效，因为不兼容语句。例如，指定的INTEGER具有FORBITDATA选项</span><br><span class="line">      -684 54012 指定的文字列表不能超过254个字节</span><br><span class="line">      -685 58002 FIELDPROC返回一个无效的域描述</span><br><span class="line">      -686 53043 用FIELDPROC定义的一个列不能与一个使用不同的FIELDPROC定义的列作比较</span><br><span class="line">      -687 53044 列不能与一个非兼容字段类型的列比较</span><br><span class="line">      -688 58002 返回不正确的数据</span><br><span class="line">      -689 54011 从属表定义了太多的列</span><br><span class="line">      -690 23508 数据定义的控制支持拒绝这个语句</span><br><span class="line">      -691 57018 命名的注册表不存在</span><br><span class="line">      -692 57018 命名的索引不存在，但命名的注册表需要该索引</span><br><span class="line">      -693 55003 命名的注册表/索引的命名列无效</span><br><span class="line">      -694 57023 DROP正在命名的注册表上挂起</span><br><span class="line">      -696 42898 由于相关的名字或者转换表的名字使用不正确，指定的触发器无效</span><br><span class="line">      -697 42899 FOR</span><br><span class="line">      EACH语句被指定，因此与OLD合NEW相关的名字是不允许的，或者不能为一个BEFORE触发器指定OLD_TABLE和NEW_TABLE</span><br><span class="line">      -713 42815 指定的专用寄存器是无效的</span><br><span class="line">      -715 56064 命名的程序不能被运行，因为他依赖与你所安装的DB2版本的部件，但是你的数据中心没有安装这个部件</span><br><span class="line">      -716 56065 命名的程序使用这个版本的不正确的发行版本做了预编译</span><br><span class="line">      -717 56066 BIND失败，因为他依赖与你所安装的DB2版本的部件，但是你的数据中心没有安装这个部件</span><br><span class="line">      -718 56067 REBIND失败，因为IBMREQD列无效</span><br><span class="line">      -719 42710 不能BIND ADD一个已经存在的程序包</span><br><span class="line">      -720 42710 不能BIND REPLACE一个已经存在的程序包版本</span><br><span class="line">      -721 42710 程序包的一致性记号必须是独一无二的</span><br><span class="line">      -722 42704 绑定错误，因为指定的程序包不存在</span><br><span class="line">      -723 09000 一个触发的SQL语句接受到一个错误</span><br><span class="line">      -724 54038 达到了（16）级联间接的SQL语句的最大项目</span><br><span class="line">      -725 42721 对专门指定的寄存器提供了一个无效值</span><br><span class="line">      -726 55030 因为SYSPKSYSTEM条目，不能绑定这个程序包</span><br><span class="line">      -728 56080 指定的数据类型不能与私有协议发布一起使用</span><br><span class="line">      -729 429B1 用COMMIT ON RETURN定义的存储过程不能用作嵌套的CALL过程的目标</span><br><span class="line">      -730 56053 在只读的共享数据库中为表定义的参照完整性无效</span><br><span class="line">      -731 56054 VSAM数据集必须用SHAREOPTION（1.3）定义</span><br><span class="line">      -732 56055 被定义为只读型数据库却拥有没有定义空间或者索引空间的DB2子系统</span><br><span class="line">      -733 56056 只读共享数据库的定义不一致</span><br><span class="line">      -734 56057 一旦一个数据库被定义为ROSHARE READ，他将不能被更改为其他不同的ROSHARE状态</span><br><span class="line">      -735 55004 用DBID名称标识的数据库不再是一个只读共享数据库</span><br><span class="line">      -736 53014 命名的DBID无效</span><br><span class="line">      -737 53056 在这种状况下，不能建立一个隐含的表空间</span><br><span class="line">      -739 56088 因为同时指定了ALLOW PARALLEL和MODIELES SQL DATA这两个语句，因此已设定的函数将不能再被更改</span><br><span class="line">      -740 51034 在这种方式下不能用MODIELES SQL DATA定义指定的函数</span><br><span class="line">      -741 55030 已经为命名的共享组成员的数据定义了工作文件数据库</span><br><span class="line">      -742 53004 DSNDB07是隐含的工作文件数据库</span><br><span class="line">      -746 57053 在特定的触发器、存储过程或函数中的SQL语句违反嵌套SQL限制</span><br><span class="line">      -747 57054 指定的表是不可用的除非为LOB数据列建立起必须的辅助表</span><br><span class="line">      -748 54042 在指定的辅助表上已经有一个索引</span><br><span class="line">      -750 42986 不能对已指定的表重新命名,因为他至少在一个现存的视图或触发器中被引用</span><br><span class="line">      -751 42987 存储过程或用户自定义的函数试图执行一个不允许执行的SQL语句。DB2的线程被置于MUST_ROLLBACK状态</span><br><span class="line">      -752 0A001 无效CONNECT语句</span><br><span class="line">      -763 560A1 无效的表空间名</span><br><span class="line">      -764 560A2 LOB表空间必须与其相关的基表空间同在一个数据库中</span><br><span class="line">      -765 560A3 表和数据库不兼容</span><br><span class="line">      -766 560A4 不能对辅助表进行请求的操作</span><br><span class="line">      -767 42626 CREATE INDEX失败，因为在辅助表中为索引指定了列，或者因为没有为非辅助表的索引指定列</span><br><span class="line">      -768 560A50 不能为指定的列或者指定的分区建立辅助表，因为其辅助表已经存在</span><br><span class="line">      -769 53096 CREATE AUX TABLE的规格与基表不匹配</span><br><span class="line">      -770 530A6 指定的表必须有一个ROWID列，那么该表才可以包含一个LOB列</span><br><span class="line">      -771 428C7 无效的ROWID列规范</span><br><span class="line">      -797 42987 CREATE TRIGGER包含不被支持的语法</span><br><span class="line">      -798 428C9 不能把一个值插入到用GENERATED ALWAYS定义的ROWID列</span><br><span class="line">      -802 22012 某一特定操作发生了异常错误。被零除</span><br><span class="line">       　 22003 某一特定操作发生了异常错误。但不是被零除</span><br><span class="line">      -803 23505 不能插入行，因为这将违反唯一索引的约束</span><br><span class="line">      -804 07002 SQLDA的调用参数列表有误</span><br><span class="line">      -805 51002 在计划中没有发现DBRM或程序包名</span><br><span class="line">      -807 23509 对已指定的环境和连接，该程序包不可用</span><br><span class="line">      -808 08001 CONECT语句与程序中的第一个CONNECT语句不一致</span><br><span class="line">      -811 21000 当多行作为一内嵌的选择语句的返回结果时，必须使用游标</span><br><span class="line">      -812 22508 在CURRENT PACKAGESET中的ID集合是空白的，语句不能被执行</span><br><span class="line">      -815 42920 在一个内置选择语句或者一个基本谓词的子查询中，显式的或隐含的指定了GROUP BY或HAVING语句</span><br><span class="line">      -817 25000 执行SQL语句将可能导致禁止更新用户数据或DB2编目</span><br><span class="line">      -818 5103 计划&lt;－&gt;载入组件的时间戳不匹配，在执行计划中没有从同一个预编译中建立DBRM，该预编译是作为组件载入的</span><br><span class="line">      -819 58004 视图不能重建，因为在DB2编目中存储的分析树长度为0</span><br><span class="line">      -820 58004 在这个DB2版本的DB2编目中遇到了无效值</span><br><span class="line">      -822 51004 在SQLDA中遇到了无效地址</span><br><span class="line">      -840 54004 在选择列表或插入列表中返回的项目太多</span><br><span class="line">      -842 08002 到指定位置的连接已经存在</span><br><span class="line">      -843 08003 SET CONNECTION或RELEASE语句无法执行，因为连接不存在</span><br><span class="line">      -870 58026 宿主变量描述符的个数不等于语句中宿主变量的个数</span><br><span class="line">      -872 51302 这个子系统已指定了有效的CCSID</span><br><span class="line">      -873 53090 同一SQL语句中，不能同时引用EBCDIC表中的定义的列和ASCII表中定义的列</span><br><span class="line">      -874 53901 指定对象的编码方案与其表空间的编码方案不匹配</span><br><span class="line">      -875 42988 指定的操作符不能用于ASCII数据</span><br><span class="line">      -876 53092 不能为指定的原因创建对象：提供了原因代码</span><br><span class="line">      -877 53093 数据库或表空间不允许用ASCII，必须使用EBCDIC</span><br><span class="line">      -878 53094 该PLAN——TABLE不能是ASCII，必须使用EBCDIC</span><br><span class="line">      -879 53095 指定对象的CREATE或ALTER语句不能将列、单值类型，某个存储过程或用户自定义函数的参数定义为以下类型：MAXED DATA， GRAPHIC，VARGRAPHIC，LONGVARGRAPHIC，因为系统没有为指定的编码方案定义相应的CCSID</span><br><span class="line">      -900 08003 应用处理没有连接到应用服务器，语句不能被执行</span><br><span class="line">      -901 58004 遇到时断时续的系统错误，该错误不能抑制后继的SQL语句的执行</span><br><span class="line">      -902 58005 内部控制块的指针错误，要求重新绑定</span><br><span class="line">      -904 57011 指定的资源不可用</span><br><span class="line">      -905 57014 超出了资源上限</span><br><span class="line">      -906 51005 因为重大错误，SQL语句无法执行</span><br><span class="line">      -908 23510 当前资源限制设施的规范或者自动重绑定的系统参数不允许BIND，REBIND，AUTOREBIND</span><br><span class="line">      -909 57007 对象已被删除</span><br><span class="line">      -910 57007 因为在该对象上挂起DROP，所以不能访问该对象</span><br><span class="line">      -911 40001 当前工作单元已被回滚</span><br><span class="line">      -913 57033 因为死锁或超时导致不成功执行</span><br><span class="line">      -917 42969 绑定程序包已经失败</span><br><span class="line">      -918 51021 SQL语句不能被执行，因为连接丢失</span><br><span class="line">      -919 56045 需要一个ROLLBACK</span><br><span class="line">      -922 42505 连接权限失败。试图从TSO、CICS或IMS访问DB2，同时相应的连接设施处于非活动的状态</span><br><span class="line">      -923 57015 因为DB2不可用，所以不能建立连接</span><br><span class="line">      -924 58006 遇到了DB2内部的连接错误：提供了原因代码</span><br><span class="line">      -925 2D521 SQL的COMMIT语句不能从CICS或IMS/TM发布</span><br><span class="line">      -926 2D521 SQL的ROLLBACK语句不能从CICS或IMS/TM发布</span><br><span class="line">      -927 51006 当正在连接的环境没有建立时，语言接口被调用。利用DSN命令激发该程序</span><br><span class="line">      -929 58002 数据获取退出已经失败（DPROP）</span><br><span class="line">      -939 51021 由于远程服务器的未请求的回滚，要求一个回滚</span><br><span class="line">      -947 56038 SQL语句失败，因为更新不能被传播（DPROP）</span><br><span class="line">      -948 56062 DDF没有启动，分布式操作无效</span><br><span class="line">      -950 42705 在SQL语句中指定的位置在SYSIBM.LOCATIONS中没有定义</span><br><span class="line">      -965 51021 存储过程非正常终止（在DB2 6之前的版本）</span><br><span class="line">      -981 57015 当前不是处于允许SQL的状态时，试图在RRSAF中执行SQL</span><br><span class="line">      -991 57015 调用连接不能建立一个到DB2的隐含或开放连接</span><br><span class="line">      -2001 53089 为储存过程指定的宿主变量参数的个数不等于预期的参数个数</span><br><span class="line">      -20003 560A7 不能为GRECP中的表空间或索引指定GBPCACHE NONE</span><br><span class="line">      -20004 560A8 对于WORKFILE对象。8KB或16Kb的缓冲池页面大小无效</span><br><span class="line">      -20005 54035 指定的对象类型超出了内部的ID极限</span><br><span class="line">      -20006 53097 当没有指定WLM环境时，LOB不能被指定为参数</span><br><span class="line">      -20070 53098 不能非LOB列建立一个辅助表</span><br><span class="line">      -20071 53099 必须指定WLM环境名</span><br><span class="line">      -20072 56052 指定的权限ID不拥有在触发器程序包上执行BIND所需的权限</span><br><span class="line">      -20073 42927 不能按照指定的要求更改命名的函数，因为在现存的视图定义中引用了该函数</span><br><span class="line">      -20074 42939 不能建立指定的对象，因为&quot;SYS&quot;是一个保留的前缀</span><br><span class="line">      -20100 56059 在被触发的SQL语句中有BIND错误，指定了错误的SQLCODE和SQLSTATE</span><br><span class="line">      -20101 56059 由于指定的原因代码，该函数失败</span><br><span class="line">      -20102 42849 在CREATE或ALTER FUNCTION语句中不能使用指定的选项</span><br><span class="line">      -20104 42856 更改一个CCSID失败</span><br><span class="line">      -20106 42945 不能改变表空间或数据库的CCSID，因为现存的试图引用</span><br><span class="line">      -30000 58008 DRDA分布协议错误；处理可以继续</span><br><span class="line">      -30002 57057 使用DRDA的分布式客户把OPEN语句连接到PREPARE，但PREPARE接受到一个SQLCODE为+495的警告</span><br><span class="line">      -30020 58009 DRDA分布协议错误；对话被解除</span><br><span class="line">      -30021 58010 DRDA分布协议错误；处理不能继续</span><br><span class="line">      -30030 58013 违反分布协议：COMMIT不成功，对话被解除（AS）</span><br><span class="line">      -30040 57012 因为不能得到资源，执行失败，处理可以继续（AS）</span><br><span class="line">      -30041 57013 因为不能得到资源，执行失败，处理不能成功的继续（AS）</span><br><span class="line">      -30050 58011 执行不成功，在BIND过程中不能执行语句</span><br><span class="line">      -30051 58012 特定的BIND过程不是处于活动状态（远程BIND），从而导致失败</span><br><span class="line">      -30052 42932 程序准备的假设错误</span><br><span class="line">      -30053 42506 程序包的拥有者遭遇授权失败</span><br><span class="line">      -30060 08004 RBD遭遇授权失败</span><br><span class="line">      -30061 08004 指定了无效或者没有存在的RDB</span><br><span class="line">      -30070 58014 目标子系统不支持这个命令</span><br><span class="line">      -30071 58015 目标子系统不支持这个对象</span><br><span class="line">      -30072 58016 目标子系统不支持这个参数</span><br><span class="line">      -30073 58017 目标子系统不支持这个参数值</span><br><span class="line">      -30074 58018 应答信息不被支持</span><br><span class="line">      -30080 08001 SNA通信错误</span><br><span class="line">      -30081 58019 TCP/IP通信错误</span><br><span class="line">      -30082 08001 由于安全冲突、通信失败：提供了原因代码</span><br><span class="line">      -30090 25000 指定的操作对远程执行失败</span><br><span class="line">      -30104 56095 在绑定选项与绑定值中有错误</span><br><span class="line">      -30105 56096 指定的绑定选项不兼容</span><br></pre></td></tr></table></figure>
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            <hr>
+            <div class='new-meta-box'>
+              
+                <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-09-03T11:15:13+08:00">
+                  <a class='notlink'>
+                    <i class="fas fa-save" aria-hidden="true"></i>
+                    2019-09-03
+                  </a>
+                </div>
+              
+              
+                
+                <div class="new-meta-item meta-tags"><a class="tag" href="/tags/数据库/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;数据库</a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/db2/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;db2</a></div>
+              
+              
+            </div>
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2016/04/05/删除主外键关系/" rel="prev" title="删除主外键关系">
+                                  
+                                      删除主外键关系
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/mysql/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>mysql</a> <a class="tag" href="/tags/数据库/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>数据库</a> <a class="tag" href="/tags/db2/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>db2</a> <a class="tag" href="/tags/oracle/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>oracle</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2016/04/02/Linux安装java环境/" rel="prev" title="Linux安装java环境">
+                                    
+                                        Linux安装java环境
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>java</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+
+
+<script>
+    window.subData = {
+        title: 'DB2数据库报错编码',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='/images/logo.jpg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">柳暗花明又一村</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:1255791430@qq.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/tfssweb" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=63035382" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-music" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+
+      
+    
+  
+    
+      
+      
+        <section class='plain'>
+  
+<header class='pure'>
+  <div><i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;注意啦～</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="http://192.144.130.131/"
+    title="http://192.144.130.131/">
+    <i class="fas fa-question-circle fa-fw"></i></a>
+  
+</header>
+
+  <div class='content pure'>
+    <p>微信关注公众号《颓废书生》，精选毕业设计、技术文章哦～ <br/>QQ：1255791430</p>
+
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='category'>
+    
+<header class='pure'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;所有分类</div>
+  
+</header>
+
+    <div class='content pure'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/docker/" href="/categories/docker/"><div class='name'>docker</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/java/" href="/categories/java/"><div class='name'>java</div><div class='badge'>(27)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/linux/" href="/categories/linux/"><div class='name'>linux</div><div class='badge'>(8)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/maven/" href="/categories/maven/"><div class='name'>maven</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/mysql/" href="/categories/mysql/"><div class='name'>mysql</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/python/" href="/categories/python/"><div class='name'>python</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/vpn/" href="/categories/vpn/"><div class='name'>vpn</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/分类/" href="/categories/分类/"><div class='name'>分类</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/小技巧/" href="/categories/小技巧/"><div class='name'>小技巧</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/数据库/" href="/categories/数据库/"><div class='name'>数据库</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/算法/" href="/categories/算法/"><div class='name'>算法</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/网站/" href="/categories/网站/"><div class='name'>网站</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/Cron/" style="font-size: 14px; color: #999">Cron</a> <a href="/tags/SQL-Server/" style="font-size: 14px; color: #999">SQL Server</a> <a href="/tags/aof/" style="font-size: 14px; color: #999">aof</a> <a href="/tags/cdn/" style="font-size: 14px; color: #999">cdn</a> <a href="/tags/centos/" style="font-size: 14px; color: #999">centos</a> <a href="/tags/compose/" style="font-size: 16.5px; color: #888">compose</a> <a href="/tags/create/" style="font-size: 14px; color: #999">create</a> <a href="/tags/db2/" style="font-size: 16.5px; color: #888">db2</a> <a href="/tags/docker/" style="font-size: 24px; color: #555">docker</a> <a href="/tags/docker-machine/" style="font-size: 15.25px; color: #919191">docker-machine</a> <a href="/tags/dwr/" style="font-size: 14px; color: #999">dwr</a> <a href="/tags/elasticsearch/" style="font-size: 14px; color: #999">elasticsearch</a> <a href="/tags/elk/" style="font-size: 14px; color: #999">elk</a> <a href="/tags/excel/" style="font-size: 14px; color: #999">excel</a> <a href="/tags/expose/" style="font-size: 14px; color: #999">expose</a> <a href="/tags/git/" style="font-size: 14px; color: #999">git</a> <a href="/tags/harbor/" style="font-size: 14px; color: #999">harbor</a> <a href="/tags/headers/" style="font-size: 14px; color: #999">headers</a> <a href="/tags/hibernate/" style="font-size: 14px; color: #999">hibernate</a> <a href="/tags/hosts/" style="font-size: 14px; color: #999">hosts</a> <a href="/tags/hutool/" style="font-size: 14px; color: #999">hutool</a> <a href="/tags/image/" style="font-size: 14px; color: #999">image</a> <a href="/tags/ip/" style="font-size: 14px; color: #999">ip</a> <a href="/tags/java/" style="font-size: 22.75px; color: #5e5e5e">java</a> <a href="/tags/java8/" style="font-size: 14px; color: #999">java8</a> <a href="/tags/javascript/" style="font-size: 14px; color: #999">javascript</a> <a href="/tags/jdbc/" style="font-size: 14px; color: #999">jdbc</a> <a href="/tags/js/" style="font-size: 14px; color: #999">js</a> <a href="/tags/kibana/" style="font-size: 14px; color: #999">kibana</a> <a href="/tags/link/" style="font-size: 14px; color: #999">link</a> <a href="/tags/linux/" style="font-size: 21.5px; color: #666">linux</a> <a href="/tags/login/" style="font-size: 14px; color: #999">login</a> <a href="/tags/logstash/" style="font-size: 14px; color: #999">logstash</a> <a href="/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/tags/maven/" style="font-size: 17.75px; color: #808080">maven</a> <a href="/tags/mybatis/" style="font-size: 15.25px; color: #919191">mybatis</a> <a href="/tags/mysql/" style="font-size: 20.25px; color: #6f6f6f">mysql</a> <a href="/tags/nginx/" style="font-size: 14px; color: #999">nginx</a> <a href="/tags/oracle/" style="font-size: 15.25px; color: #919191">oracle</a> <a href="/tags/pull/" style="font-size: 14px; color: #999">pull</a> <a href="/tags/python/" style="font-size: 17.75px; color: #808080">python</a> <a href="/tags/rdb/" style="font-size: 14px; color: #999">rdb</a> <a href="/tags/redis/" style="font-size: 15.25px; color: #919191">redis</a> <a href="/tags/root/" style="font-size: 14px; color: #999">root</a> <a href="/tags/service/" style="font-size: 14px; color: #999">service</a> <a href="/tags/session/" style="font-size: 14px; color: #999">session</a> <a href="/tags/sheet/" style="font-size: 14px; color: #999">sheet</a> <a href="/tags/site/" style="font-size: 14px; color: #999">site</a> <a href="/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/tags/springboot/" style="font-size: 16.5px; color: #888">springboot</a> <a href="/tags/springmvc/" style="font-size: 14px; color: #999">springmvc</a> <a href="/tags/ssh/" style="font-size: 15.25px; color: #919191">ssh</a> <a href="/tags/stream/" style="font-size: 14px; color: #999">stream</a> <a href="/tags/struts2/" style="font-size: 14px; color: #999">struts2</a> <a href="/tags/swagger/" style="font-size: 15.25px; color: #919191">swagger</a> <a href="/tags/swarm/" style="font-size: 14px; color: #999">swarm</a> <a href="/tags/tag1/" style="font-size: 14px; color: #999">tag1</a> <a href="/tags/tag2/" style="font-size: 14px; color: #999">tag2</a> <a href="/tags/toolbox/" style="font-size: 14px; color: #999">toolbox</a> <a href="/tags/ubuntu/" style="font-size: 15.25px; color: #919191">ubuntu</a> <a href="/tags/utils/" style="font-size: 14px; color: #999">utils</a> <a href="/tags/vpn/" style="font-size: 14px; color: #999">vpn</a> <a href="/tags/vue/" style="font-size: 15.25px; color: #919191">vue</a> <a href="/tags/web/" style="font-size: 15.25px; color: #919191">web</a> <a href="/tags/windows/" style="font-size: 14px; color: #999">windows</a> <a href="/tags/zookeeper/" style="font-size: 14px; color: #999">zookeeper</a> <a href="/tags/内存/" style="font-size: 14px; color: #999">内存</a> <a href="/tags/初始化/" style="font-size: 14px; color: #999">初始化</a> <a href="/tags/加密，jasypt/" style="font-size: 14px; color: #999">加密，jasypt</a> <a href="/tags/加速/" style="font-size: 14px; color: #999">加速</a> <a href="/tags/动态/" style="font-size: 14px; color: #999">动态</a> <a href="/tags/匿名卷/" style="font-size: 14px; color: #999">匿名卷</a> <a href="/tags/卷/" style="font-size: 15.25px; color: #919191">卷</a> <a href="/tags/命名卷/" style="font-size: 14px; color: #999">命名卷</a> <a href="/tags/坐标/" style="font-size: 14px; color: #999">坐标</a> <a href="/tags/容器/" style="font-size: 14px; color: #999">容器</a> <a href="/tags/宿主机/" style="font-size: 14px; color: #999">宿主机</a> <a href="/tags/小技巧/" style="font-size: 14px; color: #999">小技巧</a> <a href="/tags/批量/" style="font-size: 15.25px; color: #919191">批量</a> <a href="/tags/挂载目录/" style="font-size: 14px; color: #999">挂载目录</a> <a href="/tags/数据卷/" style="font-size: 14px; color: #999">数据卷</a> <a href="/tags/数据容器/" style="font-size: 14px; color: #999">数据容器</a> <a href="/tags/数据库/" style="font-size: 19px; color: #777">数据库</a> <a href="/tags/权限/" style="font-size: 14px; color: #999">权限</a> <a href="/tags/爬虫/" style="font-size: 15.25px; color: #919191">爬虫</a> <a href="/tags/私服/" style="font-size: 14px; color: #999">私服</a> <a href="/tags/科学上网/" style="font-size: 14px; color: #999">科学上网</a> <a href="/tags/索引/" style="font-size: 14px; color: #999">索引</a> <a href="/tags/线程池/" style="font-size: 14px; color: #999">线程池</a> <a href="/tags/经纬度/" style="font-size: 14px; color: #999">经纬度</a> <a href="/tags/网站/" style="font-size: 14px; color: #999">网站</a> <a href="/tags/虚拟机/" style="font-size: 14px; color: #999">虚拟机</a> <a href="/tags/迁移/" style="font-size: 14px; color: #999">迁移</a> <a href="/tags/镜像/" style="font-size: 14px; color: #999">镜像</a> <a href="/tags/集群/" style="font-size: 14px; color: #999">集群</a>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        <section class='list'>
+  
+<header class='pure'>
+  <div><i class="fas fa-medal fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;精选项目</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="http://192.144.130.131/"
+    title="http://192.144.130.131/">
+    <i class="fas fa-arrow-right fa-fw"></i></a>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="https://github.com/tfssweb/tale/" href="https://github.com/tfssweb/tale/">
+          <div class='name'>
+            
+              <i class="fas fa-cube fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Tale
+          </div>
+          
+            <div class='badge'>(Tale卡片式博客)</div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://github.com/tfssweb/Dockerfile/" href="https://github.com/tfssweb/Dockerfile/">
+          <div class='name'>
+            
+              <i class="fas fa-cube fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Dockerfile
+          </div>
+          
+            <div class='badge'>(Dockerfile)</div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://github.com/tfssweb/pythons/" href="https://github.com/tfssweb/pythons/">
+          <div class='name'>
+            
+              <i class="fas fa-heartbeat fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Python
+          </div>
+          
+            <div class='badge'>(Python)</div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+
+      
+    
+  
+    
+      
+      
+        
+
+
+  <section class='music'>
+    
+<header class='pure'>
+  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="https://music.163.com/#/user/home?id=63035382"
+    title="https://music.163.com/#/user/home?id=63035382">
+    <i class="far fa-heart fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer"
+    data-theme="#1BCDFC"
+    
+    
+    data-mode="circulation"
+    data-server="netease"
+    data-type="playlist"
+    data-id="2615636388"
+    data-volume="0.7">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+    <div class="footer">
+      <p><strong>凡人皆有一死，凡人皆需侍奉。</strong></p>
+
+    </div>
+    <br>
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:1255791430@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/tfssweb" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=63035382" class="social fas fa-music flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div> 总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

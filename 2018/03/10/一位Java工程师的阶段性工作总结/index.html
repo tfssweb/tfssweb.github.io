@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>一位Java工程师的阶段性工作总结 | 颓废书生</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          颓废书生
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="home"
+								 class="nav flat-box" href="/">
+									<i class='fas fa-home fa-fw'></i>&nbsp;主页
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="home"
+								 class="nav flat-box" href="/">
+									<i class='fas fa-rss fa-fw'></i>&nbsp;博客
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="tags"
+								 class="nav flat-box" href="/tags/">
+									<i class='fas fa-tags fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="friends"
+								 class="nav flat-box" href="/friends/">
+									<i class='fas fa-users fa-fw'></i>&nbsp;朋友
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="home" class="nav flat-box" href="/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="home" class="nav flat-box" href="/">
+											<i class='fas fa-rss fa-fw'></i>&nbsp;博客
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="tags" class="nav flat-box" href="/tags/">
+											<i class='fas fa-tags fa-fw'></i>&nbsp;标签
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="friends" class="nav flat-box" href="/friends/">
+											<i class='fas fa-users fa-fw'></i>&nbsp;朋友
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">一位Java工程师的阶段性工作总结</h1>
+      
+    
+
+    <div class='new-meta-box'>
+      
+        <div class='new-meta-item author'>
+          <a href="https://tfssweb.github.io">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            Tfss
+          </a>
+        </div>
+      
+      
+        <div class="new-meta-item date">
+          <a class='notlink'>
+            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+            2018-03-10
+          </a>
+        </div>
+      
+      
+        
+          
+          <div class='new-meta-item category'>
+            <a href='/categories/java/'>
+              <i class="fas fa-folder-open" aria-hidden="true"></i>
+              java
+            </a>
+          </div>
+        
+      
+      
+        
+          <div class="new-meta-item browse busuanzi">
+            <a class='notlink'>
+              <i class="fas fa-eye" aria-hidden="true"></i>
+              <span id="busuanzi_value_page_pv">
+                <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        
+      
+      
+    </div>
+    <hr>
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <h3 id="一、技术积累"><a href="#一、技术积累" class="headerlink" title="一、技术积累"></a>一、技术积累</h3><h4 id="（1）代码规范"><a href="#（1）代码规范" class="headerlink" title="（1）代码规范"></a>（1）代码规范</h4><p>1.1.1、通常的模块分布：一般如果你要实现一个web应用，你从后台将数据展示到前端页面，在一个比较大的公司，你少不了跟其他项目有交集（你调用他的接口，他依赖你的接口），这样下来，整个公司有很多个模块，怎么做到很好的联系。回到刚刚的模块分布，你的一个web应用，应当需要分成三个模块：core模块、service模块、web模块。web模块就是展示到页面，后台代码而言主要就controller层了，其他逻辑基本都放在core了，service模块就是一些接口类和参数dto等等，接口的实现类在core模块。这样下来，web模块只需要依赖service模块，同样的其他系统依赖你的接口也仅仅是依赖service模块，然后利用远程调用方式消费你的接口服务。</p>
+<a id="more"></a>
+
+<p>1.1.2、代码层级结构：针对后台服务项目，一般分为对外接口层、service层、Dao层。Dao层就是与数据库交接的接口层，service层主要调用Dao或者外部系统的接口，复杂的逻辑基本都放在service层；一些方法需要提供给其他模块调用的时候，就封装在对外接口层，只有对外接口层是暴露。这里说的只是层级结构，还有与层级结构无关的，也是需要归类的，比如对外部系统接口方法封装的我们放在一个目录下面，一些常量和工具类等我们放在common目录下面。当然还有其他考虑，尽量让整个模块有层次感，代码才不会太乱，更好的维护。</p>
+<p>1.1.3、总结上面两点：可能不少猿友觉得上面啰嗦又不像代码规范，其实这两点也是代码规范的一部分，主要引导大家往结构清晰好维护的思维方向走，多思考吧。</p>
+<p>1.1.4、对于一些需要异步处理的，不要直接new一个thread，应当使用线程池。使用线程池的时候应当对线程数量大小合理设置，一般最大不超过50个，当然还需要考虑你的IO和CPU，怎么分析网上搜搜吧。</p>
+<p>1.1.5、容器类变量，如果变化比较大且频繁，尽量定义的时候设置初始容量大小，减少扩容带来的消耗。</p>
+<p>1.1.6、分支判断if…else的时候，最常符合的条件处理放在前面。</p>
+<p>1.1.7、对象比较的时候常量放前面，养成好习惯，减少空指针的出现。</p>
+<p>1.1.8、减少synchronized中等待处理的代码，能放在外面就尽量放在外面。</p>
+<p>1.1.9、下面到数据库了，我觉得还是在这里说了好点，一般查询比较慢，很有可能是没有建索引或者索引没用到，多去检查一下。</p>
+<p>1.1.10、两个大表的关联查询，可以使用二次访问数据库替代，先查出A表的数据，利用关联字段再查B表的。不要一味想着一条sql搞定最好。</p>
+<p>1.1.11、坚决避免，查全表数据或者数量大的数据，返回list加载到内存中，一不小心查了100w数据，又查得比较频繁，内存的爆了。有这种风险的改成分页查询。</p>
+<p>1.1.12、不要select *，按需取列。</p>
+<p>1.1.13、多考虑避免事务里面有长连接或者长事务，如果大量这种情况出现占用数据连接，会影响性能。一些无必要的逻辑可以放到事务外执行。</p>
+<p>1.1.14、对字段的加减乘除处理放到sql，严格避免先get处理，然后运算在set到数据库里面，并发情况非常容易导致失真。</p>
+<p>1.1.15、方法里面代码不要太长，注意封装，命名语义化，代码整洁。常挂嘴边的，没放心上，一如既往的给自己埋坑，举个博主的例子，那会刚毕业也是没放心上，最近把我们组长不写代码，一到代码评审我就害怕，检视到有问题的代码，毕业生吧就说这代码以前就是这样写的，问题最终肯定都落我身上，现在感觉代码是自己的孩子，只能有空自己偷偷的优化一下，怕出问题还得非常仔细。</p>
+<h4 id="（2）SQL规范与性能优化"><a href="#（2）SQL规范与性能优化" class="headerlink" title="（2）SQL规范与性能优化"></a>（2）SQL规范与性能优化</h4><p>1.2.1、先提前声明，博主工作用到是MySQL，可能有些场景只针对MySQL。说到SQL优化，一些概念必须要理解，不然死记硬背一两天就忘记了。特别是执行计划的概念。</p>
+<p>1.2.2、什么是执行计划：a.决定如何访问表数据，是否通过索引，是否排序等。b.多表关联是先访问哪个表。c.多表关联时，使用哪种连接方式，不过现在MySQL只有嵌套连接（嵌套循环，顾名思义就是将一个表为出发点，将该表全部记录逐条去遍历另外一张表的记录）。</p>
+<p>1.2.3、SQL执行顺序：a.检查语法是否正确。b.检查表是否存在、权限是否满足等。c.根据统计信息(如data length,rows,index length、索引唯一度)，生成较优的执行计划。d.根据执行计划，进行数据检索、过滤、合并、排序等操作。访问数据时，内存中如存在表数据，则直接进行操作；否则，从磁带读取表数据，放入内存，再进行操作；如内存不足，则内存中较冷数据涮出内存，再从内存中读取数据。</p>
+<p>1.2.4、索引：查询的时候如果使用上了索引，可以提高效率，因为建立了索引后，可以理解为数据字典的结构存储，因此根据条件查询的时候更加高效。下面看一下MySQL常用的索引类型的概念。<br>a．普通索引：在创建普通索引时，不附加任何限制条件。这类索引可以创建在任何数据类型中，其值是否唯一和非空由字段本身的完整性约束条件决定。建立索引以后，查询时可以通过索引进行查询。例如，在student表的stu_id字段上建立一个普通索引。查询记录时，就可以根据该索引进行查询。</p>
+<p>b．唯一性索引:使用UNIQUE参数可以设置索引为唯一性索引。在创建唯一性索引时，限制该索引的值必须是唯一的。例如，在student表的stu_name字段中创建唯一性索引，那么stu_name字段的值就必需是唯一的。通过唯一性索引，可以更快速地确定某条记录。主键就是一种特殊唯一性索引。</p>
+<p>c．单列索引:在表中的单个字段上创建索引。单列索引只根据该字段进行索引。单列索引可以是普通索引，也可以是唯一性索引，还可以是全文索引。只要保证该索引只对应一个字段 即可。</p>
+<p>d．多列索引：多列索引是在表的多个字段上创建一个索引。该索引指向创建时对应的多个字段，可以通过这几个字段进行查询。但是，只有查询条件中使用了这些字段中第一个字段时，索引才会被使用。例如，在表中的id、name和sex字段上建立一个多列索引，那么，只有查询条件使用了id字段时该索引才会被使用。</p>
+<p>e . 全文索引：使用FULLTEXT参数可以设置索引为全文索引。全文索引只能创建在CHAR、VARCHAR或TEXT类型的字段上。查询数据量较大的字符串类型的字段时，使用全文索引可以提高查询速度。例如，student表的information字段是TEXT类型，该字段包含了很多的文字信息。在information字段上建立全文索引后，可以提高查询information字段的速度。MySQL数据库从3.23.23版开始支持全文索引，但只有MyISAM存储引擎支持全文检索。在默认情况下，全文索引的搜索执行方式不区分大小写。但索引的列使用二进制排序后，可以执行区分大小写的全文索引。</p>
+<p>还有空间索引，平时也比较少用。目前只有MyISAM存储引擎支持空间检索。目前博主也只接触过InnoDB存储引擎。</p>
+<p>1.2.5、一般一张表索引不要超过5个，而且避免重复索引，而且也不是建了索引，根据索引字段条件查询，索引就会起作用。</p>
+<p>1.2.6、一般哪些场景会导致索引失效：a.使用like关键字匹配字符串第一个为”%”的场景。b.条件中包含or、in、not in、&lt;&gt;关键字，默认不走索引的。c.访问表上的数据行超出表总记录数30%，变成全表扫描。d.查询条件使用函数在索引列上，或者对索引列进行运算。e.多列索引中，第一个索引列使用范围查询，只能用到部份或无法使用索引。f.多列索引中，第一个查询条件不是最左索引列，上面多列索引概念中也有提到。肯定还有更多的场景，但是博主现在能想到的场景就这些了。</p>
+<p>1.2.7、不能同时使用两个索引，一个过滤数据，一个用于排序（主键除外）。</p>
+<p>1.2.8、DML语句如果使用索引，会导致lock全表；如果使用了非唯一索引，可能只是锁住一定范围。对此，建议更新/删除数据尽量用上索引，如果可以最好用上主键或唯一索引，另外事务要及时提交。</p>
+<p>1.2.9、最后一点，如何看执行计划，分析SQL的性能。这个吧，三言两语说不清楚，直接看其他博主的博文吧：<a href="http://www.cnblogs.com/xiaoboluo768/p/5400990.html。一定要看！！！" target="_blank" rel="noopener">http://www.cnblogs.com/xiaoboluo768/p/5400990.html。一定要看！！！</a></p>
+<h4 id="（3）关于事务的一些建议"><a href="#（3）关于事务的一些建议" class="headerlink" title="（3）关于事务的一些建议"></a>（3）关于事务的一些建议</h4><p>如果没有听过事务这么个概念，网上了解学习一下，先理解一下各个事务类型的含义吧：a.日志记录尽量放在独立事务里面，避免后面的异常发生导致日志丢失。b.上面已经几次提到，尽早提交事务，避免事务过长，因此写代码的时候，一些可以不放到事务的逻辑可以移到外面，长事务看能否拆成两个事务。</p>
+<h4 id="（4）关于数据库连接池"><a href="#（4）关于数据库连接池" class="headerlink" title="（4）关于数据库连接池"></a>（4）关于数据库连接池</h4><p>可能一些猿友都少去注意吧。先来看看一些参数，这里只罗列了博主比较关注的，更多的可以自行查看一下配置。<br>initialSize ： 默认值是 0, 连接池创建连接的初始连接数目。<br>minIdle : 默认是 0, 连接数中最小空闲连接数。<br>maxIdle : 默认是 8 ，连接池中最大空闲连接数。<br>maxActive : 默认值是 8, 连接池中同时可以分派的最大活跃连接数。<br>maxWait : 默认值是无限大，当连接池中连接已经用完了，等待建立一个新连接的最大毫秒数 ( 在抛异常之前 )。<br>validationQuery : 一条 sql 语句，用来验证数据库连接是否正常。这条语句必须是一个查询模式，并至少返回一条数据。一般用“ select 1 ”。<br>minEvictableIdleTimeMilis : 默认值是 1000 * 60 * 30(30 分钟 ) 单位也是毫秒，连接池中连接可空闲的时间。<br>timeBetweenEvictionRunsMilis : 默认值是 -1 ，每隔一段多少毫秒跑一次回收空闲线程的线程。</p>
+<p>对于minEvictableIdleTimeMilis、timeBetweenEvictionRunsMilis这两个参数，timeBetweenEvictionRunsMilis必须大于1且小于minEvictableIdleTimeMilis，建议是minEvictableIdleTimeMilis的五分之一或十分之一。</p>
+<h4 id="（5）对于前端的几点建议"><a href="#（5）对于前端的几点建议" class="headerlink" title="（5）对于前端的几点建议"></a>（5）对于前端的几点建议</h4><p>1.7.1、一些图片压缩后再使用，性能方面提高不小吧（可以使用熊猫图片压缩）。虽然自己前端比较菜，但是估计也有不少猿友跟我一样偶尔需要兼顾前端吧。毕竟刚毕业不久。</p>
+<p>1.7.2、关于移动端页面重构兼容不同屏幕大小的问题，建议doc的fontSize，实时获取屏幕的宽度，然后除以320再乘以16，当然16可以根据自己情况去调。然后其他一些单位尽量用rem，这样无论什么大小的屏幕都等比例缩放。感觉比@media效果好很多。</p>
+<p>关于技术积累这一块，之前罗列的提纲还挺多的，写到后面感觉没什么精力了，有些三言两语似乎说不清楚啊。</p>
+<h3 id="二、工作心得"><a href="#二、工作心得" class="headerlink" title="二、工作心得"></a>二、工作心得</h3><p>（1）沟通协作第一：</p>
+<p>工作中必然少不了团队协作，积极主动去沟通的人做事总是更加靠谱。道理大家都懂。但是我们需要把想法问题，简洁明确的表达给对方。另外总是以沟通的心态面对问题，而不是抱怨。如果觉得上级分配的任务难度太大了，你可以尝试跟他沟通，获取他有很好的建议或解决方案。</p>
+<p>（2）谨慎记录与排漏：</p>
+<p>感觉现在挺经常是开一两个会，测试同时偶尔找你排查一下环境问题，一天下来其实写代码的时间并不多。一些关键点，非常建议提前记录下来，方便接回被打断的思路，同时避免一些逻辑或功能点的遗漏。</p>
+<p>（3）思路清晰与效率：</p>
+<p>建议动手写代码之前，建议先理清思路，关键逻辑，需求细节，这样后面写代码的时候效率比较高，而且质量也比较好。</p>
+<p>（4）主动与多管闲事：</p>
+<p>清楚自己的工作范围，自己心里有个界限，有些属于别人工作范围的事情，可以你提出的建议是好的，但是最好还是在合适的场景和时机提出。</p>
+<p>（5）心态与工作状态：</p>
+<p>程序员，总会有被坑的时候，或者不顺心的时候，尽量尝试控制一下自己的心态。</p>
+<p>（6）可持续发展观看待技术与业务：</p>
+<p>这点是我自己希望做到的。对于责任心而言，或者是说一个优秀的程序员。很多时候并不是完成产品提的需求就好了。多为它着想，代码可维护性和扩展性高不高。一些功能点也可以提出自己的想法，不要总是被动的接受产品的需求，业务功能拓展性好的话，可以减少产品改动需求。</p>
+<h3 id="三、学习方向与职业发展"><a href="#三、学习方向与职业发展" class="headerlink" title="三、学习方向与职业发展"></a>三、学习方向与职业发展</h3><p>（1）先广后深还是先深后广：</p>
+<p>对于博主而言，其实接触的技术点还算比较多的，但是了解的都不深入，个人性格而言，比较偏向于实用驱动，如果在实际使用场景有用到再去深入学习，这样边学边用才能比较集中注意力。像一些同事，他们喜欢把一样东西研究得很深。</p>
+<p>（2）业务经验也应当注重：</p>
+<p>技术人员必然是技术优先，但是等你到了一定工作年限，其实业务经验也是非常重要了。之前领导找我年度工作谈话就有说过他们招高级工程师的时候对业务经验也非常看重，是否有自己独特的见解。相信道理大家都懂，但是平时有没有这样的意识，有没有去做又是另外一方面了。平时也可以多学习业务方面的知识。</p>
+<p>（3）相同的工作年限为什么当过项目经理的人更吃香：</p>
+<p>因为他们对业务理解更加深入，代码质量问题落在他头上，项目的人员协调与时间安排规划，责任越大，思考的问题就越多，遇到的问题处理经验就越丰富。把控能力也比较强。</p>
+<p>（4）怎样能进入学习状态，并且坚持：</p>
+<p>要想集中注意力学习技术，需要安静的环境，需要耐得住寂寞，因此你需要没有人打扰的环境，比如在一个集体居住环境，几个朋友一起住，一般多数回想着去哪玩，朋友在玩游戏，估计也是对你的一种诱惑吧。可以早点到办公室学习或下班学习一段时间再回去。或者选择自己一个人住。</p>
+<p>（5）如何把握住学习的时机：</p>
+<p>学习最能集中注意力的情况是有着比较强的好奇心和求知欲。所以一般一些技术分享或者老员工讨论的问题，可能很多概念知识你都不懂，这时候你就可以去学习了解这些知识。或者你工作中遇到的问题，尽量刨根问底的去弄清楚是什么原因导致的，不要一些老司机帮忙解决了就一了了之。或者是其他同事遇到的问题，你都可以去了解一下。</p>
+<p>（6）你更适合走一条怎样的职业道路：</p>
+<p>刚毕业不久的猿友，一般都是会比较心浮气躁的，对技术求知欲很强，特别是一些高大上的技术，什么大数据、云计算、架构等等，有些偏向于技术研究，有些偏向于业务。大部分程序员可能都会选择偏向于技术研究的，于是乎对偏向业务的不怎么感冒，因此觉得天天做这些东西没什么意思。这时候，静下来分析一下，你到底适合哪种方向。你能否静下心来对技术研究很深入，能否耐得住寂寞。</p>
+<h3 id="四、关于生活"><a href="#四、关于生活" class="headerlink" title="四、关于生活"></a>四、关于生活</h3><p>（1）良好与糟糕的生活状态的区别：</p>
+<p>需要警惕一下自己是否进入了一种糟糕的生活状态，工作上不温不火，似乎现在的技术已经足够用了，完全没有目标没有计划，无法集中注意力学习，日子就这样一天天过去。</p>
+<p>（2）自己的一些期望：</p>
+<p>希望活得更坚定些，保持着一定的求知欲和规划，向成为自己希望成为的人努力吧，包括一些习惯、处事方式等等。</p>
+
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            <hr>
+            <div class='new-meta-box'>
+              
+                <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-09-03T11:15:14+08:00">
+                  <a class='notlink'>
+                    <i class="fas fa-save" aria-hidden="true"></i>
+                    2019-09-03
+                  </a>
+                </div>
+              
+              
+                
+                <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;java</a></div>
+              
+              
+            </div>
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2018/03/13/Nginx企业级rewrite 实战操作/" rel="prev" title="Nginx企业级rewrite 实战操作">
+                                  
+                                      Nginx企业级rewrite 实战操作
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>java</a> <a class="tag" href="/tags/nginx/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>nginx</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2018/03/03/Java线程池/" rel="prev" title="Java线程池">
+                                    
+                                        Java线程池
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/java/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>java</a> <a class="tag" href="/tags/线程池/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>线程池</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+
+
+<script>
+    window.subData = {
+        title: '一位Java工程师的阶段性工作总结',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='/images/logo.jpg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">柳暗花明又一村</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:1255791430@qq.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/tfssweb" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=63035382" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-music" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章目录</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、技术积累"><span class="toc-text">一、技术积累</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（1）代码规范"><span class="toc-text">（1）代码规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（2）SQL规范与性能优化"><span class="toc-text">（2）SQL规范与性能优化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（3）关于事务的一些建议"><span class="toc-text">（3）关于事务的一些建议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（4）关于数据库连接池"><span class="toc-text">（4）关于数据库连接池</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（5）对于前端的几点建议"><span class="toc-text">（5）对于前端的几点建议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、工作心得"><span class="toc-text">二、工作心得</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、学习方向与职业发展"><span class="toc-text">三、学习方向与职业发展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、关于生活"><span class="toc-text">四、关于生活</span></a></li></ol>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        <section class='plain'>
+  
+<header class='pure'>
+  <div><i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;注意啦～</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="http://192.144.130.131/"
+    title="http://192.144.130.131/">
+    <i class="fas fa-question-circle fa-fw"></i></a>
+  
+</header>
+
+  <div class='content pure'>
+    <p>微信关注公众号《颓废书生》，精选毕业设计、技术文章哦～ <br/>QQ：1255791430</p>
+
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='category'>
+    
+<header class='pure'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;所有分类</div>
+  
+</header>
+
+    <div class='content pure'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/docker/" href="/categories/docker/"><div class='name'>docker</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/java/" href="/categories/java/"><div class='name'>java</div><div class='badge'>(27)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/linux/" href="/categories/linux/"><div class='name'>linux</div><div class='badge'>(8)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/maven/" href="/categories/maven/"><div class='name'>maven</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/mysql/" href="/categories/mysql/"><div class='name'>mysql</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/python/" href="/categories/python/"><div class='name'>python</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/vpn/" href="/categories/vpn/"><div class='name'>vpn</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/分类/" href="/categories/分类/"><div class='name'>分类</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/小技巧/" href="/categories/小技巧/"><div class='name'>小技巧</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/数据库/" href="/categories/数据库/"><div class='name'>数据库</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/算法/" href="/categories/算法/"><div class='name'>算法</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/网站/" href="/categories/网站/"><div class='name'>网站</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/Cron/" style="font-size: 14px; color: #999">Cron</a> <a href="/tags/SQL-Server/" style="font-size: 14px; color: #999">SQL Server</a> <a href="/tags/aof/" style="font-size: 14px; color: #999">aof</a> <a href="/tags/cdn/" style="font-size: 14px; color: #999">cdn</a> <a href="/tags/centos/" style="font-size: 14px; color: #999">centos</a> <a href="/tags/compose/" style="font-size: 16.5px; color: #888">compose</a> <a href="/tags/create/" style="font-size: 14px; color: #999">create</a> <a href="/tags/db2/" style="font-size: 16.5px; color: #888">db2</a> <a href="/tags/docker/" style="font-size: 24px; color: #555">docker</a> <a href="/tags/docker-machine/" style="font-size: 15.25px; color: #919191">docker-machine</a> <a href="/tags/dwr/" style="font-size: 14px; color: #999">dwr</a> <a href="/tags/elasticsearch/" style="font-size: 14px; color: #999">elasticsearch</a> <a href="/tags/elk/" style="font-size: 14px; color: #999">elk</a> <a href="/tags/excel/" style="font-size: 14px; color: #999">excel</a> <a href="/tags/expose/" style="font-size: 14px; color: #999">expose</a> <a href="/tags/git/" style="font-size: 14px; color: #999">git</a> <a href="/tags/harbor/" style="font-size: 14px; color: #999">harbor</a> <a href="/tags/headers/" style="font-size: 14px; color: #999">headers</a> <a href="/tags/hibernate/" style="font-size: 14px; color: #999">hibernate</a> <a href="/tags/hosts/" style="font-size: 14px; color: #999">hosts</a> <a href="/tags/hutool/" style="font-size: 14px; color: #999">hutool</a> <a href="/tags/image/" style="font-size: 14px; color: #999">image</a> <a href="/tags/ip/" style="font-size: 14px; color: #999">ip</a> <a href="/tags/java/" style="font-size: 22.75px; color: #5e5e5e">java</a> <a href="/tags/java8/" style="font-size: 14px; color: #999">java8</a> <a href="/tags/javascript/" style="font-size: 14px; color: #999">javascript</a> <a href="/tags/jdbc/" style="font-size: 14px; color: #999">jdbc</a> <a href="/tags/js/" style="font-size: 14px; color: #999">js</a> <a href="/tags/kibana/" style="font-size: 14px; color: #999">kibana</a> <a href="/tags/link/" style="font-size: 14px; color: #999">link</a> <a href="/tags/linux/" style="font-size: 21.5px; color: #666">linux</a> <a href="/tags/login/" style="font-size: 14px; color: #999">login</a> <a href="/tags/logstash/" style="font-size: 14px; color: #999">logstash</a> <a href="/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/tags/maven/" style="font-size: 17.75px; color: #808080">maven</a> <a href="/tags/mybatis/" style="font-size: 15.25px; color: #919191">mybatis</a> <a href="/tags/mysql/" style="font-size: 20.25px; color: #6f6f6f">mysql</a> <a href="/tags/nginx/" style="font-size: 14px; color: #999">nginx</a> <a href="/tags/oracle/" style="font-size: 15.25px; color: #919191">oracle</a> <a href="/tags/pull/" style="font-size: 14px; color: #999">pull</a> <a href="/tags/python/" style="font-size: 17.75px; color: #808080">python</a> <a href="/tags/rdb/" style="font-size: 14px; color: #999">rdb</a> <a href="/tags/redis/" style="font-size: 15.25px; color: #919191">redis</a> <a href="/tags/root/" style="font-size: 14px; color: #999">root</a> <a href="/tags/service/" style="font-size: 14px; color: #999">service</a> <a href="/tags/session/" style="font-size: 14px; color: #999">session</a> <a href="/tags/sheet/" style="font-size: 14px; color: #999">sheet</a> <a href="/tags/site/" style="font-size: 14px; color: #999">site</a> <a href="/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/tags/springboot/" style="font-size: 16.5px; color: #888">springboot</a> <a href="/tags/springmvc/" style="font-size: 14px; color: #999">springmvc</a> <a href="/tags/ssh/" style="font-size: 15.25px; color: #919191">ssh</a> <a href="/tags/stream/" style="font-size: 14px; color: #999">stream</a> <a href="/tags/struts2/" style="font-size: 14px; color: #999">struts2</a> <a href="/tags/swagger/" style="font-size: 15.25px; color: #919191">swagger</a> <a href="/tags/swarm/" style="font-size: 14px; color: #999">swarm</a> <a href="/tags/tag1/" style="font-size: 14px; color: #999">tag1</a> <a href="/tags/tag2/" style="font-size: 14px; color: #999">tag2</a> <a href="/tags/toolbox/" style="font-size: 14px; color: #999">toolbox</a> <a href="/tags/ubuntu/" style="font-size: 15.25px; color: #919191">ubuntu</a> <a href="/tags/utils/" style="font-size: 14px; color: #999">utils</a> <a href="/tags/vpn/" style="font-size: 14px; color: #999">vpn</a> <a href="/tags/vue/" style="font-size: 15.25px; color: #919191">vue</a> <a href="/tags/web/" style="font-size: 15.25px; color: #919191">web</a> <a href="/tags/windows/" style="font-size: 14px; color: #999">windows</a> <a href="/tags/zookeeper/" style="font-size: 14px; color: #999">zookeeper</a> <a href="/tags/内存/" style="font-size: 14px; color: #999">内存</a> <a href="/tags/初始化/" style="font-size: 14px; color: #999">初始化</a> <a href="/tags/加密，jasypt/" style="font-size: 14px; color: #999">加密，jasypt</a> <a href="/tags/加速/" style="font-size: 14px; color: #999">加速</a> <a href="/tags/动态/" style="font-size: 14px; color: #999">动态</a> <a href="/tags/匿名卷/" style="font-size: 14px; color: #999">匿名卷</a> <a href="/tags/卷/" style="font-size: 15.25px; color: #919191">卷</a> <a href="/tags/命名卷/" style="font-size: 14px; color: #999">命名卷</a> <a href="/tags/坐标/" style="font-size: 14px; color: #999">坐标</a> <a href="/tags/容器/" style="font-size: 14px; color: #999">容器</a> <a href="/tags/宿主机/" style="font-size: 14px; color: #999">宿主机</a> <a href="/tags/小技巧/" style="font-size: 14px; color: #999">小技巧</a> <a href="/tags/批量/" style="font-size: 15.25px; color: #919191">批量</a> <a href="/tags/挂载目录/" style="font-size: 14px; color: #999">挂载目录</a> <a href="/tags/数据卷/" style="font-size: 14px; color: #999">数据卷</a> <a href="/tags/数据容器/" style="font-size: 14px; color: #999">数据容器</a> <a href="/tags/数据库/" style="font-size: 19px; color: #777">数据库</a> <a href="/tags/权限/" style="font-size: 14px; color: #999">权限</a> <a href="/tags/爬虫/" style="font-size: 15.25px; color: #919191">爬虫</a> <a href="/tags/私服/" style="font-size: 14px; color: #999">私服</a> <a href="/tags/科学上网/" style="font-size: 14px; color: #999">科学上网</a> <a href="/tags/索引/" style="font-size: 14px; color: #999">索引</a> <a href="/tags/线程池/" style="font-size: 14px; color: #999">线程池</a> <a href="/tags/经纬度/" style="font-size: 14px; color: #999">经纬度</a> <a href="/tags/网站/" style="font-size: 14px; color: #999">网站</a> <a href="/tags/虚拟机/" style="font-size: 14px; color: #999">虚拟机</a> <a href="/tags/迁移/" style="font-size: 14px; color: #999">迁移</a> <a href="/tags/镜像/" style="font-size: 14px; color: #999">镜像</a> <a href="/tags/集群/" style="font-size: 14px; color: #999">集群</a>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        <section class='list'>
+  
+<header class='pure'>
+  <div><i class="fas fa-medal fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;精选项目</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="http://192.144.130.131/"
+    title="http://192.144.130.131/">
+    <i class="fas fa-arrow-right fa-fw"></i></a>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="https://github.com/tfssweb/tale/" href="https://github.com/tfssweb/tale/">
+          <div class='name'>
+            
+              <i class="fas fa-cube fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Tale
+          </div>
+          
+            <div class='badge'>(Tale卡片式博客)</div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://github.com/tfssweb/Dockerfile/" href="https://github.com/tfssweb/Dockerfile/">
+          <div class='name'>
+            
+              <i class="fas fa-cube fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Dockerfile
+          </div>
+          
+            <div class='badge'>(Dockerfile)</div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://github.com/tfssweb/pythons/" href="https://github.com/tfssweb/pythons/">
+          <div class='name'>
+            
+              <i class="fas fa-heartbeat fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Python
+          </div>
+          
+            <div class='badge'>(Python)</div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+
+      
+    
+  
+    
+      
+      
+        
+
+
+  <section class='music'>
+    
+<header class='pure'>
+  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="https://music.163.com/#/user/home?id=63035382"
+    title="https://music.163.com/#/user/home?id=63035382">
+    <i class="far fa-heart fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer"
+    data-theme="#1BCDFC"
+    
+    
+    data-mode="circulation"
+    data-server="netease"
+    data-type="playlist"
+    data-id="2615636388"
+    data-volume="0.7">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+    <div class="footer">
+      <p><strong>凡人皆有一死，凡人皆需侍奉。</strong></p>
+
+    </div>
+    <br>
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:1255791430@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/tfssweb" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=63035382" class="social fas fa-music flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div> 总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
