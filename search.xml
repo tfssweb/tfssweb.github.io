@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>Jenkins配置</title>
+      <link href="/2019/09/15/Jenkins%E9%85%8D%E7%BD%AE/"/>
+      <url>/2019/09/15/Jenkins%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<p>jenkins+maven+java+springboot+gitlab/github+harbor实现CI、CD</p><a id="more"></a><h5 id="1、配置凭证"><a href="#1、配置凭证" class="headerlink" title="1、配置凭证"></a>1、配置凭证</h5><blockquote><p>主要添加一些常用的第三方登录认证方式，以备后面使用</p></blockquote><ul><li><code>gialab</code>、<code>github</code>等，使用<code>Username with password</code>方式</li><li>服务器鉴权，使用<code>Username with password</code>方式</li><li>gitlab token鉴权，使用<code>GitLab API token</code>方式</li></ul><h5 id="2、全局配置"><a href="#2、全局配置" class="headerlink" title="2、全局配置"></a>2、全局配置</h5><blockquote><p>配置SSH remote hosts、Gitlab、Jenkins Location、SSH Server等</p></blockquote><h5 id="3、全局工具配置"><a href="#3、全局工具配置" class="headerlink" title="3、全局工具配置"></a>3、全局工具配置</h5><blockquote><p>主要配置JDK、Git、Maven</p></blockquote><h5 id="4、配置具体项目"><a href="#4、配置具体项目" class="headerlink" title="4、配置具体项目"></a>4、配置具体项目</h5><blockquote><p>根据项目风格，配置项有所不同</p></blockquote><h6 id="Maven项目"><a href="#Maven项目" class="headerlink" title="Maven项目"></a>Maven项目</h6><blockquote><p>配置Git、Pre Steps、Build、Post Steps等</p></blockquote><h5 id="5、配置钩子"><a href="#5、配置钩子" class="headerlink" title="5、配置钩子"></a>5、配置钩子</h5><blockquote><p>Jenkins中的Build Triggers中，配置URL和Secret token；</p><p>Gitlab具体项目中的Settings-&gt;Integrations中将上面的URL和Secret token粘贴进去</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+            <tag> compose </tag>
+            
+            <tag> java </tag>
+            
+            <tag> jenkins </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Mybatis常用配置</title>
       <link href="/2019/09/01/Mybatis%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/"/>
       <url>/2019/09/01/Mybatis%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/</url>
